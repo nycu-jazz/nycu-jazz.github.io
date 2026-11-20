@@ -20,8 +20,8 @@ SEMESTERS = DATA["semesters"]  # 由新到舊
 WEEKDAYS = "一二三四五六日"
 STATUS = {
     "performed": "已演出",
-    "scheduled": "課綱排程・場次未查證",
-    "syllabus": "僅課綱排程",
+    "scheduled": "課綱排程",
+    "syllabus": "課綱排程",
 }
 FONTS = (
     "https://fonts.googleapis.com/css2?family=Noticia+Text:ital@1"
@@ -130,22 +130,13 @@ def page(*, root, path, title, description, body, current=""):
     <nav class="nav" aria-label="主要導覽">
       {nav(f"{root}{slug(by_code(SITE['current']))}/", "本學期", "current")}
       {nav(f"{root}#archive", "歷屆演出", "archive")}
-      {nav(f"{root}#about", "關於本站", "about")}
+      {nav(f"{root}#about", "相關連結", "about")}
     </nav>
   </div>
 </header>
 <main id="main">
 {body}
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div>
-      <p><strong>本站由修課學生自行整理</strong>，不是國立陽明交通大學、跨域學程或授課教師的官方網站，內容未經其審閱或背書。</p>
-      <p>各項資料查閱於 {fmt_date(SITE['checked'], weekday=False)}。課程與演出以課綱、E3 公告及學程官方頻道為準。</p>
-    </div>
-    <p class="cadence" aria-hidden="true">ii – V – I</p>
-  </div>
-</footer>
 <script src="{root}assets/site.js" defer></script>
 </body>
 </html>
@@ -196,7 +187,6 @@ def archive_row(sem, root=""):
         <span class="row-code">{e(sem['code'])}</span>
         <span class="row-main">
           <span class="row-meta">{status_chip(sem)}{tags}</span>
-          <span class="row-sum">{e(sem['summary'])}</span>
         </span>
         <span class="row-date">{when}<small>{label}</small></span>
         <span class="row-arrow" aria-hidden="true">→</span>
@@ -209,15 +199,12 @@ def build_home():
     latest = by_code(SITE["latest_show"])
     cur_final = parse(cur["syllabus_final"]["date"])
     first, last = SEMESTERS[-1], SEMESTERS[0]
-    n_perf = sum(1 for s in SEMESTERS if s["status"] == "performed")
-    gaps = "、".join(SITE["no_course"])
 
     body = f"""<section class="hero">
   <div class="wrap">
     <h1><span>NYCU</span><span>Jazz</span></h1>
     <span class="eyebrow" lang="en">{e(SITE['course_en'])}</span>
-    <p class="lede">陽明交大<strong>「{e(SITE['course_zh'])}」</strong>每學期末的 combo 成果演出：哪一天、在哪裡、哪裡看得到錄影。</p>
-    <p class="notice">修課學生自行整理，非學校或授課教師官方網站</p>
+    <p class="lede">陽明交大{e(SITE['teacher'])}老師<strong>「{e(SITE['course_zh'])}」</strong>期末成果發表</p>
   </div>
 </section>
 
@@ -228,12 +215,11 @@ def build_home():
       <h2 id="now-h">本學期・{e(cur['code'])}</h2>
     </div>
     <div class="now">
-      <p class="now-date">{cur_final.month}/{cur_final.day}<small>{cur_final.year} 年・週{WEEKDAYS[cur_final.weekday()]}・課綱第 {cur['syllabus_final']['week']} 週<br>{status_chip(cur)}</small></p>
+      <p class="now-date">{cur_final.month}/{cur_final.day}<small>{cur_final.year} 年・週{WEEKDAYS[cur_final.weekday()]}・課綱排程</small></p>
       <div class="now-body">
-        <p>課綱在這一週排的進度是<strong>「{e(cur['syllabus_final']['text'])}」</strong>。這是課程排程，不是演出公告：對外場次的時間與地點，截至 {fmt_date(SITE['checked'], weekday=False)} 還沒有查到公開資料。</p>
-        <p>課綱載明公告與重要訊息都在網路教學平台發布，修課同學請以 E3 上的課程公告為準。前三個可查證的學期，實際演出日都早於課綱所列日期。</p>
+        <p>{e(cur['syllabus_final']['text'])}・第 {cur['syllabus_final']['week']} 週</p>
         <div class="actions">
-          <a class="btn primary" href="{slug(cur)}/">{e(cur['code'])} 查證細節</a>
+          <a class="btn primary" href="{slug(cur)}/">查看 {e(cur['code'])}</a>
           {ext(syllabus_url(cur), "課綱", "btn ext")}
           {ext(SITE['links']['e3'], "E3 平台", "btn ext")}
         </div>
@@ -258,46 +244,26 @@ def build_home():
     <div class="section-head">
       <span class="eyebrow" lang="en">{e(first['code'])} — {e(last['code'])}</span>
       <h2 id="archive-h">歷屆演出</h2>
-      <p>課程時間表上查得到這門課的 {len(SEMESTERS)} 個學期。其中 {n_perf} 個學期的演出日期有公告或官方影片可以佐證，其餘只有課綱上排定的日期。</p>
     </div>
-    <p class="legend" aria-hidden="true">
-      <span class="status performed">{STATUS['performed']}：日期有公告或官方影片佐證</span>
-      <span class="status scheduled">{STATUS['scheduled']}</span>
-      <span class="status syllabus">{STATUS['syllabus']}：實際演出未查證</span>
-    </p>
     <ul class="archive">
 {chr(10).join(archive_row(s) for s in SEMESTERS)}
     </ul>
-    <p class="footnote">學期代碼：A 是第 1 學期，B 是第 2 學期。{gaps} 在課程時間表上查不到這門課，所以沒有頁面。</p>
+    <p class="footnote">學期代碼：A 是第 1 學期，B 是第 2 學期。</p>
   </div>
 </section>
 
 <section class="section" id="about" aria-labelledby="about-h">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow" lang="en">About this site</span>
-      <h2 id="about-h">關於本站</h2>
+      <span class="eyebrow" lang="en">Links</span>
+      <h2 id="about-h">相關連結</h2>
     </div>
-    <div class="about">
-      <div class="prose">
-        <h3>這是什麼</h3>
-        <p>「{e(SITE['course_zh'])}」是{e(SITE['teacher'])}老師在陽明交大開設的選修課。課綱安排學期末分組合奏，每組自選爵士標準曲，每位同學都要在自己的樂器上即興，最後以 combo 成果發表收尾。</p>
-        <p>本站是<strong>修課學生自己做的整理</strong>，把散在課綱、學程公告與官方影片裡的演出資訊收在一處，方便同學和想來聽的人查。</p>
-        <p>版面的深色舞台感參考了{e(SITE['teacher'])}老師個人網站的公開設計，但沒有使用該站的圖像或標誌，也不代表老師認可本站。</p>
-      </div>
-      <div class="prose">
-        <h3>怎麼查證</h3>
-        <p>每一頁都把「課綱上排的日期」和「實際演出的日期」分開寫。只有找到活動公告、官方影片說明或影片畫面可以佐證時，才標為<strong>已演出</strong>；查不到的欄位直接寫未查證，不用推測補上。</p>
-        <p>課綱日期不等於演出日期：114A、113B、112B 的實際演出分別比課綱所列日期早 21、14、8 天。</p>
-        <h3>官方管道</h3>
-        <ul class="linklist">
-          <li>{ext(SITE['links']['youtube'], "<span>學程 YouTube 頻道</span><span>演出錄影 ↗</span>")}</li>
-          <li>{ext(SITE['links']['facebook'], "<span>學程 Facebook 專頁</span><span>活動消息 ↗</span>")}</li>
-          <li>{ext(SITE['links']['timetable'], "<span>陽明交大課程時間表</span><span>各學期課綱 ↗</span>")}</li>
-          <li>{ext(SITE['links']['e3'], "<span>E3 數位教學平台</span><span>課程公告，需登入 ↗</span>")}</li>
-        </ul>
-      </div>
-    </div>
+    <ul class="linklist">
+      <li>{ext(SITE['links']['youtube'], "<span>學程 YouTube 頻道</span><span>演出錄影 ↗</span>")}</li>
+      <li>{ext(SITE['links']['facebook'], "<span>學程 Facebook 專頁</span><span>活動消息 ↗</span>")}</li>
+      <li>{ext(SITE['links']['timetable'], "<span>陽明交大課程時間表</span><span>各學期課綱 ↗</span>")}</li>
+      <li>{ext(SITE['links']['e3'], "<span>E3 數位教學平台</span><span>課程公告，需登入 ↗</span>")}</li>
+    </ul>
   </div>
 </section>"""
 
@@ -305,20 +271,16 @@ def build_home():
         root="",
         path="/",
         title=f"{SITE['name']}｜陽明交大「{SITE['course_zh']}」期末演出紀錄",
-        description=(
-            f"陽明交大「{SITE['course_zh']}」歷屆期末 combo 成果演出的日期、地點與官方影片連結，"
-            "由修課學生依課綱、學程公告與官方影片整理。"
-        ),
+        description=f"陽明交大「{SITE['course_zh']}」歷屆期末成果發表的日期、曲目與影片。",
         body=body,
     )
 
 
 # ---------- 學期頁 ----------
 
-def fact(label, value, basis="", unknown=False):
-    cls = ' class="unknown"' if unknown else ""
-    basis_html = f'<span class="basis">{e(basis)}</span>' if basis else ""
-    return f'<div class="fact"><dt>{label}</dt><dd{cls}>{value}{basis_html}</dd></div>'
+def fact(label, value, detail=""):
+    detail_html = f'<span class="fact-detail">{e(detail)}</span>' if detail else ""
+    return f'<div class="fact"><dt>{label}</dt><dd>{value}{detail_html}</dd></div>'
 
 
 def split(heading_en, heading, inner, hid):
@@ -355,11 +317,9 @@ def program_block(program):
         tag = "ol" if ordered else "ul"
         style = "pieces ordered" if ordered else "pieces"
         list_html = f'      <{tag} class="{style}" role="list">\n' + "\n".join(rows) + f"\n      </{tag}>\n"
-    note_text = e(program["basis"])
     if source := program.get("source"):
-        note_text += " " + ext(source["url"], e(source["label"]))
-    note = f'      <p class="footnote">{note_text}</p>'
-    return split("Program", "演出曲目", list_html + note, "program-h")
+        list_html += f'      <p class="footnote">{ext(source["url"], e(source["label"]))}</p>'
+    return split("Program", "演出曲目", list_html or "<p>曲目待補</p>", "program-h")
 
 
 def build_semester(index):
@@ -370,20 +330,12 @@ def build_semester(index):
 
     facts = []
     if show:
-        facts.append(fact("演出日期", fmt_date(show["date"]), show.get("date_basis", "")))
-        facts.append(
-            fact("時間", e(show["time"]), show.get("time_basis", ""))
-            if show.get("time")
-            else fact("時間", "未查證", show.get("time_basis", ""), unknown=True)
-        )
-        facts.append(
-            fact("地點", e(show["venue"]), show.get("venue_basis", ""))
-            if show.get("venue")
-            else fact("地點", "未查證", show.get("venue_basis", ""), unknown=True)
-        )
-    else:
-        facts.append(fact("實際演出日期", "未查證", "沒有找到公告或官方說明", unknown=True))
-        facts.append(fact("時間與地點", "未查證", "", unknown=True))
+        facts.append(fact("演出日期", fmt_date(show["date"])))
+        for key, label in (("time", "演出時間"), ("venue", "地點"), ("admission", "入場")):
+            if value := show.get(key):
+                facts.append(fact(label, e(value)))
+    elif sem["status"] == "scheduled":
+        facts.append(fact("演出時間與地點", "待公布"))
     facts.append(
         fact(
             "課綱所列成果發表",
@@ -412,9 +364,6 @@ def build_semester(index):
         sections.append(split("Video", "演出影片", videos_block(sem["videos"]), "video-h"))
         jumps.append('<a href="#video-h">看演出影片</a>')
     jumps_html = f'\n    <nav class="term-jumps" aria-label="本頁導覽">{"".join(jumps)}</nav>' if jumps else ""
-
-    notes = "\n".join(f"        <li>{e(n)}</li>" for n in sem["notes"])
-    sections.append(split("Notes", "查證說明", f'      <ul class="notes">\n{notes}\n      </ul>', "notes-h"))
 
     # 來源：課綱一定有，接著是影片與額外來源
     sources = [
@@ -460,8 +409,7 @@ def build_semester(index):
     <div class="term-sub">
       <span class="term-name">{term_name(sem)}・{e(SITE['course_zh'])}</span>
       {status_chip(sem)}
-    </div>
-    <p class="term-summary">{e(sem['summary'])}</p>{jumps_html}
+    </div>{jumps_html}
   </div>
 </section>
 
@@ -476,7 +424,7 @@ def build_semester(index):
         root=root,
         path=f"/{slug(sem)}/",
         title=f"{sem['code']} 期末演出｜{SITE['name']}",
-        description=f"陽明交大「{SITE['course_zh']}」{term_name(sem)}（{sem['code']}）：{sem['summary']}",
+        description=f"陽明交大「{SITE['course_zh']}」{term_name(sem)}（{sem['code']}）期末成果發表。",
         body=body,
         current="current" if sem["code"] == SITE["current"] else "",
     )
@@ -487,7 +435,7 @@ def build_404():
   <div class="wrap">
     <span class="eyebrow" lang="en">Not found</span>
     <h1>404</h1>
-    <p>沒有這一頁。可能是那個學期在課程時間表上查不到這門課，或是網址打錯了。</p>
+    <p>找不到這個頁面。</p>
     <div class="actions"><a class="btn primary" href="/#archive">看歷屆演出</a><a class="btn" href="/">回首頁</a></div>
   </div>
 </section>"""

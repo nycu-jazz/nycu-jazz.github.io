@@ -1,7 +1,6 @@
 # NYCU Jazz
 
 陽明交大「爵士和聲、即興與合奏」歷屆期末 combo 成果演出的整理站。
-**修課學生自行整理，不是學校、跨域學程或授課教師的官方網站。**
 
 純靜態網站：repo 根目錄就是 GitHub Pages 要發布的內容，線上不需要任何建置步驟。
 
@@ -9,7 +8,7 @@
 
 | 路徑 | 內容 |
 | --- | --- |
-| `/` | 首頁：本學期、最近一場、歷屆列表、關於本站 |
+| `/` | 首頁：本學期、最近一場、歷屆列表、相關連結 |
 | `/115a/`、`/114a/`、`/113b/` … `/108b/` | 各學期頁（A = 第 1 學期，B = 第 2 學期） |
 | `/404.html` | 找不到頁面 |
 
@@ -42,29 +41,18 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
   "status": "scheduled",
   "syllabus_final": { "date": "2027-06-15", "week": 16, "text": "課綱該週的原文" },
   "show": null,
-  "summary": "列表上的一句話摘要。",
-  "notes": ["查證說明，一點一句。"],
   "videos": [],
   "sources": []
 }
 ```
 
-- `status`：`scheduled`（本學期，只有課綱排程）、`performed`（演出日期有公告或官方影片佐證）、`syllabus`（過去學期，只有課綱日期）。
-- 演出確認後把 `status` 改成 `performed` 並填 `show`：
-  `{ "date": "2026-12-22", "time": "19:00–20:30", "venue": "地點", "date_basis": "依據", "time_basis": "依據", "venue_basis": "依據" }`。
-  查不到的 `time`、`venue` 填 `null`，頁面會顯示「未查證」。
+- `status`：`scheduled`（本學期，只有課綱排程）、`performed`（已演出）、`syllabus`（過去學期，只有課綱日期）。
+- `show` 包含 `date`、`time`、`venue`，可加 `admission`。時間與場地可以留空。
 - `videos`：YouTube 填 `{ "type": "youtube", "id": "影片 ID", "title", "kind", "publisher" }`（可加 `"list"`）；Facebook 填 `{ "type": "facebook", "url", "title", "kind", "publisher" }`。
-- `program`（選填）：`{ "pieces": ["曲名"], "basis": "曲目依據" }`。有來源支持曲序時加入 `"ordered": true`，曲目會顯示序號。
-- 單曲可填 `{ "title": "曲名", "cue": "4:20", "url": "公開影片連結" }`，時間戳和連結都可省略。曲目依據可附 `"source": { "label": "連結文字", "url": "原始來源網址" }`。
-- 本學期沒有公開曲目表時，將 `pieces` 留空，在 `basis` 說明目前狀態。
+- `program`（選填）：`{ "pieces": ["曲名"] }`。有來源支持曲序時加入 `"ordered": true`，曲目會顯示序號。
+- 單曲可填 `{ "title": "曲名", "cue": "4:20", "url": "公開影片連結" }`，時間戳和連結都可省略。曲目可附 `"source": { "label": "連結文字", "url": "原始來源網址" }`。
+- 本學期沒有公開曲目表時，可將 `pieces` 留空。
 - 課綱連結由 `code` 與 `crs_no` 自動組出，星期由日期自動算出，不用手填。
-
-### 查證原則
-
-- 「課綱所列日期」和「實際演出日期」分開記；沒有公告、官方影片說明或影片畫面佐證，就不標 `performed`。
-- 查不到就寫未查證，不推測。
-- 只連到第一手公開資料（課綱、學程公告、學程官方 YouTube／Facebook）。不轉載演出者姓名，也不放授課教師個人網站的圖像、標誌或聯絡方式。
-- 重新查證後更新 `site.checked`（頁尾的查閱日期）。
 
 ## 發布到 GitHub Pages
 
@@ -73,7 +61,3 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
 3. 之後每次 push 到 `main` 就會更新。
 
 如果改用其他網域或專案頁（`https://帳號.github.io/repo/`），請改 `data/site.json` 的 `site.url` 後重新執行 `build.py`。頁面之間都用相對路徑，放在子路徑也能運作；只有 `404.html` 使用根目錄絕對路徑，放在子路徑時需把 `build.py` 裡 `build_404()` 的 `root="/"` 與連結改成該子路徑。
-
-## 設計說明
-
-深色舞台、極細的大字、黃銅色重點與襯線斜體英文小標，視覺方向參考林明學老師個人網站的公開設計；沒有使用該站的圖像、標誌或文字，也不代表老師認可本站。字體 Raleway、Noticia Text、Noto Sans TC 由 Google Fonts 載入，載入失敗時退回系統字體。

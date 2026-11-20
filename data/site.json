@@ -2,7 +2,6 @@
   "site": {
     "name": "NYCU Jazz",
     "url": "https://nycu-jazz.github.io",
-    "checked": "2026-11-20",
     "course_zh": "爵士和聲、即興與合奏",
     "course_en": "Jazz Harmony, Improvisation and Ensemble",
     "teacher": "林明學",
@@ -13,13 +12,7 @@
       "facebook": "https://www.facebook.com/NYCUAMCP/",
       "youtube": "https://www.youtube.com/@nycu_x_mads",
       "timetable": "https://timetable.nycu.edu.tw/"
-    },
-    "no_course": [
-      "110A",
-      "112A",
-      "113A",
-      "114B"
-    ]
+    }
   },
   "semesters": [
     {
@@ -33,13 +26,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "課綱把期末 combo 成果發表排在第 16 週；對外場次的時間與地點尚未查證。",
-      "notes": [
-        "課綱第 16 週（2026/12/22，週二）的進度是「期末爵士combo團成果發表」，第 17、18 週為彈性運用。這是課程排程，不是演出公告。",
-        "截至 2026/11/20，沒有找到公開的演出時間或地點。",
-        "課綱載明檔案、公告與重要訊息都在網路教學平台發布；修課同學請以陽明交大 E3 上的課程公告為準。",
-        "前三個可查證的學期，實際演出日都早於課綱所列日期（114A 早 21 天、113B 早 14 天、112B 早 8 天），所以課綱日期只能當作參考。"
-      ],
       "videos": [],
       "sources": [
         {
@@ -49,8 +35,7 @@
         }
       ],
       "program": {
-        "pieces": [],
-        "basis": "目前尚未查到公開曲目表。"
+        "pieces": []
       }
     },
     {
@@ -66,12 +51,8 @@
       "show": {
         "date": "2025-12-10",
         "time": "19:00–20:30",
-        "venue": "光復校區浩然圖書館一樓大廳",
-        "date_basis": "官方錄影的影片說明",
-        "time_basis": "官方錄影的影片說明（原文：7pm–8:30pm）",
-        "venue_basis": "官方錄影的影片說明"
+        "venue": "光復校區浩然圖書館一樓大廳"
       },
-      "summary": "週三晚間在浩然圖書館一樓大廳演出九首曲目，學程 YouTube 頻道有全場錄影。",
       "program": {
         "pieces": [
           "Take The A Train",
@@ -87,17 +68,11 @@
             "url": "https://www.youtube.com/watch?v=kol8XpLzLFQ"
           }
         ],
-        "basis": "曲目與寫法沿用官方錄影的說明欄。",
         "source": {
           "label": "看 YouTube 說明欄",
           "url": "https://www.youtube.com/watch?v=ukjqYYt-GVQ"
         }
       },
-      "notes": [
-        "日期、時間、地點與曲目都來自學程官方 YouTube 全場錄影的影片說明。",
-        "實際演出在 2025/12/10，比課綱第 18 週所列的 2025/12/31 早 21 天。",
-        "全場錄影與〈Chameleon〉單曲影片都由學程官方 YouTube 頻道發布。"
-      ],
       "videos": [
         {
           "type": "youtube",
@@ -129,17 +104,8 @@
       "show": {
         "date": "2025-06-03",
         "time": null,
-        "venue": null,
-        "date_basis": "官方錄影片頭的演出海報",
-        "time_basis": "沒有查到公告",
-        "venue_basis": "影片場景疑似浩然圖書館一樓大廳，沒有公告佐證"
+        "venue": null
       },
-      "summary": "演出日期取自官方錄影片頭的海報；開演時間與地點沒有公告可查。",
-      "notes": [
-        "日期 2025/6/3 取自學程官方 YouTube 錄影開頭出現的演出海報，比課綱第 18 週所列的 2025/6/17 早 14 天。",
-        "影片裡的舞台看起來和 114A 的浩然圖書館一樓大廳是同一個場地，但沒有找到公告佐證，所以地點一欄不填。",
-        "沒有查到開演時間。"
-      ],
       "videos": [
         {
           "type": "youtube",
@@ -203,7 +169,6 @@
             "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2380s"
           }
         ],
-        "basis": "依官方錄影畫面上的曲名與影片順序整理。時間是影片中的約略位置。",
         "ordered": true,
         "source": {
           "label": "看原始錄影",
@@ -225,11 +190,8 @@
         "date": "2024-06-11",
         "time": "12:15–13:15",
         "venue": "光復校區浩然圖書館一樓大廳",
-        "date_basis": "學程網站活動公告",
-        "time_basis": "學程網站活動公告",
-        "venue_basis": "學程網站活動公告"
+        "admission": "免索票"
       },
-      "summary": "週二午間的免索票演出，共九首曲目；學程網站有活動公告，Facebook 有官方影片。",
       "program": {
         "pieces": [
           "The Girl From Ipanema",
@@ -242,17 +204,12 @@
           "Missin’ You",
           "不可思議のカルテ"
         ],
-        "basis": "依學程 Facebook 影片貼文的曲目編號排列。活動公告列出同樣九首，排列順序不同。",
         "ordered": true,
         "source": {
           "label": "看 Facebook 曲目表",
           "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/"
         }
       },
-      "notes": [
-        "時間、地點與曲目都來自藝術與音樂跨域學程網站的活動公告〈112B《爵士和聲即興與合奏》課程成果演奏發表會〉，公告寫明無需索票。原網址目前以 Internet Archive 存檔連結提供。",
-        "實際演出在 2024/6/11，比課綱第 18 週所列的 2024/6/19 早 8 天。"
-      ],
       "videos": [
         {
           "type": "facebook",
@@ -281,11 +238,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "課綱排定的期末成果發表日；另有公開的期末合奏單曲影片。",
-      "notes": [
-        "2023/6/15 是課綱第 18 週所列的期末成果發表日，沒有找到公告或其他資料能確認實際演出的日期與地點。",
-        "YouTube 上有這學期的期末合奏單曲影片，影片說明標示「課程：111B 爵士和聲、即興與合奏／期末題目：期末合奏」。"
-      ],
       "videos": [
         {
           "type": "youtube",
@@ -337,8 +289,7 @@
             "title": "Someday my prince will come",
             "url": "https://www.youtube.com/watch?v=gTQIlOlcnQE"
           }
-        ],
-        "basis": "從公開的期末合奏單曲影片標題整理，按曲名排列。現場曲序和完整節目單未查證。"
+        ]
       }
     },
     {
@@ -352,10 +303,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "只有課綱排定的期末成果發表日，沒有其他公開資料。",
-      "notes": [
-        "2023/1/11 是課綱第 18 週所列的期末成果發表日，沒有找到公告或影片能確認實際演出的日期與地點。"
-      ],
       "videos": [],
       "sources": []
     },
@@ -370,10 +317,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "只有課綱排定的期末成果發表日，沒有其他公開資料。",
-      "notes": [
-        "2022/6/15 是課綱第 18 週所列的期末成果發表日，沒有找到公告或影片能確認實際演出的日期與地點。"
-      ],
       "videos": [],
       "sources": []
     },
@@ -388,10 +331,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "只有課綱排定的期末成果發表日，沒有其他公開資料。",
-      "notes": [
-        "2021/6/23 是課綱第 18 週所列的期末成果發表日，沒有找到公告或影片能確認實際演出的日期與地點。"
-      ],
       "videos": [],
       "sources": []
     },
@@ -406,11 +345,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "課綱排定的期末成果發表日；學程 Facebook 有公開的期末合奏影片。",
-      "notes": [
-        "2021/1/12 是課綱第 18 週所列的期末成果發表日，沒有找到公告能確認實際演出的日期與地點。",
-        "學程官方 Facebook 專頁有這學期期末合奏的公開影片。"
-      ],
       "videos": [
         {
           "type": "facebook",
@@ -464,7 +398,6 @@
             "cue": "26:15"
           }
         ],
-        "basis": "依學程 Facebook 影片貼文的曲名和時間戳排列。重複的曲名是不同組的演出。",
         "ordered": true,
         "source": {
           "label": "看 Facebook 貼文與影片",
@@ -483,11 +416,6 @@
         "text": "期末爵士combo團成果發表"
       },
       "show": null,
-      "summary": "只有課綱排定的期末成果發表日，沒有其他公開資料。這是目前查得到的最早一個學期。",
-      "notes": [
-        "2020/6/30 是課綱第 18 週所列的期末成果發表日，沒有找到公告或影片能確認實際演出的日期與地點。",
-        "這是在課程時間表上查得到這門課的最早一個學期。"
-      ],
       "videos": [],
       "sources": []
     }
