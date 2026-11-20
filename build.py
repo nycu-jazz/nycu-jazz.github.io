@@ -89,13 +89,6 @@ def status_chip(sem):
     return f'<span class="status {sem["status"]}">{label}</span>'
 
 
-def show_value(show, key):
-    value = show.get(key)
-    if value and key in show.get("provisional", []):
-        return f"{value}（暫定）"
-    return value
-
-
 def by_code(code):
     return next(s for s in SEMESTERS if s["code"] == code)
 
@@ -210,8 +203,8 @@ def build_home():
     cur_show = cur.get("show")
     cur_final = parse((cur_show or cur["syllabus_final"])["date"])
     cur_label = "演出日期" if cur_show else "課綱排程"
-    time = show_value(cur_show or {}, "time")
-    venue = show_value(cur_show or {}, "venue")
+    time = (cur_show or {}).get("time")
+    venue = (cur_show or {}).get("venue")
     details = f"{time or '時間待公布'}・{venue or '地點待公布'}" if time or venue else "時間與地點待公布"
     program = cur.get("program", {}).get("pieces", [])
     primary_url = f"{slug(cur)}/"
@@ -358,7 +351,7 @@ def build_semester(index):
     if show:
         facts.append(fact("演出日期", fmt_date(show["date"])))
         for key, label in (("time", "演出時間"), ("venue", "地點"), ("admission", "入場")):
-            if value := show_value(show, key):
+            if value := show.get(key):
                 facts.append(fact(label, e(value)))
     if sem["status"] == "scheduled":
         missing = [label for key, label in (("time", "演出時間"), ("venue", "地點")) if not (show or {}).get(key)]
