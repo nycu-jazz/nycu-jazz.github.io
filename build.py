@@ -203,32 +203,32 @@ def build_home():
     cur_show = cur.get("show")
     cur_final = parse((cur_show or cur["syllabus_final"])["date"])
     cur_label = "演出日期" if cur_show else "課綱排程"
+    time = (cur_show or {}).get("time")
+    venue = (cur_show or {}).get("venue")
+    details = f"{time or '時間待公布'}・{venue or '地點待公布'}" if time or venue else "時間與地點待公布"
+    program = cur.get("program", {}).get("pieces", [])
+    primary_url = f"{slug(cur)}/"
+    primary_label = "查看演出資訊"
+    if program:
+        primary_url += "#program-h"
+        primary_label = "查看曲目與編制"
     first, last = SEMESTERS[-1], SEMESTERS[0]
 
-    body = f"""<section class="hero">
-  <div class="wrap">
-    <h1><span>NYCU</span><span>Jazz</span></h1>
-    <span class="eyebrow" lang="en">{e(SITE['course_en'])}</span>
-    <p class="lede">陽明交大{e(SITE['teacher'])}老師<strong>「{e(SITE['course_zh'])}」</strong>期末成果發表</p>
-  </div>
-</section>
-
-<section class="section" id="now" aria-labelledby="now-h">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow" lang="en">This semester</span>
-      <h2 id="now-h">本學期・{e(cur['code'])}</h2>
+    body = f"""<section class="hero" id="now" aria-labelledby="now-h">
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <div class="hero-kicker">{status_chip(cur)}<span>{e(cur['code'])}</span></div>
+      <h1 id="now-h"><span>爵士期末</span><span>成果發表</span></h1>
+      <p class="lede">陽明交大・{e(SITE['teacher'])}老師<br>{e(SITE['course_zh'])}</p>
     </div>
-    <div class="now">
-      <p class="now-date">{cur_final.month}/{cur_final.day}<small>{cur_final.year} 年・週{WEEKDAYS[cur_final.weekday()]}・{cur_label}</small></p>
-      <div class="now-body">
-        <p>期末成果發表</p>
-        <div class="actions">
-          <a class="btn primary" href="{slug(cur)}/">查看 {e(cur['code'])}</a>
-          {ext(syllabus_url(cur), "課綱", "btn ext")}
-          {ext(SITE['links']['e3'], "E3 平台", "btn ext")}
-        </div>
-      </div>
+    <div class="hero-event">
+      <p class="event-label">{cur_label}</p>
+      <time class="event-date" datetime="{cur_final.isoformat()}">
+        <span class="event-day">{cur_final.month:02d}<span>/</span>{cur_final.day:02d}</span>
+        <span class="event-weekday">{cur_final.year} 年・星期{WEEKDAYS[cur_final.weekday()]}</span>
+      </time>
+      <p class="event-details">{e(details)}</p>
+      <a class="btn primary event-cta" href="{primary_url}">{primary_label}<span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -288,9 +288,9 @@ def fact(label, value, detail=""):
     return f'<div class="fact"><dt>{label}</dt><dd>{value}{detail_html}</dd></div>'
 
 
-def split(heading_en, heading, inner, hid):
+def split(heading_en, heading, inner, hid, layout="split"):
     return f"""<section class="section tight" aria-labelledby="{hid}">
-  <div class="wrap split">
+  <div class="wrap {layout}">
     <h2 id="{hid}"><span class="eyebrow" lang="en">{heading_en}</span>{heading}</h2>
     <div>
 {inner}
@@ -302,6 +302,11 @@ def split(heading_en, heading, inner, hid):
 def program_block(program):
     rows = []
     ordered = program.get("ordered", False)
+    roles = dict.fromkeys(
+        role
+        for piece in program["pieces"] if isinstance(piece, dict)
+        for role in piece.get("parts", {})
+    )
     for number, piece in enumerate(program["pieces"], start=1):
         if isinstance(piece, str):
             piece = {"title": piece}
@@ -317,17 +322,23 @@ def program_block(program):
         else:
             entry = f'<div class="piece-content"><span>{title}</span>{timestamp}</div>'
         if parts := piece.get("parts"):
-            credits = "".join(f"<div><dt>{e(role)}</dt><dd>{e(name)}</dd></div>" for role, name in parts.items())
-            entry = f'<div>{entry}<dl class="piece-parts">{credits}</dl></div>'
+            credits = "".join(
+                f"<div><dt>{e(role)}</dt><dd>{e(parts.get(role) or '—')}</dd></div>"
+                for role in roles
+            )
+            entry = f'<div class="piece-score">{entry}<dl class="piece-parts">{credits}</dl></div>'
         rows.append(f"        <li>{number_html}{entry}</li>")
     list_html = ""
     if rows:
         tag = "ol" if ordered else "ul"
         style = "pieces ordered" if ordered else "pieces"
+        if roles:
+            style += " lineup"
         list_html = f'      <{tag} class="{style}" role="list">\n' + "\n".join(rows) + f"\n      </{tag}>\n"
     if source := program.get("source"):
         list_html += f'      <p class="footnote">{ext(source["url"], e(source["label"]))}</p>'
-    return split("Program", "演出曲目", list_html or "<p>曲目待補</p>", "program-h")
+    layout = "split lineup-layout" if roles else "split"
+    return split("Program", "演出曲目", list_html or "<p>曲目待補</p>", "program-h", layout)
 
 
 def build_semester(index):
@@ -412,7 +423,8 @@ def build_semester(index):
         else f'<a href="{root}#archive"><small>回到列表 →</small><b>歷屆演出</b></a>'
     )
 
-    body = f"""<section class="term-hero">
+    hero_class = "term-hero term-hero-current" if sem["code"] == SITE["current"] else "term-hero"
+    body = f"""<section class="{hero_class}">
   <div class="wrap">
     <a class="back" href="{root}#archive">← 歷屆演出</a>
     <span class="eyebrow" lang="en">{e(SITE['course_en'])}</span>

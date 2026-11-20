@@ -142,33 +142,62 @@ ul, ol { padding: 0; list-style: none; }
 /* ---------- 首頁主視覺 ---------- */
 
 .hero {
-  position: relative;
-  padding-block: clamp(4rem, 13vw, 9.5rem) clamp(3rem, 8vw, 6rem);
-  background:
-    radial-gradient(60rem 34rem at 82% -12%, rgba(201, 174, 108, 0.13), transparent 62%),
-    var(--bg);
-  overflow: hidden;
+  padding-block: clamp(3rem, 8vw, 7.25rem);
+  background: radial-gradient(54rem 34rem at 85% 8%, rgba(201, 174, 108, 0.13), transparent 72%), var(--bg);
 }
-.hero h1,
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+.hero h1 {
+  margin-block: 0.85rem 1.2rem;
+  font-size: clamp(2.5rem, 6.4vw, 5.3rem);
+  font-weight: 300;
+  line-height: 1.14;
+  letter-spacing: 0.025em;
+}
+.hero h1 span { display: block; }
+.hero h1 span + span { color: var(--brass); }
+.hero .lede { color: var(--muted); font-size: clamp(0.9rem, 1.8vw, 1.12rem); line-height: 1.65; }
+.hero-event {
+  padding: clamp(1.35rem, 3.75vw, 3rem);
+  border: 1px solid var(--brass-deep);
+  border-top: 3px solid var(--brass);
+  background: linear-gradient(130deg, #211d13 0%, #13110d 67%);
+}
+.event-label { color: var(--brass); font-size: 0.875rem; font-weight: 400; letter-spacing: 0.12em; }
+.event-date { display: block; margin-top: 0.35rem; }
+.event-day {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(3.15rem, 8vw, 6.2rem);
+  font-weight: 300;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.event-day span { color: var(--brass-deep); margin-inline: 0.03em; }
+.event-weekday { display: block; margin-top: 0.65rem; font-size: 1rem; }
+.event-details { margin-top: 0.75rem; color: var(--muted); font-size: 0.9375rem; }
+.event-cta { justify-content: space-between; width: 100%; margin-top: 1.2rem; }
+
 .term-hero h1 {
   font-family: var(--display);
   font-weight: 200;
-  font-size: clamp(4.75rem, 19vw, 13rem);
   line-height: 0.88;
   letter-spacing: -0.035em;
   margin-left: -0.04em;
 }
-.hero h1 span { display: block; }
-.hero h1 span + span { color: var(--brass); }
-
-.hero .eyebrow { display: block; margin-top: clamp(1.75rem, 4vw, 2.75rem); font-size: clamp(1.05rem, 2.2vw, 1.35rem); }
-.hero .lede {
-  margin-top: 0.75rem;
-  max-width: 34em;
-  font-size: clamp(1.0625rem, 1.9vw, 1.25rem);
-  line-height: 1.8;
-}
-.hero .lede strong { font-weight: 500; }
 
 /* ---------- 區塊 ---------- */
 
@@ -186,35 +215,6 @@ ul, ol { padding: 0; list-style: none; }
 .prose { max-width: 40em; }
 .prose p + p { margin-top: 1.1em; }
 .prose strong { font-weight: 500; }
-
-/* ---------- 本學期 ---------- */
-
-.now {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: start;
-}
-.now-date {
-  font-family: var(--display);
-  font-weight: 200;
-  font-size: clamp(3.5rem, 11vw, 7.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  font-variant-numeric: lining-nums;
-}
-.now-date small {
-  display: block;
-  margin-top: 1rem;
-  font-family: var(--body);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  line-height: 1.6;
-  color: var(--muted);
-}
-.now-body > p + p { margin-top: 1.1em; }
-.now-body strong { font-weight: 500; }
 
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
 .btn {
@@ -387,6 +387,9 @@ ul, ol { padding: 0; list-style: none; }
 .back:hover { color: var(--brass); }
 .term-hero .eyebrow { display: block; margin-bottom: 0.5rem; }
 .term-hero h1 { font-size: clamp(5.5rem, 22vw, 14rem); }
+.term-hero-current { padding-block: clamp(1.2rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.25rem); }
+.term-hero-current .back { margin-bottom: 1rem; }
+.term-hero-current h1 { font-size: clamp(3.75rem, 11vw, 7rem); }
 .term-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.5rem; margin-top: 1.5rem; }
 .term-sub .term-name { font-size: clamp(1.1rem, 2.2vw, 1.3rem); font-weight: 400; letter-spacing: 0.04em; }
 
@@ -442,15 +445,48 @@ ul, ol { padding: 0; list-style: none; }
   overflow-wrap: anywhere;
   font-weight: 400;
 }
+.split.lineup-layout { grid-template-columns: minmax(0, 1fr); gap: clamp(1.2rem, 3vw, 2rem); }
+.pieces.lineup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  border: 0;
+}
+.pieces.lineup > li {
+  align-content: start;
+  align-items: start;
+  grid-template-columns: 2.15rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  padding: clamp(0.9rem, 2vw, 1.4rem);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.lineup .piece-number {
+  display: grid;
+  place-items: center;
+  min-height: 2.15rem;
+  border: 1px solid var(--line-strong);
+  color: var(--brass);
+}
+.lineup .piece-content {
+  align-items: center;
+  min-height: 2.15rem;
+  padding: 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.3rem);
+  line-height: 1.4;
+}
+.lineup .piece-content > :first-child { font-weight: 500; }
 .piece-parts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(4.25rem, 100%), 1fr));
-  gap: 0.4rem 0.8rem;
-  margin: 0 0 0.9rem;
-  font-size: 0.9375rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem 0.45rem;
+  padding-top: 0.85rem;
+  margin-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  line-height: 1.4;
 }
-.piece-parts dt { color: var(--muted); font-size: 0.8125rem; }
-.piece-parts dd { font-weight: 400; overflow-wrap: anywhere; }
+.piece-parts dt { color: var(--muted); font-size: 0.75rem; }
+.piece-parts dd { margin-top: 0.15rem; font-size: 0.9375rem; font-weight: 400; overflow-wrap: anywhere; }
 a.piece-content { text-decoration: none; }
 a.piece-content:hover > :first-child { text-decoration: underline; }
 .piece-watch {
@@ -509,7 +545,7 @@ a.piece-content:hover > :first-child { text-decoration: underline; }
 /* ---------- 窄螢幕 ---------- */
 
 @media (max-width: 52rem) {
-  .now, .split, .videos.two { grid-template-columns: minmax(0, 1fr); }
+  .split, .videos.two { grid-template-columns: minmax(0, 1fr); }
   .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "code date" "main main"; row-gap: 0.75rem; align-items: end; }
   .row-code { grid-area: code; }
   .row-date { grid-area: date; text-align: right; }
@@ -518,11 +554,23 @@ a.piece-content:hover > :first-child { text-decoration: underline; }
   .row:hover { padding-inline: 0; background: transparent; }
 }
 
+@media (max-width: 43rem) {
+  .hero { padding-block: 1.75rem 2rem; }
+  .hero-layout, .pieces.lineup { grid-template-columns: minmax(0, 1fr); }
+  .hero-layout { gap: 1.2rem; }
+  .hero h1 { margin-block: 0.5rem 0.65rem; }
+  .hero-event { padding: 1rem 1.2rem; }
+  .event-day { font-size: clamp(3.25rem, 13vw, 5rem); }
+  .event-weekday { margin-top: 0.4rem; }
+  .event-details { margin-top: 0.5rem; }
+}
+
 @media (max-width: 30rem) {
   body { font-size: 1rem; }
   .brand { letter-spacing: 0.16em; font-size: 0.95rem; }
-  .nav { gap: 1rem; }
-  .nav a { letter-spacing: 0.04em; font-size: 0.875rem; }
+  .site-header .wrap { gap: 0.65rem; }
+  .nav { gap: 0.65rem; }
+  .nav a { white-space: nowrap; letter-spacing: 0.02em; font-size: 0.875rem; }
   .fact { padding-right: 0; }
   .pager b { font-size: 2rem; }
 }
