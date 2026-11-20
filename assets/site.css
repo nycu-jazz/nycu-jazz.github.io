@@ -337,6 +337,30 @@ ul, ol { padding: 0; list-style: none; }
 }
 .video-link:hover { border-color: var(--brass); }
 .video-link .go { color: var(--brass); white-space: nowrap; font-weight: 400; }
+.video-link--thumb {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, min(32%, 12rem)) minmax(0, 1fr);
+  gap: 0.25rem 0.9rem;
+}
+.archive-recordings .video-link--thumb {
+  grid-template-columns: minmax(5.5rem, min(24%, 8.5rem)) minmax(0, 1fr);
+}
+.video-thumb {
+  display: block;
+  position: relative;
+  grid-row: span 2;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+}
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.video-thumb .play { width: 2rem; height: 2rem; }
+.video-thumb .play::after { border-width: 0.3rem 0 0.3rem 0.5rem; }
+.video-link--thumb .go { grid-column: 2; justify-self: start; white-space: normal; }
+.video-link--thumb:hover .play { background: var(--brass); border-color: var(--brass); }
+.video-link--thumb:hover .play::after { border-left-color: #000; }
+
 
 /* ---------- 學期頁 ---------- */
 
@@ -513,6 +537,7 @@ a.piece-content:hover > :first-child { text-decoration: underline; }
   .archive-more { font-size: 0; }
   .archive-more span { font-size: 1rem; }
   .archive-recordings .video-link { flex-wrap: wrap; gap: 0.3rem 0.9rem; }
+  .video-link--thumb { padding: 0.7rem 0.85rem; }
 }
 
 @media (max-width: 43rem) {

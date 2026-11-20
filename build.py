@@ -136,7 +136,7 @@ def page(*, root, path, title, description, body, current=""):
 
 # ---------- 影片 ----------
 
-def video_block(video, compact=False):
+def video_block(video, compact=False, root=""):
     title = e(video["title"])
     meta = e(video["kind"] if compact else f"{video['kind']}・{video['publisher']}")
     if video["type"] == "youtube":
@@ -151,17 +151,25 @@ def video_block(video, compact=False):
     <span class="video-meta">{meta}・{ext(youtube_url(video), "在 YouTube 觀看", "ext")}</span>
   </figcaption>
 </figure>"""
+    thumbnail = video.get("thumbnail")
+    style = "video-link video-link--thumb" if thumbnail else "video-link"
+    preview = (
+        f'\n    <span class="video-thumb" aria-hidden="true">'
+        f'<img src="{e(root + thumbnail)}" width="768" height="432" alt="" loading="lazy" decoding="async">'
+        '<span class="play"></span></span>'
+        if thumbnail else ""
+    )
     return f"""<figure class="video">
-  <a class="video-link" href="{e(video['url'])}" target="_blank" rel="noopener">
+  <a class="{style}" href="{e(video['url'])}" target="_blank" rel="noopener">{preview}
     <span><span class="video-title">{title}</span><span class="video-meta">{meta}</span></span>
     <span class="go ext">在 Facebook 觀看<span class="visually-hidden">（另開新分頁）</span></span>
   </a>
 </figure>"""
 
 
-def videos_block(videos, compact=False):
+def videos_block(videos, compact=False, root=""):
     two = " two" if len(videos) > 1 else ""
-    return f'<div class="videos{two}">\n' + "\n".join(video_block(v, compact=compact) for v in videos) + "\n</div>"
+    return f'<div class="videos{two}">\n' + "\n".join(video_block(v, compact=compact, root=root) for v in videos) + "\n</div>"
 
 
 # ---------- 首頁 ----------
@@ -345,7 +353,7 @@ def build_semester(index):
         jumps.append('<a href="#performers-h">看演出者</a>')
 
     if sem["videos"]:
-        sections.append(split("Video", "演出影片", videos_block(sem["videos"]), "video-h"))
+        sections.append(split("Video", "演出影片", videos_block(sem["videos"], root=root), "video-h"))
         jumps.append('<a href="#video-h">看演出影片</a>')
     jumps_html = f'\n    <nav class="term-jumps" aria-label="本頁導覽">{"".join(jumps)}</nav>' if jumps else ""
 

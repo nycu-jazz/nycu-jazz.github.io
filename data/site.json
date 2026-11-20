@@ -414,7 +414,8 @@
           "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/",
           "title": "112B 課程成果演奏發表會",
           "kind": "演出影片",
-          "publisher": "學程官方 Facebook 專頁（NYCUAMCP）"
+          "publisher": "學程官方 Facebook 專頁（NYCUAMCP）",
+          "thumbnail": "assets/recordings/112b-5937.webp"
         }
       ],
       "sources": [
@@ -612,7 +613,8 @@
           "url": "https://www.facebook.com/NYCUAMCP/videos/494905151903194/",
           "title": "109A 期末合奏",
           "kind": "期末合奏影片",
-          "publisher": "學程官方 Facebook 專頁（NYCUAMCP）"
+          "publisher": "學程官方 Facebook 專頁（NYCUAMCP）",
+          "thumbnail": "assets/recordings/109a-1309.webp"
         }
       ],
       "sources": [],
