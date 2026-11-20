@@ -18,11 +18,7 @@ SITE = DATA["site"]
 SEMESTERS = DATA["semesters"]  # 由新到舊
 
 WEEKDAYS = "一二三四五六日"
-STATUS = {
-    "performed": "已演出",
-    "scheduled": "課綱排程",
-    "syllabus": "課綱排程",
-}
+STATUSES = ("performed", "scheduled", "syllabus")
 FONTS = (
     "https://fonts.googleapis.com/css2?family=Noticia+Text:ital@1"
     "&family=Noto+Sans+TC:wght@300;400;500&family=Raleway:wght@200;300&display=swap"
@@ -80,13 +76,6 @@ def ext(url, label, cls=""):
         f'<a{cls_attr} href="{e(url)}" target="_blank" rel="noopener">'
         f'{label}<span class="visually-hidden">（另開新分頁）</span></a>'
     )
-
-
-def status_chip(sem):
-    label = STATUS[sem["status"]]
-    if sem["status"] == "scheduled" and sem.get("show"):
-        label = "即將演出"
-    return f'<span class="status {sem["status"]}">{label}</span>'
 
 
 def by_code(code):
@@ -181,21 +170,18 @@ def archive_row(sem, latest=False):
     show = sem.get("show") or {}
     date_iso = show.get("date") or sem["syllabus_final"]["date"]
     time = f'<span>{e(show["time"])}</span>' if show.get("time") else ""
-    venue = f'\n          <small>{e(show["venue"])}</small>' if show.get("venue") else ""
+    detail = show.get("venue") if show else "課綱日期"
+    date_detail = f'\n          <small>{e(detail)}</small>' if detail else ""
     section_id = ' id="latest"' if latest else ""
-    status = '<span class="status performed">最近一場</span>' if latest else status_chip(sem)
     videos = sem["videos"]
     recordings = ""
     if videos:
         recordings = f'\n      <div class="archive-recordings">{videos_block(videos, compact=True)}</div>'
     return f"""    <li{section_id}>
       <a class="archive-row" href="{slug(sem)}/">
-        <span class="archive-term">
-          <strong>{e(sem['code'])}</strong>
-          {status}
-        </span>
+        <span class="archive-term"><strong>{e(sem['code'])}</strong></span>
         <span class="archive-date">
-          <span><time datetime="{e(date_iso)}">{fmt_date(date_iso)}</time>{time}</span>{venue}
+          <span><time datetime="{e(date_iso)}">{fmt_date(date_iso)}</time>{time}</span>{date_detail}
         </span>
         <span class="archive-more">場次資訊 <span aria-hidden="true">→</span></span>
       </a>{recordings}
@@ -214,7 +200,7 @@ def build_home():
     primary_label = "查看演出資訊"
     if program:
         primary_url += "#program-h"
-        primary_label = "查看曲目與編制"
+        primary_label = "查看曲目與演出者" if cur.get("performers") else "查看曲目"
     first, last = SEMESTERS[-1], SEMESTERS[0]
     archive = "\n".join(archive_row(s, latest=s["code"] == SITE["latest_show"]) for s in SEMESTERS)
 
@@ -226,7 +212,6 @@ def build_home():
       <p class="lede">陽明交大・{e(SITE['teacher'])}老師<br>{e(SITE['course_zh'])}</p>
     </div>
     <div class="hero-event">
-      <p class="event-label">{status_chip(cur)}</p>
       <h2 class="event-title">{e(cur['code'])} 期末成果發表</h2>
       <time class="event-date" datetime="{cur_final.isoformat()}">
         <span class="event-day">{cur_final.month:02d}<span>/</span>{cur_final.day:02d}</span>
@@ -277,14 +262,9 @@ def split(heading_en, heading, inner, hid, layout="split"):
 </section>"""
 
 
-def program_block(program):
+def program_block(program, cards=False):
     rows = []
     ordered = program.get("ordered", False)
-    roles = dict.fromkeys(
-        role
-        for piece in program["pieces"] if isinstance(piece, dict)
-        for role in piece.get("parts", {})
-    )
     for number, piece in enumerate(program["pieces"], start=1):
         if isinstance(piece, str):
             piece = {"title": piece}
@@ -299,23 +279,20 @@ def program_block(program):
             )
         else:
             entry = f'<div class="piece-content"><span>{title}</span>{timestamp}</div>'
-        if parts := piece.get("parts"):
-            credits = "".join(
-                f"<div><dt>{e(role)}</dt><dd>{e(parts.get(role) or '—')}</dd></div>"
-                for role in roles
-            )
-            entry = f'<div class="piece-score">{entry}<dl class="piece-parts">{credits}</dl></div>'
+        if performers := piece.get("performers"):
+            names = "、".join(e(name) for name in performers)
+            entry = f'<div>{entry}<p class="piece-performers">{names}</p></div>'
         rows.append(f"        <li>{number_html}{entry}</li>")
     list_html = ""
     if rows:
         tag = "ol" if ordered else "ul"
         style = "pieces ordered" if ordered else "pieces"
-        if roles:
+        if cards:
             style += " lineup"
         list_html = f'      <{tag} class="{style}" role="list">\n' + "\n".join(rows) + f"\n      </{tag}>\n"
     if source := program.get("source"):
         list_html += f'      <p class="footnote">{ext(source["url"], e(source["label"]))}</p>'
-    layout = "split lineup-layout" if roles else "split"
+    layout = "split lineup-layout" if cards else "split"
     return split("Program", "演出曲目", list_html or "<p>曲目待補</p>", "program-h", layout)
 
 
@@ -357,8 +334,13 @@ def build_semester(index):
 
     jumps = []
     if sem.get("program"):
-        sections.append(program_block(sem["program"]))
+        sections.append(program_block(sem["program"], cards=bool(sem.get("performers"))))
         jumps.append('<a href="#program-h">看曲目</a>')
+
+    if performers := sem.get("performers"):
+        names = "".join(f"<li>{e(name)}</li>" for name in performers)
+        sections.append(split("Performers", "演出者", f'<ul class="performer-list" role="list">{names}</ul>', "performers-h"))
+        jumps.append('<a href="#performers-h">看演出者</a>')
 
     if sem["videos"]:
         sections.append(split("Video", "演出影片", videos_block(sem["videos"]), "video-h"))
@@ -409,7 +391,6 @@ def build_semester(index):
     <h1>{e(sem['code'])}</h1>
     <div class="term-sub">
       <span class="term-name">{term_name(sem)}・{e(SITE['course_zh'])}</span>
-      {status_chip(sem)}
     </div>{jumps_html}
   </div>
 </section>
@@ -456,10 +437,10 @@ def main():
     if len(set(codes)) != len(codes):
         raise SystemExit("學期代碼重複")
     for s in SEMESTERS:
-        if s["status"] not in STATUS:
-            raise SystemExit(f"{s['code']}：status 必須是 {list(STATUS)}")
+        if s["status"] not in STATUSES:
+            raise SystemExit(f"{s['code']}：status 必須是 {list(STATUSES)}")
         if s["status"] == "performed" and not s.get("show"):
-            raise SystemExit(f"{s['code']}：已演出的學期必須填 show")
+            raise SystemExit(f"{s['code']}：performed 必須填 show")
 
     out = {"index.html": build_home(), "404.html": build_404(), "sitemap.xml": build_sitemap()}
     for i, s in enumerate(SEMESTERS):

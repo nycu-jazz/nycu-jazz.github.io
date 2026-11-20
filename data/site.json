@@ -35,112 +35,37 @@
       "program": {
         "ordered": true,
         "pieces": [
-          {
-            "title": "Billies’s Bounce",
-            "parts": {
-              "Lead 1": "馬茨",
-              "Lead 2": "林奕銘",
-              "吉他": "程柏諺",
-              "鋼琴": "蔡佾珊",
-              "貝斯": "何懿軒",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "Let’s Fall in Love",
-            "parts": {
-              "Lead 1": "許賀晴",
-              "Lead 2": "蔡佾珊",
-              "鋼琴": "余宸毅",
-              "貝斯": "吳乘宇",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "It Could happen to You",
-            "parts": {
-              "Lead 1": "馬茨",
-              "Lead 2": "楊宗錞",
-              "吉他": "程柏諺",
-              "鋼琴": "許賀晴",
-              "貝斯": "蕭赫",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "Autumn Leaves",
-            "parts": {
-              "Lead 1": "吳乘宇",
-              "Lead 2": "林明學",
-              "鋼琴": "蕭赫",
-              "貝斯": "余宸毅",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "Besame mucho",
-            "parts": {
-              "Lead 1": "邱美慈",
-              "Lead 2": "洪軾凱",
-              "鋼琴": "楊宗錞",
-              "貝斯": "李尹瑄",
-              "鼓": "黃君翰"
-            }
-          },
-          {
-            "title": "The Girl From Ipanema",
-            "parts": {
-              "Lead 1": "吳乘宇",
-              "Lead 2": "邱美慈",
-              "吉他": "蕭赫",
-              "鋼琴": "黃君翰",
-              "貝斯": "蔡佾珊",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "Have You Met Miss Jones",
-            "parts": {
-              "Lead 1": "許賀晴",
-              "Lead 2": "林奕銘",
-              "吉他": "程柏諺",
-              "鋼琴": "李尹瑄",
-              "貝斯": "黃君翰",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "So What",
-            "parts": {
-              "Lead 1": "洪軾凱",
-              "Lead 2": "余宸毅",
-              "鋼琴": "翁培瑋",
-              "貝斯": "馬茨",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "Take Five",
-            "parts": {
-              "Lead 1": "林奕銘",
-              "Lead 2": "李尹瑄",
-              "鋼琴": "何懿軒",
-              "貝斯": "邱美慈",
-              "鼓": "呂其霖"
-            }
-          },
-          {
-            "title": "Spain",
-            "parts": {
-              "Lead 1": "洪軾凱",
-              "Lead 2": "(ALL)",
-              "鋼琴": "何懿軒",
-              "貝斯": "蕭赫",
-              "鼓": "呂其霖"
-            }
-          }
+          "Billies’s Bounce",
+          "Let’s Fall in Love",
+          "It Could happen to You",
+          "Autumn Leaves",
+          "Besame mucho",
+          "The Girl From Ipanema",
+          "Have You Met Miss Jones",
+          "So What",
+          "Take Five",
+          "Spain"
         ]
-      }
+      },
+      "performers": [
+        "馬茨",
+        "林奕銘",
+        "程柏諺",
+        "蔡佾珊",
+        "何懿軒",
+        "呂其霖",
+        "許賀晴",
+        "余宸毅",
+        "吳乘宇",
+        "楊宗錞",
+        "蕭赫",
+        "林明學",
+        "邱美慈",
+        "洪軾凱",
+        "李尹瑄",
+        "黃君翰",
+        "翁培瑋"
+      ]
     },
     {
       "code": "114A",
@@ -193,7 +118,24 @@
           "publisher": "NYCU人藝社院創作類跨域學程"
         }
       ],
-      "sources": []
+      "sources": [],
+      "performers": [
+        "方齊瑋",
+        "江品寬",
+        "林庭慧",
+        "金志潤",
+        "郭芷安",
+        "許安",
+        "傅永威",
+        "游子毅",
+        "陳冠圻",
+        "楊子霏",
+        "蔡禮安",
+        "韓沂展",
+        "顏慎皓",
+        "鄭毓獻",
+        "林昱廷"
+      ]
     },
     {
       "code": "113B",
@@ -225,52 +167,117 @@
           {
             "title": "Beautiful Love",
             "cue": "約 0:10",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=10s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=10s",
+            "performers": [
+              "林奕銘",
+              "林明學"
+            ]
           },
           {
             "title": "Softly as in a Morning Sunrise",
             "cue": "約 5:50",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=350s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=350s",
+            "performers": [
+              "嚴胤坤",
+              "林明學",
+              "林夢遠",
+              "黃屏翰",
+              "王維震"
+            ]
           },
           {
             "title": "So Nice",
             "cue": "約 12:10",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=730s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=730s",
+            "performers": [
+              "王維震",
+              "郭典淳",
+              "游翔宇",
+              "郭芷杅",
+              "陳昱喬"
+            ]
           },
           {
             "title": "Autumn Leaves",
             "cue": "約 16:40",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1000s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1000s",
+            "performers": [
+              "郭芷杅",
+              "馬冠暉",
+              "李嘉雯",
+              "游翔宇"
+            ]
           },
           {
             "title": "Bewitched",
             "cue": "約 23:00",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1380s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1380s",
+            "performers": [
+              "李嘉雯",
+              "蔡君浩",
+              "王瑄羽",
+              "王維震",
+              "陳昱喬"
+            ]
           },
           {
             "title": "Someday My Prince Will Come",
             "cue": "約 27:30",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1650s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1650s",
+            "performers": [
+              "郭典淳",
+              "陳柏予",
+              "王瑄羽",
+              "程亮"
+            ]
           },
           {
             "title": "Estate",
             "cue": "約 31:10",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1870s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1870s",
+            "performers": [
+              "陳昱喬",
+              "鄭毓獻",
+              "林明學",
+              "梁愷翹",
+              "游翔宇"
+            ]
           },
           {
             "title": "Green Dolphin Street",
             "cue": "約 32:00",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1920s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1920s",
+            "performers": [
+              "陳柏予",
+              "嚴胤坤",
+              "林夢遠",
+              "郭典淳",
+              "游翔宇"
+            ]
           },
           {
             "title": "You Are the Sunshine of My Life",
             "cue": "約 35:00",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2100s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2100s",
+            "performers": [
+              "梁愷翹",
+              "陳柏予",
+              "蔡君浩",
+              "郭典淳",
+              "馬冠暉"
+            ]
           },
           {
             "title": "Isn’t She Lovely",
             "cue": "約 39:40",
-            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2380s"
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2380s",
+            "performers": [
+              "黃屏翰",
+              "鄭毓獻",
+              "馬冠暉",
+              "梁愷翹",
+              "嚴胤坤"
+            ]
           }
         ],
         "ordered": true,
@@ -329,6 +336,23 @@
           "url": "https://web.archive.org/web/20260614232749/https://xam.nycu.edu.tw/archives/1394",
           "publisher": "國立陽明交通大學 藝術與音樂跨域學程"
         }
+      ],
+      "performers": [
+        "邱照元",
+        "林靖家",
+        "黃少芃",
+        "雲羽瑤",
+        "周立恩",
+        "黃柏翔",
+        "林庠安",
+        "黃子紘",
+        "温蕙瑄",
+        "蔡卓穎",
+        "鄭毓獻",
+        "周旅安",
+        "林夢遠",
+        "Reymon",
+        "陳庠宇"
       ]
     },
     {
@@ -363,35 +387,81 @@
         "pieces": [
           {
             "title": "Autumn Leaves",
-            "url": "https://www.youtube.com/watch?v=ts-UAMI0FRM"
+            "url": "https://www.youtube.com/watch?v=ts-UAMI0FRM",
+            "performers": [
+              "邱弘竣",
+              "林芷瑩",
+              "呂孰睿",
+              "盧聖文"
+            ]
           },
           {
             "title": "Black Orpeus",
-            "url": "https://www.youtube.com/watch?v=SykGjU99yko"
+            "url": "https://www.youtube.com/watch?v=SykGjU99yko",
+            "performers": [
+              "邱弘竣",
+              "林明學",
+              "盧聖文",
+              "呂孰睿"
+            ]
           },
           {
             "title": "Blue Bossa",
-            "url": "https://www.youtube.com/watch?v=8w9aHw6-OCo"
+            "url": "https://www.youtube.com/watch?v=8w9aHw6-OCo",
+            "performers": [
+              "呂孰睿",
+              "江宜蓁",
+              "邱弘竣",
+              "陳怡樺"
+            ]
           },
           {
             "title": "Fly me to the Moon",
-            "url": "https://www.youtube.com/watch?v=2oEVDIHlyB0"
+            "url": "https://www.youtube.com/watch?v=2oEVDIHlyB0",
+            "performers": [
+              "林芷瑩",
+              "戴宸洋",
+              "江宜蓁",
+              "邱弘竣"
+            ]
           },
           {
             "title": "Howl's Moving Castle",
-            "url": "https://www.youtube.com/watch?v=cK7gGIpV4hI"
+            "url": "https://www.youtube.com/watch?v=cK7gGIpV4hI",
+            "performers": [
+              "戴宸洋",
+              "邱弘竣",
+              "江宜蓁"
+            ]
           },
           {
             "title": "Misty",
-            "url": "https://www.youtube.com/watch?v=Fd94eEJLdNY"
+            "url": "https://www.youtube.com/watch?v=Fd94eEJLdNY",
+            "performers": [
+              "盧聖文",
+              "林芷瑩",
+              "呂孰睿"
+            ]
           },
           {
             "title": "On the Sunny Side",
-            "url": "https://www.youtube.com/watch?v=9OZn2BYwuWA"
+            "url": "https://www.youtube.com/watch?v=9OZn2BYwuWA",
+            "performers": [
+              "盧聖文",
+              "呂孰睿",
+              "陳怡樺",
+              "戴宸洋"
+            ]
           },
           {
             "title": "Someday my prince will come",
-            "url": "https://www.youtube.com/watch?v=gTQIlOlcnQE"
+            "url": "https://www.youtube.com/watch?v=gTQIlOlcnQE",
+            "performers": [
+              "江宜蓁",
+              "童心",
+              "戴宸洋",
+              "林芷瑩"
+            ]
           }
         ]
       }
@@ -463,43 +533,99 @@
         "pieces": [
           {
             "title": "Four",
-            "cue": "0:00"
+            "cue": "0:00",
+            "performers": [
+              "Joe Lin",
+              "簡上棋",
+              "林恩衍",
+              "施楷鏡"
+            ]
           },
           {
             "title": "How High the Moon",
-            "cue": "3:02"
+            "cue": "3:02",
+            "performers": [
+              "林恩衍",
+              "施楷鏡",
+              "林宗諺",
+              "簡上棋"
+            ]
           },
           {
             "title": "Whisper Not",
-            "cue": "5:49"
+            "cue": "5:49",
+            "performers": [
+              "林瑀絃",
+              "江承祐",
+              "林宗諺"
+            ]
           },
           {
             "title": "On Green Dolphin Street",
-            "cue": "8:05"
+            "cue": "8:05",
+            "performers": [
+              "林育瑄",
+              "郭佳俐",
+              "陳芝儀"
+            ]
           },
           {
             "title": "Waltz for Debby",
-            "cue": "10:19"
+            "cue": "10:19",
+            "performers": [
+              "江承祐",
+              "林瑀絃",
+              "林育瑄"
+            ]
           },
           {
             "title": "Autumn Leaves",
-            "cue": "12:57"
+            "cue": "12:57",
+            "performers": [
+              "童瑞棋",
+              "黃仁暐",
+              "郭佳俐",
+              "郭庭均"
+            ]
           },
           {
             "title": "You’d Be So Nice to Come Home To",
-            "cue": "17:20"
+            "cue": "17:20",
+            "performers": [
+              "簡上棋",
+              "林宗諺",
+              "施楷鏡",
+              "林恩衍"
+            ]
           },
           {
             "title": "So Beautiful",
-            "cue": "19:26"
+            "cue": "19:26",
+            "performers": [
+              "Lily Kuo",
+              "陳芝儀",
+              "林育瑄"
+            ]
           },
           {
             "title": "Autumn Leaves",
-            "cue": "23:21"
+            "cue": "23:21",
+            "performers": [
+              "郭庭均",
+              "郭佳琍",
+              "黃仁暐",
+              "童瑞棋"
+            ]
           },
           {
             "title": "Four",
-            "cue": "26:15"
+            "cue": "26:15",
+            "performers": [
+              "陳芝儀",
+              "林育瑄",
+              "林瑀絃",
+              "郭佳琍"
+            ]
           }
         ],
         "ordered": true,

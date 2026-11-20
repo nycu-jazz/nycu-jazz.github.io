@@ -31,7 +31,7 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
 
 ### 新增一個學期
 
-在 `semesters` 陣列**最前面**加一筆（陣列由新到舊排列），並視情況更新 `site.current`（首頁「本學期」）與 `site.latest_show`（歷屆列表中標記為「最近一場」的學期）。
+在 `semesters` 陣列**最前面**加一筆（陣列由新到舊排列），並視情況更新 `site.current`（首頁「本學期」）與 `site.latest_show`（`#latest` 錨點對應的學期）。
 
 ```json
 {
@@ -46,11 +46,12 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
 }
 ```
 
-- `status`：`scheduled`（本學期，尚未演出）、`performed`（已演出）、`syllabus`（過去學期，只有課綱日期）。
+- `status`：`scheduled`（本學期，尚未演出）、`performed`（過去場次）、`syllabus`（過去學期，只有課綱日期）。
 - `show` 包含 `date`、`time`、`venue`，可加 `admission`。時間與場地可以留空。
 - `videos`：YouTube 填 `{ "type": "youtube", "id": "影片 ID", "title", "kind", "publisher" }`（可加 `"list"`）；Facebook 填 `{ "type": "facebook", "url", "title", "kind", "publisher" }`。
 - `program`（選填）：`{ "pieces": ["曲名"] }`。有來源支持曲序時加入 `"ordered": true`，曲目會顯示序號。
-- 單曲可填 `{ "title": "曲名", "cue": "4:20", "url": "公開影片連結" }`，時間戳和連結都可省略。演出編制可加 `"parts": { "Lead 1": "姓名", "鋼琴": "姓名" }`。曲目可附 `"source": { "label": "連結文字", "url": "原始來源網址" }`。
+- 單曲可填 `{ "title": "曲名", "cue": "4:20", "url": "公開影片連結" }`，時間戳和連結都可省略。有公開字幕或說明時，可加單曲的 `"performers": ["姓名"]`。曲目可附 `"source": { "label": "連結文字", "url": "原始來源網址" }`。
+- 可在學期層級填 `"performers": ["姓名"]` 以顯示整場名單。
 - 本學期沒有公開曲目表時，可將 `pieces` 留空。
 - 課綱連結由 `code` 與 `crs_no` 自動組出，星期由日期自動算出，不用手填。
 
