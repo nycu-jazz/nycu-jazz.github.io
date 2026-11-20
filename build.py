@@ -200,7 +200,8 @@ def build_home():
     primary_label = "查看演出資訊"
     if program:
         primary_url += "#program-h"
-        primary_label = "查看曲目與演出者" if cur.get("performers") else "查看曲目"
+        has_credits = cur.get("performers") or any(isinstance(piece, dict) and piece.get("performers") for piece in program)
+        primary_label = "查看曲目與演出者" if has_credits else "查看曲目"
     first, last = SEMESTERS[-1], SEMESTERS[0]
     archive = "\n".join(archive_row(s, latest=s["code"] == SITE["latest_show"]) for s in SEMESTERS)
 
@@ -268,17 +269,17 @@ def program_block(program, cards=False):
     for number, piece in enumerate(program["pieces"], start=1):
         if isinstance(piece, str):
             piece = {"title": piece}
-        title = e(piece["title"])
+        title = f'<span class="piece-title">{e(piece["title"])}</span>'
         number_html = f'<span class="piece-number" aria-hidden="true">{number:02d}</span>' if ordered else ""
         timestamp = f'<span class="piece-time">{e(piece["cue"])}</span>' if piece.get("cue") else ""
         if piece.get("url"):
             entry = ext(
                 piece["url"],
-                f'<span>{title}</span>{timestamp}<span class="piece-watch">觀看</span>',
+                f'{title}{timestamp}<span class="piece-watch">觀看</span>',
                 "piece-content",
             )
         else:
-            entry = f'<div class="piece-content"><span>{title}</span>{timestamp}</div>'
+            entry = f'<div class="piece-content">{title}{timestamp}</div>'
         if performers := piece.get("performers"):
             names = "、".join(e(name) for name in performers)
             entry = f'<div>{entry}<p class="piece-performers">{names}</p></div>'
@@ -334,7 +335,8 @@ def build_semester(index):
 
     jumps = []
     if sem.get("program"):
-        sections.append(program_block(sem["program"], cards=bool(sem.get("performers"))))
+        cards = sem["code"] == SITE["current"] or bool(sem.get("performers"))
+        sections.append(program_block(sem["program"], cards=cards))
         jumps.append('<a href="#program-h">看曲目</a>')
 
     if performers := sem.get("performers"):

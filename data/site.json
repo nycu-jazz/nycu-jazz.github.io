@@ -35,37 +35,124 @@
       "program": {
         "ordered": true,
         "pieces": [
-          "Billies’s Bounce",
-          "Let’s Fall in Love",
-          "It Could happen to You",
-          "Autumn Leaves",
-          "Besame mucho",
-          "The Girl From Ipanema",
-          "Have You Met Miss Jones",
-          "So What",
-          "Take Five",
-          "Spain"
+          {
+            "title": "Billie’s Bounce",
+            "performers": [
+              "馬茨",
+              "林奕銘",
+              "程柏諺",
+              "蔡佾珊",
+              "何懿軒",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "Let’s Fall in Love",
+            "performers": [
+              "許賀晴",
+              "蔡佾珊",
+              "余宸毅",
+              "吳乘宇",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "It Could happen to You",
+            "performers": [
+              "馬茨",
+              "楊宗錞",
+              "程柏諺",
+              "許賀晴",
+              "蕭赫",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "Autumn Leaves",
+            "performers": [
+              "吳乘宇",
+              "林明學",
+              "蕭赫",
+              "余宸毅",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "Besame mucho",
+            "performers": [
+              "邱美慈",
+              "洪軾凱",
+              "楊宗錞",
+              "李尹瑄",
+              "黃君翰"
+            ]
+          },
+          {
+            "title": "The Girl From Ipanema",
+            "performers": [
+              "吳乘宇",
+              "邱美慈",
+              "蕭赫",
+              "黃君翰",
+              "蔡佾珊",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "Have You Met Miss Jones",
+            "performers": [
+              "許賀晴",
+              "林奕銘",
+              "程柏諺",
+              "李尹瑄",
+              "黃君翰",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "So What",
+            "performers": [
+              "洪軾凱",
+              "余宸毅",
+              "翁培瑋",
+              "馬茨",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "Take Five",
+            "performers": [
+              "林奕銘",
+              "李尹瑄",
+              "何懿軒",
+              "邱美慈",
+              "呂其霖"
+            ]
+          },
+          {
+            "title": "Spain",
+            "performers": [
+              "馬茨",
+              "林奕銘",
+              "程柏諺",
+              "蔡佾珊",
+              "何懿軒",
+              "呂其霖",
+              "許賀晴",
+              "余宸毅",
+              "吳乘宇",
+              "楊宗錞",
+              "蕭赫",
+              "林明學",
+              "邱美慈",
+              "洪軾凱",
+              "李尹瑄",
+              "黃君翰",
+              "翁培瑋"
+            ]
+          }
         ]
-      },
-      "performers": [
-        "馬茨",
-        "林奕銘",
-        "程柏諺",
-        "蔡佾珊",
-        "何懿軒",
-        "呂其霖",
-        "許賀晴",
-        "余宸毅",
-        "吳乘宇",
-        "楊宗錞",
-        "蕭赫",
-        "林明學",
-        "邱美慈",
-        "洪軾凱",
-        "李尹瑄",
-        "黃君翰",
-        "翁培瑋"
-      ]
+      }
     },
     {
       "code": "114A",
