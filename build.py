@@ -133,7 +133,6 @@ def page(*, root, path, title, description, body, current=""):
     <nav class="nav" aria-label="主要導覽">
       {nav(f"{root}{slug(by_code(SITE['current']))}/", "本學期", "current")}
       {nav(f"{root}#archive", "歷屆演出", "archive")}
-      {nav(f"{root}#about", "相關連結", "about")}
     </nav>
   </div>
 </header>
@@ -259,22 +258,6 @@ def build_home():
     </div>
     <ul class="archive">
 {archive}
-    </ul>
-    <p class="footnote">學期代碼：A 是第 1 學期，B 是第 2 學期。</p>
-  </div>
-</section>
-
-<section class="section" id="about" aria-labelledby="about-h">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow" lang="en">Links</span>
-      <h2 id="about-h">相關連結</h2>
-    </div>
-    <ul class="linklist">
-      <li>{ext(SITE['links']['youtube'], "<span>學程 YouTube 頻道</span><span>演出錄影 ↗</span>")}</li>
-      <li>{ext(SITE['links']['facebook'], "<span>學程 Facebook 專頁</span><span>活動消息 ↗</span>")}</li>
-      <li>{ext(SITE['links']['timetable'], "<span>陽明交大課程時間表</span><span>各學期課綱 ↗</span>")}</li>
-      <li>{ext(SITE['links']['e3'], "<span>E3 數位教學平台</span><span>課程公告，需登入 ↗</span>")}</li>
     </ul>
   </div>
 </section>"""

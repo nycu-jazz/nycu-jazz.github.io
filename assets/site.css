@@ -531,15 +531,6 @@ a.piece-content:hover > :first-child { text-decoration: underline; }
 }
 .pager a:hover b { color: var(--brass); }
 
-/* ---------- 相關連結 ---------- */
-
-.linklist li { border-bottom: 1px solid var(--line); }
-.linklist li:first-child { border-top: 1px solid var(--line-strong); }
-.linklist a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; text-decoration: none; font-weight: 400; }
-/* 第二個 span 是右側說明 */
-.linklist a span:nth-child(2) { color: var(--muted); font-weight: 300; text-align: right; }
-.linklist a:hover span:nth-child(2) { color: var(--brass); }
-
 /* ---------- 404 ---------- */
 
 .lost { min-height: 62vh; display: grid; align-content: center; padding-block: var(--section); }
