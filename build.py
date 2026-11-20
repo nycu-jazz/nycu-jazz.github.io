@@ -202,7 +202,6 @@ def build_home():
     latest = by_code(SITE["latest_show"])
     cur_show = cur.get("show")
     cur_final = parse((cur_show or cur["syllabus_final"])["date"])
-    cur_label = "演出日期" if cur_show else "課綱排程"
     time = (cur_show or {}).get("time")
     venue = (cur_show or {}).get("venue")
     details = f"{time or '時間待公布'}・{venue or '地點待公布'}" if time or venue else "時間與地點待公布"
@@ -217,12 +216,13 @@ def build_home():
     body = f"""<section class="hero" id="now" aria-labelledby="now-h">
   <div class="wrap hero-layout">
     <div class="hero-copy">
-      <div class="hero-kicker">{status_chip(cur)}<span>{e(cur['code'])}</span></div>
-      <h1 id="now-h"><span>爵士期末</span><span>成果發表</span></h1>
+      <h1 id="now-h" lang="en">NYCU <span>Jazz</span></h1>
+      <p class="eyebrow" lang="en">{e(SITE['course_en'])}</p>
       <p class="lede">陽明交大・{e(SITE['teacher'])}老師<br>{e(SITE['course_zh'])}</p>
     </div>
     <div class="hero-event">
-      <p class="event-label">{cur_label}</p>
+      <p class="event-label">{status_chip(cur)}</p>
+      <h2 class="event-title">{e(cur['code'])} 期末成果發表</h2>
       <time class="event-date" datetime="{cur_final.isoformat()}">
         <span class="event-day">{cur_final.month:02d}<span>/</span>{cur_final.day:02d}</span>
         <span class="event-weekday">{cur_final.year} 年・星期{WEEKDAYS[cur_final.weekday()]}</span>
