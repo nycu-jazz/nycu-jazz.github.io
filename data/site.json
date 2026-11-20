@@ -6,7 +6,8 @@
     "course_en": "Jazz Harmony, Improvisation and Ensemble",
     "teacher": "林明學",
     "current": "115A",
-    "latest_show": "114A"
+    "latest_show": "114A",
+    "repository": "https://github.com/nycu-jazz/nycu-jazz.github.io"
   },
   "semesters": [
     {

@@ -87,6 +87,7 @@ def by_code(code):
 def page(*, root, path, title, description, body, current=""):
     canonical = SITE["url"].rstrip("/") + path
     home = root or "./"
+    repository = SITE["repository"].rstrip("/")
 
     def nav(href, label, key):
         cur = ' aria-current="page"' if key == current else ""
@@ -128,6 +129,15 @@ def page(*, root, path, title, description, body, current=""):
 <main id="main">
 {body}
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="{home}" aria-label="NYCU Jazz 首頁">NYCU <b>Jazz</b></a>
+    <nav class="footer-links" aria-label="頁尾導覽">
+      {ext(repository, "GitHub")}
+      {ext(repository + "/issues", '聯絡<span class="visually-hidden">（透過 GitHub Issues）</span>')}
+    </nav>
+  </div>
+</footer>
 <script src="{root}assets/site.js" defer></script>
 </body>
 </html>

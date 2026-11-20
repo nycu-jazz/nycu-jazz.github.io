@@ -139,6 +139,14 @@ ul, ol { padding: 0; list-style: none; }
 .nav a:hover,
 .nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--brass); }
 
+/* ---------- 頁尾 ---------- */
+
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); }
+.site-footer .wrap, .footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem 1.25rem; }
+.site-footer .wrap { justify-content: space-between; padding-block: 1rem; }
+.site-footer .brand { font-size: 0.8125rem; letter-spacing: 0.14em; }
+.footer-links a { padding-block: 0.35rem; font-size: 0.875rem; text-decoration: none; }
+
 /* ---------- 首頁主視覺 ---------- */
 
 .hero {
