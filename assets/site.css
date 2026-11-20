@@ -544,8 +544,17 @@ a.piece-content:hover > :first-child { text-decoration: underline; }
   .hero { padding-block: 1.75rem 2rem; }
   .hero-layout, .pieces.lineup { grid-template-columns: minmax(0, 1fr); }
   .hero-layout { gap: 1.2rem; }
-  .hero h1 { margin-bottom: 0.65rem; font-size: clamp(3.75rem, 12vw, 5.25rem); }
+  .hero h1 {
+    margin-bottom: 0.7rem;
+    font-size: clamp(4.4rem, 22vw, 7rem);
+    font-weight: 300;
+    line-height: 0.87;
+  }
   .hero-event { padding: 1rem 1.2rem; }
+  .event-title { font-size: clamp(1.25rem, 5.5vw, 1.65rem); font-weight: 500; line-height: 1.35; }
+  #archive { padding-top: 2.65rem; }
+  #archive .section-head { margin-bottom: 1.4rem; }
+  #archive-h { font-size: clamp(2.25rem, 10vw, 3.2rem); font-weight: 300; }
   .event-day { font-size: clamp(3.25rem, 13vw, 5rem); }
   .event-weekday { margin-top: 0.4rem; }
   .event-details { margin-top: 0.5rem; }
