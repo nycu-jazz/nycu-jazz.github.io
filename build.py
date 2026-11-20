@@ -197,6 +197,23 @@ def archive_row(sem, root=""):
     </li>"""
 
 
+def archive_feature(sem):
+    show = sem["show"]
+    time = f' {e(show["time"])}' if show.get("time") else ""
+    venue = f'\n          <p>{e(show["venue"])}</p>' if show.get("venue") else ""
+    return f"""    <li id="latest">
+      <article class="archive-feature" aria-labelledby="latest-h">
+        <div>
+          <p class="eyebrow">最近一場</p>
+          <h3 id="latest-h" class="row-code">{e(sem['code'])}</h3>
+          <p><time datetime="{e(show['date'])}">{fmt_date(show['date'])}</time>{time}</p>{venue}
+          <a class="btn" href="{slug(sem)}/">查看曲目與演出資訊<span aria-hidden="true">→</span></a>
+        </div>
+        {videos_block(sem['videos'][:1])}
+      </article>
+    </li>"""
+
+
 def build_home():
     cur = by_code(SITE["current"])
     latest = by_code(SITE["latest_show"])
@@ -212,6 +229,7 @@ def build_home():
         primary_url += "#program-h"
         primary_label = "查看曲目與編制"
     first, last = SEMESTERS[-1], SEMESTERS[0]
+    archive = "\n".join(archive_feature(s) if s is latest else archive_row(s) for s in SEMESTERS)
 
     body = f"""<section class="hero" id="now" aria-labelledby="now-h">
   <div class="wrap hero-layout">
@@ -233,17 +251,6 @@ def build_home():
   </div>
 </section>
 
-<section class="section" id="latest" aria-labelledby="latest-h">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow" lang="en">Latest performance</span>
-      <h2 id="latest-h">最近一場・{e(latest['code'])}</h2>
-      <p>{fmt_date(latest['show']['date'])} {e(latest['show']['time'])}，{e(latest['show']['venue'])}。<a href="{slug(latest)}/">曲目與來源</a></p>
-    </div>
-    {videos_block(latest['videos'][:1])}
-  </div>
-</section>
-
 <section class="section" id="archive" aria-labelledby="archive-h">
   <div class="wrap">
     <div class="section-head">
@@ -251,7 +258,7 @@ def build_home():
       <h2 id="archive-h">歷屆演出</h2>
     </div>
     <ul class="archive">
-{chr(10).join(archive_row(s) for s in SEMESTERS)}
+{archive}
     </ul>
     <p class="footnote">學期代碼：A 是第 1 學期，B 是第 2 學期。</p>
   </div>
