@@ -83,7 +83,10 @@ def ext(url, label, cls=""):
 
 
 def status_chip(sem):
-    return f'<span class="status {sem["status"]}">{STATUS[sem["status"]]}</span>'
+    label = STATUS[sem["status"]]
+    if sem["status"] == "scheduled" and sem.get("show"):
+        label = "即將演出"
+    return f'<span class="status {sem["status"]}">{label}</span>'
 
 
 def by_code(code):
@@ -197,7 +200,9 @@ def archive_row(sem, root=""):
 def build_home():
     cur = by_code(SITE["current"])
     latest = by_code(SITE["latest_show"])
-    cur_final = parse(cur["syllabus_final"]["date"])
+    cur_show = cur.get("show")
+    cur_final = parse((cur_show or cur["syllabus_final"])["date"])
+    cur_label = "演出日期" if cur_show else "課綱排程"
     first, last = SEMESTERS[-1], SEMESTERS[0]
 
     body = f"""<section class="hero">
@@ -215,9 +220,9 @@ def build_home():
       <h2 id="now-h">本學期・{e(cur['code'])}</h2>
     </div>
     <div class="now">
-      <p class="now-date">{cur_final.month}/{cur_final.day}<small>{cur_final.year} 年・週{WEEKDAYS[cur_final.weekday()]}・課綱排程</small></p>
+      <p class="now-date">{cur_final.month}/{cur_final.day}<small>{cur_final.year} 年・週{WEEKDAYS[cur_final.weekday()]}・{cur_label}</small></p>
       <div class="now-body">
-        <p>{e(cur['syllabus_final']['text'])}・第 {cur['syllabus_final']['week']} 週</p>
+        <p>期末成果發表</p>
         <div class="actions">
           <a class="btn primary" href="{slug(cur)}/">查看 {e(cur['code'])}</a>
           {ext(syllabus_url(cur), "課綱", "btn ext")}
@@ -311,6 +316,9 @@ def program_block(program):
             )
         else:
             entry = f'<div class="piece-content"><span>{title}</span>{timestamp}</div>'
+        if parts := piece.get("parts"):
+            credits = "".join(f"<div><dt>{e(role)}</dt><dd>{e(name)}</dd></div>" for role, name in parts.items())
+            entry = f'<div>{entry}<dl class="piece-parts">{credits}</dl></div>'
         rows.append(f"        <li>{number_html}{entry}</li>")
     list_html = ""
     if rows:
@@ -334,15 +342,18 @@ def build_semester(index):
         for key, label in (("time", "演出時間"), ("venue", "地點"), ("admission", "入場")):
             if value := show.get(key):
                 facts.append(fact(label, e(value)))
-    elif sem["status"] == "scheduled":
-        facts.append(fact("演出時間與地點", "待公布"))
-    facts.append(
-        fact(
-            "課綱所列成果發表",
-            fmt_date(syl["date"]),
-            f"課綱第 {syl['week']} 週「{syl['text']}」",
+    if sem["status"] == "scheduled":
+        missing = [label for key, label in (("time", "演出時間"), ("venue", "地點")) if not (show or {}).get(key)]
+        if missing:
+            facts.append(fact("與".join(missing), "待公布"))
+    if not show or show["date"] != syl["date"]:
+        facts.append(
+            fact(
+                "課綱所列成果發表",
+                fmt_date(syl["date"]),
+                f"課綱第 {syl['week']} 週「{syl['text']}」",
+            )
         )
-    )
     facts.append(fact("當期課號", e(sem["crs_no"]), f"{sem['credits']} 學分・{SITE['teacher']}老師"))
 
     sections = [

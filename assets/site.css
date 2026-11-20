@@ -442,6 +442,15 @@ ul, ol { padding: 0; list-style: none; }
   overflow-wrap: anywhere;
   font-weight: 400;
 }
+.piece-parts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(4.25rem, 100%), 1fr));
+  gap: 0.4rem 0.8rem;
+  margin: 0 0 0.9rem;
+  font-size: 0.9375rem;
+}
+.piece-parts dt { color: var(--muted); font-size: 0.8125rem; }
+.piece-parts dd { font-weight: 400; overflow-wrap: anywhere; }
 a.piece-content { text-decoration: none; }
 a.piece-content:hover > :first-child { text-decoration: underline; }
 .piece-watch {

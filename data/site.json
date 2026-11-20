@@ -25,7 +25,11 @@
         "week": 16,
         "text": "期末爵士combo團成果發表"
       },
-      "show": null,
+      "show": {
+        "date": "2026-12-22",
+        "time": null,
+        "venue": null
+      },
       "videos": [],
       "sources": [
         {
@@ -35,7 +39,113 @@
         }
       ],
       "program": {
-        "pieces": []
+        "ordered": true,
+        "pieces": [
+          {
+            "title": "Billies’s Bounce",
+            "parts": {
+              "Lead 1": "馬茨",
+              "Lead 2": "林奕銘",
+              "吉他": "程柏諺",
+              "鋼琴": "蔡佾珊",
+              "貝斯": "何懿軒",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "Let’s Fall in Love",
+            "parts": {
+              "Lead 1": "許賀晴",
+              "Lead 2": "蔡佾珊",
+              "鋼琴": "余宸毅",
+              "貝斯": "吳乘宇",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "It Could happen to You",
+            "parts": {
+              "Lead 1": "馬茨",
+              "Lead 2": "楊宗錞",
+              "吉他": "程柏諺",
+              "鋼琴": "許賀晴",
+              "貝斯": "蕭赫",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "Autumn Leaves",
+            "parts": {
+              "Lead 1": "吳乘宇",
+              "Lead 2": "林明學",
+              "鋼琴": "蕭赫",
+              "貝斯": "余宸毅",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "Besame mucho",
+            "parts": {
+              "Lead 1": "邱美慈",
+              "Lead 2": "洪軾凱",
+              "鋼琴": "楊宗錞",
+              "貝斯": "李尹瑄",
+              "鼓": "黃君翰"
+            }
+          },
+          {
+            "title": "The Girl From Ipanema",
+            "parts": {
+              "Lead 1": "吳乘宇",
+              "Lead 2": "邱美慈",
+              "吉他": "蕭赫",
+              "鋼琴": "黃君翰",
+              "貝斯": "蔡佾珊",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "Have You Met Miss Jones",
+            "parts": {
+              "Lead 1": "許賀晴",
+              "Lead 2": "林奕銘",
+              "吉他": "程柏諺",
+              "鋼琴": "李尹瑄",
+              "貝斯": "黃君翰",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "So What",
+            "parts": {
+              "Lead 1": "洪軾凱",
+              "Lead 2": "余宸毅",
+              "鋼琴": "翁培瑋",
+              "貝斯": "馬茨",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "Take Five",
+            "parts": {
+              "Lead 1": "林奕銘",
+              "Lead 2": "李尹瑄",
+              "鋼琴": "何懿軒",
+              "貝斯": "邱美慈",
+              "鼓": "呂其霖"
+            }
+          },
+          {
+            "title": "Spain",
+            "parts": {
+              "Lead 1": "洪軾凱",
+              "Lead 2": "(ALL)",
+              "鋼琴": "何懿軒",
+              "貝斯": "蕭赫",
+              "鼓": "呂其霖"
+            }
+          }
+        ]
       }
     },
     {
