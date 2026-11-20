@@ -47,7 +47,11 @@
           "url": "https://e3p.nycu.edu.tw/",
           "publisher": "國立陽明交通大學"
         }
-      ]
+      ],
+      "program": {
+        "pieces": [],
+        "basis": "目前尚未查到公開曲目表。"
+      }
     },
     {
       "code": "114A",
@@ -78,9 +82,16 @@
           "My Favorite Thing",
           "Wave",
           "Emily",
-          "Chameleon"
+          {
+            "title": "Chameleon",
+            "url": "https://www.youtube.com/watch?v=kol8XpLzLFQ"
+          }
         ],
-        "basis": "曲目與寫法依官方錄影的影片說明所列。"
+        "basis": "曲目與寫法沿用官方錄影的說明欄。",
+        "source": {
+          "label": "看 YouTube 說明欄",
+          "url": "https://www.youtube.com/watch?v=ukjqYYt-GVQ"
+        }
       },
       "notes": [
         "日期、時間、地點與曲目都來自學程官方 YouTube 全場錄影的影片說明。",
@@ -138,7 +149,67 @@
           "publisher": "NYCU人藝社院創作類跨域學程"
         }
       ],
-      "sources": []
+      "sources": [],
+      "program": {
+        "pieces": [
+          {
+            "title": "Beautiful Love",
+            "cue": "約 0:10",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=10s"
+          },
+          {
+            "title": "Softly as in a Morning Sunrise",
+            "cue": "約 5:50",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=350s"
+          },
+          {
+            "title": "So Nice",
+            "cue": "約 12:10",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=730s"
+          },
+          {
+            "title": "Autumn Leaves",
+            "cue": "約 16:40",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1000s"
+          },
+          {
+            "title": "Bewitched",
+            "cue": "約 23:00",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1380s"
+          },
+          {
+            "title": "Someday My Prince Will Come",
+            "cue": "約 27:30",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1650s"
+          },
+          {
+            "title": "Estate",
+            "cue": "約 31:10",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1870s"
+          },
+          {
+            "title": "Green Dolphin Street",
+            "cue": "約 32:00",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=1920s"
+          },
+          {
+            "title": "You Are the Sunshine of My Life",
+            "cue": "約 35:00",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2100s"
+          },
+          {
+            "title": "Isn’t She Lovely",
+            "cue": "約 39:40",
+            "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0&t=2380s"
+          }
+        ],
+        "basis": "依官方錄影畫面上的曲名與影片順序整理。時間是影片中的約略位置。",
+        "ordered": true,
+        "source": {
+          "label": "看原始錄影",
+          "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0"
+        }
+      }
     },
     {
       "code": "112B",
@@ -161,17 +232,22 @@
       "summary": "週二午間的免索票演出，共九首曲目；學程網站有活動公告，Facebook 有官方影片。",
       "program": {
         "pieces": [
-          "Blue Bossa",
           "The Girl From Ipanema",
           "Fly Me To The Moon",
           "Misty",
-          "Afternoon In Paris",
+          "Blue Bossa",
           "Howl’s Moving Castle",
+          "Afternoon In Paris",
+          "Isn’t She Lovely",
           "Missin’ You",
-          "不可思議のカルテ",
-          "Isn’t She Lovely"
+          "不可思議のカルテ"
         ],
-        "basis": "曲目依學程網站活動公告所列。"
+        "basis": "依學程 Facebook 影片貼文的曲目編號排列。活動公告列出同樣九首，排列順序不同。",
+        "ordered": true,
+        "source": {
+          "label": "看 Facebook 曲目表",
+          "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/"
+        }
       },
       "notes": [
         "時間、地點與曲目都來自藝術與音樂跨域學程網站的活動公告〈112B《爵士和聲即興與合奏》課程成果演奏發表會〉，公告寫明無需索票。原網址目前以 Internet Archive 存檔連結提供。",
@@ -208,7 +284,7 @@
       "summary": "課綱排定的期末成果發表日；另有公開的期末合奏單曲影片。",
       "notes": [
         "2023/6/15 是課綱第 18 週所列的期末成果發表日，沒有找到公告或其他資料能確認實際演出的日期與地點。",
-        "YouTube 上有這學期的期末合奏單曲影片，影片說明標示「課程：111B 爵士和聲、即興與合奏／期末題目：期末合奏」，收在同一個播放清單裡。"
+        "YouTube 上有這學期的期末合奏單曲影片，影片說明標示「課程：111B 爵士和聲、即興與合奏／期末題目：期末合奏」。"
       ],
       "videos": [
         {
@@ -226,7 +302,44 @@
           "url": "https://www.youtube.com/playlist?list=PLDZEP5aEea5A4vkjdsn7P9ybvsw8Gcl9G",
           "publisher": "說故事與多媒體跨域學程（YouTube 頻道）"
         }
-      ]
+      ],
+      "program": {
+        "pieces": [
+          {
+            "title": "Autumn Leaves",
+            "url": "https://www.youtube.com/watch?v=ts-UAMI0FRM"
+          },
+          {
+            "title": "Black Orpeus",
+            "url": "https://www.youtube.com/watch?v=SykGjU99yko"
+          },
+          {
+            "title": "Blue Bossa",
+            "url": "https://www.youtube.com/watch?v=8w9aHw6-OCo"
+          },
+          {
+            "title": "Fly me to the Moon",
+            "url": "https://www.youtube.com/watch?v=2oEVDIHlyB0"
+          },
+          {
+            "title": "Howl's Moving Castle",
+            "url": "https://www.youtube.com/watch?v=cK7gGIpV4hI"
+          },
+          {
+            "title": "Misty",
+            "url": "https://www.youtube.com/watch?v=Fd94eEJLdNY"
+          },
+          {
+            "title": "On the Sunny Side",
+            "url": "https://www.youtube.com/watch?v=9OZn2BYwuWA"
+          },
+          {
+            "title": "Someday my prince will come",
+            "url": "https://www.youtube.com/watch?v=gTQIlOlcnQE"
+          }
+        ],
+        "basis": "從公開的期末合奏單曲影片標題整理，按曲名排列。現場曲序和完整節目單未查證。"
+      }
     },
     {
       "code": "111A",
@@ -307,7 +420,57 @@
           "publisher": "學程官方 Facebook 專頁（NYCUAMCP）"
         }
       ],
-      "sources": []
+      "sources": [],
+      "program": {
+        "pieces": [
+          {
+            "title": "Four",
+            "cue": "0:00"
+          },
+          {
+            "title": "How High the Moon",
+            "cue": "3:02"
+          },
+          {
+            "title": "Whisper Not",
+            "cue": "5:49"
+          },
+          {
+            "title": "On Green Dolphin Street",
+            "cue": "8:05"
+          },
+          {
+            "title": "Waltz for Debby",
+            "cue": "10:19"
+          },
+          {
+            "title": "Autumn Leaves",
+            "cue": "12:57"
+          },
+          {
+            "title": "You’d Be So Nice to Come Home To",
+            "cue": "17:20"
+          },
+          {
+            "title": "So Beautiful",
+            "cue": "19:26"
+          },
+          {
+            "title": "Autumn Leaves",
+            "cue": "23:21"
+          },
+          {
+            "title": "Four",
+            "cue": "26:15"
+          }
+        ],
+        "basis": "依學程 Facebook 影片貼文的曲名和時間戳排列。重複的曲名是不同組的演出。",
+        "ordered": true,
+        "source": {
+          "label": "看 Facebook 貼文與影片",
+          "url": "https://www.facebook.com/NYCUAMCP/videos/494905151903194/"
+        }
+      }
     },
     {
       "code": "108B",

@@ -332,6 +332,36 @@ def split(heading_en, heading, inner, hid):
 </section>"""
 
 
+def program_block(program):
+    rows = []
+    ordered = program.get("ordered", False)
+    for number, piece in enumerate(program["pieces"], start=1):
+        if isinstance(piece, str):
+            piece = {"title": piece}
+        title = e(piece["title"])
+        number_html = f'<span class="piece-number" aria-hidden="true">{number:02d}</span>' if ordered else ""
+        timestamp = f'<span class="piece-time">{e(piece["cue"])}</span>' if piece.get("cue") else ""
+        if piece.get("url"):
+            entry = ext(
+                piece["url"],
+                f'<span>{title}</span>{timestamp}<span class="piece-watch">觀看</span>',
+                "piece-content",
+            )
+        else:
+            entry = f'<div class="piece-content"><span>{title}</span>{timestamp}</div>'
+        rows.append(f"        <li>{number_html}{entry}</li>")
+    list_html = ""
+    if rows:
+        tag = "ol" if ordered else "ul"
+        style = "pieces ordered" if ordered else "pieces"
+        list_html = f'      <{tag} class="{style}" role="list">\n' + "\n".join(rows) + f"\n      </{tag}>\n"
+    note_text = e(program["basis"])
+    if source := program.get("source"):
+        note_text += " " + ext(source["url"], e(source["label"]))
+    note = f'      <p class="footnote">{note_text}</p>'
+    return split("Program", "演出曲目", list_html + note, "program-h")
+
+
 def build_semester(index):
     sem = SEMESTERS[index]
     show = sem.get("show")
@@ -373,20 +403,15 @@ def build_semester(index):
 </section>"""
     ]
 
+    jumps = []
+    if sem.get("program"):
+        sections.append(program_block(sem["program"]))
+        jumps.append('<a href="#program-h">看曲目</a>')
+
     if sem["videos"]:
         sections.append(split("Video", "演出影片", videos_block(sem["videos"]), "video-h"))
-
-    if sem.get("program"):
-        pieces = "\n".join(f"        <li>{e(p)}</li>" for p in sem["program"]["pieces"])
-        sections.append(
-            split(
-                "Set list",
-                "曲目",
-                f'      <ol class="pieces">\n{pieces}\n      </ol>\n'
-                f'      <p class="footnote">{e(sem["program"]["basis"])}</p>',
-                "program-h",
-            )
-        )
+        jumps.append('<a href="#video-h">看演出影片</a>')
+    jumps_html = f'\n    <nav class="term-jumps" aria-label="本頁導覽">{"".join(jumps)}</nav>' if jumps else ""
 
     notes = "\n".join(f"        <li>{e(n)}</li>" for n in sem["notes"])
     sections.append(split("Notes", "查證說明", f'      <ul class="notes">\n{notes}\n      </ul>', "notes-h"))
@@ -436,7 +461,7 @@ def build_semester(index):
       <span class="term-name">{term_name(sem)}・{e(SITE['course_zh'])}</span>
       {status_chip(sem)}
     </div>
-    <p class="term-summary">{e(sem['summary'])}</p>
+    <p class="term-summary">{e(sem['summary'])}</p>{jumps_html}
   </div>
 </section>
 
