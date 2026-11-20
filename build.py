@@ -147,9 +147,9 @@ def page(*, root, path, title, description, body, current=""):
 
 # ---------- 影片 ----------
 
-def video_block(video):
+def video_block(video, compact=False):
     title = e(video["title"])
-    meta = e(f"{video['kind']}・{video['publisher']}")
+    meta = e(video["kind"] if compact else f"{video['kind']}・{video['publisher']}")
     if video["type"] == "youtube":
         list_attr = f' data-list="{e(video["list"])}"' if video.get("list") else ""
         return f"""<figure class="video">
@@ -170,52 +170,40 @@ def video_block(video):
 </figure>"""
 
 
-def videos_block(videos):
+def videos_block(videos, compact=False):
     two = " two" if len(videos) > 1 else ""
-    return f'<div class="videos{two}">\n' + "\n".join(video_block(v) for v in videos) + "\n</div>"
+    return f'<div class="videos{two}">\n' + "\n".join(video_block(v, compact=compact) for v in videos) + "\n</div>"
 
 
 # ---------- 首頁 ----------
 
-def archive_row(sem, root=""):
-    show = sem.get("show")
-    if show:
-        when, label = fmt_date(show["date"]), "演出日"
-    else:
-        when, label = fmt_date(sem["syllabus_final"]["date"]), "課綱所列日期"
-    tags = '<span class="tag">有影片</span>' if sem["videos"] else ""
-    return f"""    <li>
-      <a class="row" href="{root}{slug(sem)}/">
-        <span class="row-code">{e(sem['code'])}</span>
-        <span class="row-main">
-          <span class="row-meta">{status_chip(sem)}{tags}</span>
+def archive_row(sem, latest=False):
+    show = sem.get("show") or {}
+    date_iso = show.get("date") or sem["syllabus_final"]["date"]
+    time = f'<span>{e(show["time"])}</span>' if show.get("time") else ""
+    venue = f'\n          <small>{e(show["venue"])}</small>' if show.get("venue") else ""
+    section_id = ' id="latest"' if latest else ""
+    status = '<span class="status performed">最近一場</span>' if latest else status_chip(sem)
+    videos = sem["videos"]
+    recordings = ""
+    if videos:
+        recordings = f'\n      <div class="archive-recordings">{videos_block(videos, compact=True)}</div>'
+    return f"""    <li{section_id}>
+      <a class="archive-row" href="{slug(sem)}/">
+        <span class="archive-term">
+          <strong>{e(sem['code'])}</strong>
+          {status}
         </span>
-        <span class="row-date">{when}<small>{label}</small></span>
-        <span class="row-arrow" aria-hidden="true">→</span>
-      </a>
-    </li>"""
-
-
-def archive_feature(sem):
-    show = sem["show"]
-    time = f' {e(show["time"])}' if show.get("time") else ""
-    venue = f'\n          <p>{e(show["venue"])}</p>' if show.get("venue") else ""
-    return f"""    <li id="latest">
-      <article class="archive-feature" aria-labelledby="latest-h">
-        <div>
-          <p class="eyebrow">最近一場</p>
-          <h3 id="latest-h" class="row-code">{e(sem['code'])}</h3>
-          <p><time datetime="{e(show['date'])}">{fmt_date(show['date'])}</time>{time}</p>{venue}
-          <a class="btn" href="{slug(sem)}/">查看曲目與演出資訊<span aria-hidden="true">→</span></a>
-        </div>
-        {videos_block(sem['videos'][:1])}
-      </article>
+        <span class="archive-date">
+          <span><time datetime="{e(date_iso)}">{fmt_date(date_iso)}</time>{time}</span>{venue}
+        </span>
+        <span class="archive-more">場次資訊 <span aria-hidden="true">→</span></span>
+      </a>{recordings}
     </li>"""
 
 
 def build_home():
     cur = by_code(SITE["current"])
-    latest = by_code(SITE["latest_show"])
     cur_show = cur.get("show")
     cur_final = parse((cur_show or cur["syllabus_final"])["date"])
     time = (cur_show or {}).get("time")
@@ -228,7 +216,7 @@ def build_home():
         primary_url += "#program-h"
         primary_label = "查看曲目與編制"
     first, last = SEMESTERS[-1], SEMESTERS[0]
-    archive = "\n".join(archive_feature(s) if s is latest else archive_row(s) for s in SEMESTERS)
+    archive = "\n".join(archive_row(s, latest=s["code"] == SITE["latest_show"]) for s in SEMESTERS)
 
     body = f"""<section class="hero" id="now" aria-labelledby="now-h">
   <div class="wrap hero-layout">
