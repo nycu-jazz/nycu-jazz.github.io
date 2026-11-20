@@ -175,11 +175,15 @@ def videos_block(videos, compact=False, root=""):
 # ---------- 首頁 ----------
 
 def archive_row(sem, latest=False):
-    show = sem.get("show") or {}
-    date_iso = show.get("date") or sem["syllabus_final"]["date"]
-    time = f'<span>{e(show["time"])}</span>' if show.get("time") else ""
-    detail = show.get("venue") if show else "課綱日期"
-    date_detail = f'\n          <small>{e(detail)}</small>' if detail else ""
+    date_display = ""
+    if show := sem.get("show"):
+        date_iso = show["date"]
+        time = f'<span>{e(show["time"])}</span>' if show.get("time") else ""
+        venue = f'\n          <small>{e(show["venue"])}</small>' if show.get("venue") else ""
+        date_display = f"""
+        <span class="archive-date">
+          <span><time datetime="{e(date_iso)}">{fmt_date(date_iso)}</time>{time}</span>{venue}
+        </span>"""
     section_id = ' id="latest"' if latest else ""
     videos = sem["videos"]
     recordings = ""
@@ -187,10 +191,7 @@ def archive_row(sem, latest=False):
         recordings = f'\n      <div class="archive-recordings">{videos_block(videos, compact=True)}</div>'
     return f"""    <li{section_id}>
       <a class="archive-row" href="{slug(sem)}/">
-        <span class="archive-term"><strong>{e(sem['code'])}</strong></span>
-        <span class="archive-date">
-          <span><time datetime="{e(date_iso)}">{fmt_date(date_iso)}</time>{time}</span>{date_detail}
-        </span>
+        <span class="archive-term"><strong>{e(sem['code'])}</strong></span>{date_display}
         <span class="archive-more">場次資訊 <span aria-hidden="true">→</span></span>
       </a>{recordings}
     </li>"""
@@ -198,10 +199,17 @@ def archive_row(sem, latest=False):
 
 def build_home():
     cur = by_code(SITE["current"])
-    cur_show = cur.get("show")
-    cur_final = parse((cur_show or cur["syllabus_final"])["date"])
-    time = (cur_show or {}).get("time")
-    venue = (cur_show or {}).get("venue")
+    cur_show = cur.get("show") or {}
+    event_date = ""
+    if cur_show:
+        cur_final = parse(cur_show["date"])
+        event_date = f"""
+      <time class="event-date" datetime="{cur_final.isoformat()}">
+        <span class="event-day">{cur_final.month:02d}<span>/</span>{cur_final.day:02d}</span>
+        <span class="event-weekday">{cur_final.year} 年・星期{WEEKDAYS[cur_final.weekday()]}</span>
+      </time>"""
+    time = cur_show.get("time")
+    venue = cur_show.get("venue")
     details = f"{time or '時間待公布'}・{venue or '地點待公布'}" if time or venue else "時間與地點待公布"
     program = cur.get("program", {}).get("pieces", [])
     primary_url = f"{slug(cur)}/"
@@ -221,11 +229,7 @@ def build_home():
       <p class="lede">陽明交大・{e(SITE['teacher'])}老師<br>{e(SITE['course_zh'])}</p>
     </div>
     <div class="hero-event">
-      <h2 class="event-title">{e(cur['code'])} 期末成果發表</h2>
-      <time class="event-date" datetime="{cur_final.isoformat()}">
-        <span class="event-day">{cur_final.month:02d}<span>/</span>{cur_final.day:02d}</span>
-        <span class="event-weekday">{cur_final.year} 年・星期{WEEKDAYS[cur_final.weekday()]}</span>
-      </time>
+      <h2 class="event-title">{e(cur['code'])} 期末成果發表</h2>{event_date}
       <p class="event-details">{e(details)}</p>
       <a class="btn primary event-cta" href="{primary_url}">{primary_label}<span aria-hidden="true">→</span></a>
     </div>
@@ -308,7 +312,6 @@ def program_block(program, cards=False):
 def build_semester(index):
     sem = SEMESTERS[index]
     show = sem.get("show")
-    syl = sem["syllabus_final"]
     root = "../"
 
     facts = []
@@ -321,14 +324,6 @@ def build_semester(index):
         missing = [label for key, label in (("time", "演出時間"), ("venue", "地點")) if not (show or {}).get(key)]
         if missing:
             facts.append(fact("與".join(missing), "待公布"))
-    if not show or show["date"] != syl["date"]:
-        facts.append(
-            fact(
-                "課綱所列成果發表",
-                fmt_date(syl["date"]),
-                f"課綱第 {syl['week']} 週「{syl['text']}」",
-            )
-        )
     facts.append(fact("當期課號", e(sem["crs_no"]), f"{sem['credits']} 學分・{SITE['teacher']}老師"))
 
     sections = [

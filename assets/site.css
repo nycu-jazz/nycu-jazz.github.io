@@ -251,7 +251,7 @@ ul, ol { padding: 0; list-style: none; }
 .archive-date > span { display: flex; flex-wrap: wrap; gap: 0.15rem 0.65rem; }
 .archive-date time { white-space: nowrap; }
 .archive-date small { display: block; margin-top: 0.2rem; color: var(--muted); font-size: 0.8125rem; }
-.archive-more { color: var(--brass); font-size: 0.875rem; white-space: nowrap; }
+.archive-more { grid-column: 3; color: var(--brass); font-size: 0.875rem; white-space: nowrap; }
 
 .archive-recordings { margin-top: 0.45rem; margin-bottom: 0.35rem; }
 .archive-recordings .videos { gap: 0.6rem; }

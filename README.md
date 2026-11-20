@@ -39,14 +39,13 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
   "crs_no": "課號",
   "credits": 3,
   "status": "scheduled",
-  "syllabus_final": { "date": "2027-06-15", "week": 16, "text": "課綱該週的原文" },
   "show": null,
   "videos": [],
   "sources": []
 }
 ```
 
-- `status`：`scheduled`（本學期，尚未演出）、`performed`（過去場次）、`syllabus`（過去學期，只有課綱日期）。
+- `status`：`scheduled`（本學期，尚未演出）、`performed`（過去場次）、`syllabus`（過去學期，無場次資料）。
 - `show` 包含 `date`、`time`、`venue`，可加 `admission`。時間與場地可以留空。
 - `videos`：YouTube 填 `{ "type": "youtube", "id": "影片 ID", "title", "kind", "publisher" }`（可加 `"list"`）；Facebook 填 `{ "type": "facebook", "url", "title", "kind", "publisher" }`。
 - `program`（選填）：`{ "pieces": ["曲名"] }`。有來源支持曲序時加入 `"ordered": true`，曲目會顯示序號。
