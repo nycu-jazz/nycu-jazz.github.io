@@ -5,6 +5,7 @@
     "course_zh": "爵士和聲、即興與合奏",
     "course_en": "Jazz Harmony, Improvisation and Ensemble",
     "teacher": "林明學",
+    "teacher_url": "https://www.mitchlinmusic.com/",
     "current": "115A",
     "latest_show": "114A",
     "repository": "https://github.com/nycu-jazz/nycu-jazz.github.io"
@@ -18,16 +19,12 @@
       "show": {
         "date": "2026-12-22",
         "time": "17:00–18:00",
-        "venue": "光復校區浩然圖書館一樓大廳"
+        "venue": "光復校區浩然圖書館一樓大廳",
+        "map_query": "國立陽明交通大學 浩然圖書館",
+        "venue_en": "Haoran Library, first-floor lobby, Guangfu Campus"
       },
       "videos": [],
-      "sources": [
-        {
-          "label": "陽明交大 E3 數位教學平台（課程公告，需登入）",
-          "url": "https://e3p.nycu.edu.tw/",
-          "publisher": "國立陽明交通大學"
-        }
-      ],
+      "sources": [],
       "program": {
         "ordered": true,
         "pieces": [
@@ -40,7 +37,13 @@
               "蔡佾珊",
               "何懿軒",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "The Charlie Parker Story",
+              "artist": "Charlie Parker",
+              "url": "https://www.youtube.com/watch?v=ChMEL38sc0w",
+              "cover": "assets/albums/billie.webp"
+            }
           },
           {
             "title": "Let’s Fall in Love",
@@ -50,7 +53,13 @@
               "余宸毅",
               "吳乘宇",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "Ella Fitzgerald Sings the Harold Arlen Song Book",
+              "artist": "Ella Fitzgerald & Billy May and His Orchestra",
+              "url": "https://www.youtube.com/watch?v=1bngHcH1mvo",
+              "cover": "assets/albums/fall.webp"
+            }
           },
           {
             "title": "It Could happen to You",
@@ -61,7 +70,13 @@
               "許賀晴",
               "蕭赫",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "Chet Baker Sings: It Could Happen to You",
+              "artist": "Chet Baker",
+              "url": "https://www.youtube.com/watch?v=xqwZJwakaIk",
+              "cover": "assets/albums/happen.webp"
+            }
           },
           {
             "title": "Autumn Leaves",
@@ -71,7 +86,13 @@
               "蕭赫",
               "余宸毅",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "Somethin’ Else",
+              "artist": "Cannonball Adderley",
+              "url": "https://www.youtube.com/watch?v=CpB7-8SGlJ0",
+              "cover": "assets/albums/autumn.webp"
+            }
           },
           {
             "title": "Besame mucho",
@@ -81,7 +102,13 @@
               "楊宗錞",
               "李尹瑄",
               "黃君翰"
-            ]
+            ],
+            "album": {
+              "title": "Boss Guitar",
+              "artist": "Wes Montgomery",
+              "url": "https://www.youtube.com/watch?v=jHjvkOK7VFk",
+              "cover": "assets/albums/besame.webp"
+            }
           },
           {
             "title": "The Girl From Ipanema",
@@ -92,7 +119,13 @@
               "黃君翰",
               "蔡佾珊",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "Getz/Gilberto",
+              "artist": "Stan Getz & João Gilberto",
+              "url": "https://www.youtube.com/watch?v=V_pexBDOI4o",
+              "cover": "assets/albums/ipanema.webp"
+            }
           },
           {
             "title": "Have You Met Miss Jones",
@@ -103,7 +136,13 @@
               "李尹瑄",
               "黃君翰",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "We Get Requests",
+              "artist": "Oscar Peterson Trio",
+              "url": "https://www.youtube.com/watch?v=0gjUhFbp3XE",
+              "cover": "assets/albums/jones.webp"
+            }
           },
           {
             "title": "So What",
@@ -113,7 +152,13 @@
               "翁培瑋",
               "馬茨",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "Kind of Blue",
+              "artist": "Miles Davis",
+              "url": "https://www.youtube.com/watch?v=ylXk1LBvIqU",
+              "cover": "assets/albums/so-what.webp"
+            }
           },
           {
             "title": "Take Five",
@@ -123,7 +168,13 @@
               "何懿軒",
               "邱美慈",
               "呂其霖"
-            ]
+            ],
+            "album": {
+              "title": "Time Out",
+              "artist": "The Dave Brubeck Quartet",
+              "url": "https://www.youtube.com/watch?v=-DHuW1h1wHw",
+              "cover": "assets/albums/take-five.webp"
+            }
           },
           {
             "title": "Spain",
@@ -145,8 +196,67 @@
               "李尹瑄",
               "黃君翰",
               "翁培瑋"
-            ]
+            ],
+            "album": {
+              "title": "Light as a Feather",
+              "artist": "Chick Corea & Return to Forever",
+              "url": "https://www.youtube.com/watch?v=sEhQTjgoTdU",
+              "cover": "assets/albums/spain.webp"
+            }
           }
+        ]
+      },
+      "credits_by_role": {
+        "指導": [
+          "林明學"
+        ],
+        "薩克斯風": [
+          "吳乘宇",
+          "林奕銘"
+        ],
+        "口琴": [
+          "洪軾凱"
+        ],
+        "大提琴": [
+          "馬茨"
+        ],
+        "中提琴": [
+          "邱美慈"
+        ],
+        "人聲": [
+          "許賀晴"
+        ],
+        "吉他": [
+          "蕭赫",
+          "程柏諺"
+        ],
+        "鋼琴": [
+          "蔡佾珊",
+          "李尹瑄",
+          "何懿軒",
+          "楊宗錞",
+          "余宸毅",
+          "許賀晴",
+          "蕭赫",
+          "黃君翰",
+          "翁培瑋"
+        ],
+        "貝斯": [
+          "蕭赫",
+          "黃君翰",
+          "何懿軒",
+          "吳乘宇",
+          "余宸毅",
+          "李尹瑄",
+          "蔡佾珊",
+          "馬茨",
+          "邱美慈"
+        ],
+        "鼓": [
+          "黃君翰"
+        ],
+        "客席鼓手": [
+          "呂其霖"
         ]
       }
     },
@@ -158,7 +268,8 @@
       "show": {
         "date": "2025-12-10",
         "time": "19:00–20:30",
-        "venue": "光復校區浩然圖書館一樓大廳"
+        "venue": "光復校區浩然圖書館一樓大廳",
+        "venue_en": "Haoran Library, first-floor lobby, Guangfu Campus"
       },
       "program": {
         "pieces": [
@@ -177,7 +288,8 @@
         ],
         "source": {
           "label": "看 YouTube 說明欄",
-          "url": "https://www.youtube.com/watch?v=ukjqYYt-GVQ"
+          "url": "https://www.youtube.com/watch?v=ukjqYYt-GVQ",
+          "label_en": "See the YouTube description"
         }
       },
       "videos": [
@@ -186,34 +298,44 @@
           "id": "ukjqYYt-GVQ",
           "title": "【114A】爵士和聲、即興與合奏 - 成果演奏發表會",
           "kind": "全場錄影",
-          "publisher": "NYCU人藝社院創作類跨域學程"
+          "publisher": "NYCU人藝社院創作類跨域學程",
+          "thumbnail": "assets/recordings/114a-0715.webp",
+          "title_en": "114A Jazz Harmony, Improvisation and Ensemble — Final Concert"
         },
         {
           "type": "youtube",
           "id": "kol8XpLzLFQ",
           "title": "【114A】爵士和聲、即興與合奏 - chameleon",
           "kind": "單曲",
-          "publisher": "NYCU人藝社院創作類跨域學程"
+          "publisher": "NYCU人藝社院創作類跨域學程",
+          "title_en": "114A Chameleon"
         }
       ],
       "sources": [],
-      "performers": [
-        "方齊瑋",
-        "江品寬",
-        "林庭慧",
-        "金志潤",
-        "郭芷安",
-        "許安",
-        "傅永威",
-        "游子毅",
-        "陳冠圻",
-        "楊子霏",
-        "蔡禮安",
-        "韓沂展",
-        "顏慎皓",
-        "鄭毓獻",
-        "林昱廷"
-      ]
+      "credits_by_role": {
+        "演出者": [
+          "方齊瑋",
+          "江品寬",
+          "林庭慧",
+          "金志潤",
+          "郭芷安",
+          "許安",
+          "傅永威",
+          "游子毅",
+          "陳冠圻",
+          "楊子霏",
+          "蔡禮安",
+          "韓沂展",
+          "顏慎皓",
+          "鄭毓獻"
+        ],
+        "客席薩克斯風": [
+          "林昱廷"
+        ],
+        "指導": [
+          "林明學"
+        ]
+      }
     },
     {
       "code": "113B",
@@ -231,7 +353,8 @@
           "id": "R2LrcKo4Uw0",
           "title": "【113B】爵士和聲、即興與合奏",
           "kind": "演出錄影",
-          "publisher": "NYCU人藝社院創作類跨域學程"
+          "publisher": "NYCU人藝社院創作類跨域學程",
+          "title_en": "113B Jazz Harmony, Improvisation and Ensemble"
         }
       ],
       "sources": [],
@@ -356,8 +479,34 @@
         "ordered": true,
         "source": {
           "label": "看原始錄影",
-          "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0"
+          "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0",
+          "label_en": "Watch the original recording"
         }
+      },
+      "credits_by_role": {
+        "演出者": [
+          "林奕銘",
+          "林明學",
+          "嚴胤坤",
+          "林夢遠",
+          "黃屏翰",
+          "王維震",
+          "郭典淳",
+          "游翔宇",
+          "郭芷杅",
+          "陳昱喬",
+          "馬冠暉",
+          "李嘉雯",
+          "蔡君浩",
+          "王瑄羽",
+          "陳柏予",
+          "程亮",
+          "鄭毓獻",
+          "梁愷翹"
+        ],
+        "指導": [
+          "林明學"
+        ]
       }
     },
     {
@@ -369,7 +518,9 @@
         "date": "2024-06-11",
         "time": "12:15–13:15",
         "venue": "光復校區浩然圖書館一樓大廳",
-        "admission": "免索票"
+        "admission": "免索票",
+        "venue_en": "Haoran Library, first-floor lobby, Guangfu Campus",
+        "admission_en": "No ticket required"
       },
       "program": {
         "pieces": [
@@ -381,12 +532,16 @@
           "Afternoon In Paris",
           "Isn’t She Lovely",
           "Missin’ You",
-          "不可思議のカルテ"
+          {
+            "title": "不可思議のカルテ",
+            "title_en": "Fukashigi no Karte"
+          }
         ],
         "ordered": true,
         "source": {
           "label": "看 Facebook 曲目表",
-          "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/"
+          "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/",
+          "label_en": "See the program on Facebook"
         }
       },
       "videos": [
@@ -396,33 +551,41 @@
           "title": "112B 課程成果演奏發表會",
           "kind": "演出影片",
           "publisher": "學程官方 Facebook 專頁（NYCUAMCP）",
-          "thumbnail": "assets/recordings/112b-5937.webp"
+          "thumbnail": "assets/recordings/112b-5937.webp",
+          "title_en": "112B Jazz Harmony, Improvisation and Ensemble — Final Concert"
         }
       ],
       "sources": [
         {
           "label": "活動公告〈112B《爵士和聲即興與合奏》課程成果演奏發表會〉（Internet Archive 存檔）",
           "url": "https://web.archive.org/web/20260614232749/https://xam.nycu.edu.tw/archives/1394",
-          "publisher": "國立陽明交通大學 藝術與音樂跨域學程"
+          "publisher": "國立陽明交通大學 藝術與音樂跨域學程",
+          "label_en": "112B concert announcement (Internet Archive)",
+          "publisher_en": "NYCU Art and Music Cross-Domain Program"
         }
       ],
-      "performers": [
-        "邱照元",
-        "林靖家",
-        "黃少芃",
-        "雲羽瑤",
-        "周立恩",
-        "黃柏翔",
-        "林庠安",
-        "黃子紘",
-        "温蕙瑄",
-        "蔡卓穎",
-        "鄭毓獻",
-        "周旅安",
-        "林夢遠",
-        "Reymon",
-        "陳庠宇"
-      ]
+      "credits_by_role": {
+        "演出者": [
+          "邱照元",
+          "林靖家",
+          "黃少芃",
+          "雲羽瑤",
+          "周立恩",
+          "黃柏翔",
+          "林庠安",
+          "黃子紘",
+          "温蕙瑄",
+          "蔡卓穎",
+          "鄭毓獻",
+          "周旅安",
+          "林夢遠",
+          "Reymon",
+          "陳庠宇"
+        ],
+        "指導": [
+          "林明學"
+        ]
+      }
     },
     {
       "code": "111B",
@@ -437,14 +600,17 @@
           "list": "PLDZEP5aEea5A4vkjdsn7P9ybvsw8Gcl9G",
           "title": "111B 爵士和聲、即興與合奏 Howl's Moving Castle",
           "kind": "單曲",
-          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）"
+          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）",
+          "title_en": "111B Howl’s Moving Castle"
         }
       ],
       "sources": [
         {
           "label": "111B 影片所在的 YouTube 播放清單",
           "url": "https://www.youtube.com/playlist?list=PLDZEP5aEea5A4vkjdsn7P9ybvsw8Gcl9G",
-          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）"
+          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）",
+          "label_en": "111B YouTube playlist",
+          "publisher_en": "Storytelling and Multimedia Cross-Domain Program (YouTube)"
         }
       ],
       "program": {
@@ -528,6 +694,47 @@
             ]
           }
         ]
+      },
+      "credits_by_role": {
+        "主奏": [
+          "林芷瑩",
+          "林明學",
+          "江宜蓁",
+          "戴宸洋",
+          "邱弘竣",
+          "盧聖文",
+          "呂孰睿",
+          "童心"
+        ],
+        "和聲伴奏": [
+          "邱弘竣",
+          "呂孰睿",
+          "林芷瑩",
+          "戴宸洋",
+          "盧聖文",
+          "江宜蓁"
+        ],
+        "貝斯聲部": [
+          "盧聖文",
+          "呂孰睿",
+          "陳怡樺",
+          "邱弘竣",
+          "江宜蓁",
+          "戴宸洋",
+          "林芷瑩"
+        ],
+        "鼓聲部": [
+          "呂孰睿",
+          "盧聖文",
+          "邱弘竣",
+          "江宜蓁",
+          "林芷瑩",
+          "陳怡樺",
+          "戴宸洋"
+        ],
+        "指導": [
+          "林明學"
+        ]
       }
     },
     {
@@ -570,7 +777,8 @@
           "title": "109A 期末合奏",
           "kind": "期末合奏影片",
           "publisher": "學程官方 Facebook 專頁（NYCUAMCP）",
-          "thumbnail": "assets/recordings/109a-1309.webp"
+          "thumbnail": "assets/recordings/109a-1309.webp",
+          "title_en": "109A Final Ensemble Performance"
         }
       ],
       "sources": [],
@@ -676,8 +884,58 @@
         "ordered": true,
         "source": {
           "label": "看 Facebook 貼文與影片",
-          "url": "https://www.facebook.com/NYCUAMCP/videos/494905151903194/"
+          "url": "https://www.facebook.com/NYCUAMCP/videos/494905151903194/",
+          "label_en": "See the original Facebook post"
         }
+      },
+      "credits_by_role": {
+        "主奏": [
+          "Joe Lin",
+          "林恩衍",
+          "林瑀絃",
+          "林育瑄",
+          "江承祐",
+          "童瑞棋",
+          "簡上棋",
+          "Lily Kuo",
+          "郭庭均",
+          "陳芝儀"
+        ],
+        "和聲伴奏": [
+          "簡上棋",
+          "施楷鏡",
+          "黃仁暐",
+          "林宗諺",
+          "郭佳琍",
+          "林育瑄"
+        ],
+        "貝斯聲部": [
+          "林恩衍",
+          "林宗諺",
+          "江承祐",
+          "郭佳俐",
+          "林瑀絃",
+          "施楷鏡",
+          "陳芝儀",
+          "黃仁暐"
+        ],
+        "鼓聲部": [
+          "施楷鏡",
+          "簡上棋",
+          "林宗諺",
+          "陳芝儀",
+          "林育瑄",
+          "郭庭均",
+          "林恩衍",
+          "童瑞棋",
+          "郭佳琍"
+        ],
+        "指導": [
+          "林明學"
+        ],
+        "助教": [
+          "黃雅琳"
+        ]
       }
     },
     {

@@ -1,4 +1,4 @@
-/* NYCU Jazz — 兩個小加強，沒有 JS 時頁面仍可完整使用。 */
+/* 沒有 JavaScript 時，影片卡片會直接開啟來源。 */
 (function () {
   "use strict";
 
@@ -19,29 +19,104 @@
     }
   }
 
-  // 2. YouTube 影片：先顯示縮圖，按下後才在原位載入播放器。
-  //    file:// 之下 YouTube 嵌入會被拒絕，所以保留原本的外部連結。
-  if (!isFile) {
-    document.addEventListener("click", function (event) {
-      var frame = event.target.closest ? event.target.closest("a[data-yt]") : null;
-      if (!frame || event.metaKey || event.ctrlKey || event.shiftKey || event.button) return;
+  // file:// 缺少嵌入播放器需要的網站來源，保留原連結。
+  if (isFile) return;
+  const cards = document.querySelectorAll(".video-card:is([data-yt], [data-fb])");
+  if (!cards.length) return;
+
+  const english = document.documentElement.lang === "en";
+  const panel = document.createElement("section");
+  panel.id = "video-player";
+  panel.className = "video-panel";
+  panel.setAttribute("aria-labelledby", "video-player-title");
+  panel.inert = true;
+  panel.innerHTML = `
+    <div class="video-panel-content">
+      <div class="video-panel-bar">
+        <h2 id="video-player-title"></h2>
+        <button class="video-panel-close" type="button">${english ? "Close player" : "收起"}</button>
+      </div>
+      <div class="video-frame"></div>
+      <div class="video-panel-bar">
+        <a class="video-panel-original ext" target="_blank" rel="noopener">${english ? "Open in new tab" : "在新分頁開啟"}</a>
+      </div>
+    </div>`;
+
+  const title = panel.querySelector("h2");
+  const frame = panel.querySelector(".video-frame");
+  const original = panel.querySelector(".video-panel-original");
+  const close = panel.querySelector("button");
+  let activeCard = null;
+
+  function collapse() {
+    const card = activeCard;
+    card.setAttribute("aria-expanded", "false");
+    card.removeAttribute("aria-controls");
+    panel.classList.remove("is-expanded");
+    panel.inert = true;
+    frame.replaceChildren();
+    activeCard = null;
+    card.focus({ preventScroll: true });
+    card.scrollIntoView({ block: "nearest" });
+  }
+
+  close.addEventListener("click", collapse);
+  panel.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") collapse();
+  });
+
+  for (const card of cards) {
+    card.setAttribute("aria-expanded", "false");
+    card.addEventListener("click", function (event) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
       event.preventDefault();
+      if (activeCard === card) {
+        collapse();
+        return;
+      }
 
-      var src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(frame.getAttribute("data-yt")) + "?autoplay=1&rel=0";
-      var list = frame.getAttribute("data-list");
-      if (list) src += "&list=" + encodeURIComponent(list);
+      const group = card.closest(".videos");
+      if (activeCard) {
+        activeCard.setAttribute("aria-expanded", "false");
+        activeCard.removeAttribute("aria-controls");
+      }
+      if (panel.previousElementSibling !== group) {
+        panel.classList.remove("is-expanded");
+        group.after(panel);
+        // 先套用收合高度，讓移到其他場次的播放器也能展開。
+        panel.getBoundingClientRect();
+      }
+      activeCard = card;
+      card.setAttribute("aria-controls", panel.id);
+      card.setAttribute("aria-expanded", "true");
+      title.textContent = card.dataset.title;
+      original.href = card.href;
+      panel.inert = false;
+      panel.classList.add("is-expanded");
 
-      var holder = document.createElement("div");
-      holder.className = "video-frame";
-      var player = document.createElement("iframe");
-      player.src = src;
-      player.title = frame.getAttribute("data-title") || "YouTube 影片";
-      player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      let url;
+      if (card.dataset.yt) {
+        url = new URL("https://www.youtube-nocookie.com/embed/" + encodeURIComponent(card.dataset.yt));
+        url.searchParams.set("autoplay", "1");
+        url.searchParams.set("rel", "0");
+        if (card.dataset.list) url.searchParams.set("list", card.dataset.list);
+      } else {
+        url = new URL("https://www.facebook.com/plugins/video.php");
+        url.searchParams.set("href", card.href);
+        url.searchParams.set("autoplay", "true");
+        url.searchParams.set("show_text", "false");
+        url.searchParams.set("width", Math.round(frame.clientWidth).toString());
+      }
+
+      const player = document.createElement("iframe");
+      player.src = url.href;
+      player.title = title.textContent;
+      player.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
       player.referrerPolicy = "strict-origin-when-cross-origin";
       player.allowFullscreen = true;
-      holder.appendChild(player);
-      frame.parentNode.replaceChild(holder, frame);
-      player.focus();
+      frame.replaceChildren(player);
+      close.focus({ preventScroll: true });
+      panel.scrollIntoView({ block: "start" });
     });
   }
 })();

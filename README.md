@@ -10,7 +10,8 @@
 | --- | --- |
 | `/` | 首頁：本學期、歷屆演出（含錄影） |
 | `/115a/`、`/114a/`、`/113b/` … `/108b/` | 各學期頁（A = 第 1 學期，B = 第 2 學期） |
-| `/404.html` | 找不到頁面 |
+| `/en/`、`/en/115a/` 等 | 英文首頁與各期演出，頁首可切換語言 |
+| `/404.html`、`/en/404.html` | 找不到頁面 |
 
 ## 檔案
 
@@ -18,8 +19,8 @@
 data/site.json     全站內容（唯一需要手動編輯的資料檔）
 build.py           產生器，只用 Python 3 標準函式庫
 assets/site.css    樣式（顏色、字體變數在最上面的 :root）
-assets/site.js     file:// 預覽的連結修正、YouTube 點擊後才載入
-index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生，請勿手改
+assets/site.js     file:// 預覽的連結修正、按需展開內嵌播放器
+index.html、<學期>/index.html、en/、404.html、sitemap.xml   由 build.py 產生，請勿手改
 ```
 
 ## 更新內容
@@ -50,8 +51,9 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
 - `videos`：YouTube 填 `{ "type": "youtube", "id": "影片 ID", "title", "kind", "publisher" }`（可加 `"list"`）；Facebook 填 `{ "type": "facebook", "url", "title", "kind", "publisher" }`。
 - `program`（選填）：`{ "pieces": ["曲名"] }`。有來源支持曲序時加入 `"ordered": true`，曲目會顯示序號。
 - 單曲可填 `{ "title": "曲名", "cue": "4:20", "url": "公開影片連結" }`，時間戳和連結都可省略。有公開字幕或說明時，可加單曲的 `"performers": ["姓名"]`。曲目可附 `"source": { "label": "連結文字", "url": "原始來源網址" }`。
-- 可在學期層級填 `"performers": ["姓名"]` 以顯示整場名單。
+- 可在學期層級填 `"credits_by_role": { "鋼琴": ["姓名"], "鼓": ["姓名"] }`，在曲目下方顯示整場名單。來源只列姓名時，可用「演出者」作為欄名。
 - 本學期沒有公開曲目表時，可將 `pieces` 留空。
+- 英文版由同一筆資料產生。場地、入場方式、影片或曲名、來源標題與發布者可分別填 `venue_en`、`admission_en`、`title_en`、`label_en` 與 `publisher_en`。演出者姓名共用原文。
 - 課綱連結由 `code` 與 `crs_no` 自動組出，星期由日期自動算出，不用手填。
 
 ## 發布到 GitHub Pages
@@ -60,4 +62,4 @@ index.html、<學期>/index.html、404.html、sitemap.xml   由 build.py 產生�
 2. Settings → Pages → Source 選 **Deploy from a branch**，分支 `main`、資料夾 `/ (root)`。
 3. 之後每次 push 到 `main` 就會更新。
 
-如果改用其他網域或專案頁（`https://帳號.github.io/repo/`），請改 `data/site.json` 的 `site.url` 後重新執行 `build.py`。頁面之間都用相對路徑，放在子路徑也能運作；只有 `404.html` 使用根目錄絕對路徑，放在子路徑時需把 `build.py` 裡 `build_404()` 的 `root="/"` 與連結改成該子路徑。
+如果改用其他網域或專案頁（`https://帳號.github.io/repo/`），請改 `data/site.json` 的 `site.url` 後重新執行 `build.py`。頁面之間都用相對路徑，放在子路徑也能運作；只有 `404.html` 使用根目錄絕對路徑，放在子路徑時需把 `build.py` 裡 `build_404()` 的 `root="/"` 和共用版型所用的根目錄連結改成該子路徑。
