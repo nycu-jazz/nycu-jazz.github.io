@@ -22,10 +22,6 @@ function layoutScore() {
     const ratio = Number(image.getAttribute('width')) / Number(image.getAttribute('height'));
     const width = Math.min(viewportWidth, viewportHeight * ratio) * zoom;
     page.style.width = `${width}px`;
-    if (page === scorePages.firstElementChild) {
-      const leadingSpace = Math.max(0, (viewportHeight - width / ratio) / 2);
-      scorePages.style.setProperty('--score-leading-space', `${leadingSpace}px`);
-    }
   }
   zoomOut.disabled = zoom <= minZoom;
   zoomIn.disabled = zoom >= maxZoom;

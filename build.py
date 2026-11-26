@@ -540,10 +540,11 @@ def build_semester(index, lang):
             sections.append(program_viewer.render(program, details, root, sem["code"], lang, ROLE_EN))
         else:
             sections.append(f'<div class="concert-program">{program_block(program, lang)}</div>')
-        actions.append(f'<a class="btn primary" href="#program-h">{label(lang, "看曲目", "Program")} <span aria-hidden="true">↓</span></a>')
+            actions.append(f'<a class="btn primary" href="#program-h">{label(lang, "看曲目", "Program")} <span aria-hidden="true">↓</span></a>')
     if roles:
         sections.append(credits_block(roles, lang))
-        actions.append(f'<a class="btn" href="#credits-h">{label(lang, "看演出名單", "Performers")}</a>')
+        if not details_file:
+            actions.append(f'<a class="btn" href="#credits-h">{label(lang, "看演出名單", "Performers")}</a>')
     if videos:
         sections.append(f"""<section class="section tight" id="video-h" aria-label="{label(lang, "影片", "Recordings")}">
   <div class="wrap">
