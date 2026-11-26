@@ -68,6 +68,10 @@ html:has(.score-dialog[open]), body:has(.score-dialog[open]) { overflow: hidden;
 .score-zoom [data-zoom="reset"] { min-width: 56px; font-size: 13px; font-variant-numeric: tabular-nums; }
 .score-zoom button:disabled { color: #aaa; cursor: default; }
 .score-close:focus-visible, .score-zoom button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 660px), (hover: none) and (pointer: coarse) and (max-height: 560px) {
+  .score-scroll { inset-block: max(64px, calc(env(safe-area-inset-top) + 54px), calc(env(safe-area-inset-bottom) + 54px)); overflow-anchor: none; }
+  .score-pages { padding-block-start: var(--score-leading-space, 0px); }
+}
 .score-dialog[data-mode="album"] .score-scroll, .score-dialog[data-mode="album"] .score-zoom { display: none; }
 .album-scroll { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }
 .album-view { box-sizing: border-box; width: min(100%, 860px); min-height: 100%; margin: 0 auto; padding: 64px 20px 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: center; align-items: center; gap: 24px; }

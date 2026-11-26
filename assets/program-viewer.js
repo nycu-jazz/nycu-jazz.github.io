@@ -15,11 +15,17 @@ let pinch;
 const clamp = (value, lower, upper) => Math.min(upper, Math.max(lower, value));
 
 function layoutScore() {
+  const viewportWidth = scoreScroll.clientWidth;
+  const viewportHeight = scoreScroll.clientHeight;
   for (const page of scorePages.children) {
     const image = page.firstElementChild;
     const ratio = Number(image.getAttribute('width')) / Number(image.getAttribute('height'));
-    const fullWidth = Math.min(scoreScroll.clientWidth, scoreScroll.clientHeight * ratio);
-    page.style.width = `${fullWidth * zoom}px`;
+    const width = Math.min(viewportWidth, viewportHeight * ratio) * zoom;
+    page.style.width = `${width}px`;
+    if (page === scorePages.firstElementChild) {
+      const leadingSpace = Math.max(0, (viewportHeight - width / ratio) / 2);
+      scorePages.style.setProperty('--score-leading-space', `${leadingSpace}px`);
+    }
   }
   zoomOut.disabled = zoom <= minZoom;
   zoomIn.disabled = zoom >= maxZoom;

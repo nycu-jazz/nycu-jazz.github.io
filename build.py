@@ -9,6 +9,7 @@
 import json
 import re
 from datetime import date, datetime, timezone
+from hashlib import sha256
 from html import escape
 from pathlib import Path
 from urllib.parse import urlencode
@@ -125,6 +126,12 @@ def by_code(code):
 
 # ---------- 共用版型 ----------
 
+def program_asset(root, filename):
+    path = f"assets/{filename}"
+    version = sha256((ROOT / path).read_bytes()).hexdigest()[:12]
+    return f"{root}{path}?v={version}"
+
+
 def page(*, lang, root, path, title, description, body, current="", has_program_viewer=False):
     base = SITE["url"].rstrip("/") + "/"
     alternate = "zh-Hant-TW" if lang == "en" else "en"
@@ -135,8 +142,8 @@ def page(*, lang, root, path, title, description, body, current="", has_program_
     alternate_text = label(lang, "English", "中文")
     home_name = label(lang, "NYCU Jazz 首頁", "NYCU Jazz home")
     repository = SITE["repository"].rstrip("/")
-    program_css = f'\n<link rel="stylesheet" href="{root}assets/program-viewer.css">' if has_program_viewer else ''
-    program_js = f'\n<script src="{root}assets/program-viewer.js" defer></script>' if has_program_viewer else ''
+    program_css = f'\n<link rel="stylesheet" href="{program_asset(root, "program-viewer.css")}">' if has_program_viewer else ''
+    program_js = f'\n<script src="{program_asset(root, "program-viewer.js")}" defer></script>' if has_program_viewer else ''
 
     def nav(href, label, key):
         cur = ' aria-current="page"' if key == current else ""
