@@ -70,6 +70,7 @@ html:has(.score-dialog[open]), body:has(.score-dialog[open]) { overflow: hidden;
 .score-close:focus-visible, .score-zoom button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (max-width: 660px), (hover: none) and (pointer: coarse) and (max-height: 560px) {
   .score-scroll { overflow-anchor: none; }
+  .score-pages { padding-block-start: var(--score-leading-space, 0px); }
 }
 .score-dialog[data-mode="album"] .score-scroll, .score-dialog[data-mode="album"] .score-zoom { display: none; }
 .album-scroll { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }
