@@ -341,7 +341,7 @@ def build_home(lang):
       <a class="btn primary event-cta" href="{primary_url}">{primary_label}<span aria-hidden="true">→</span></a>
     </div>
     <section class="course-intro" aria-labelledby="intro-h">
-      <h2 id="intro-h">{label(lang, "誰說新竹沒有爵士樂？", "Who Says There’s No Jazz in Hsinchu?")}</h2>
+      <h2 id="intro-h">{label(lang, "誰說陽明交大沒有爵士樂？", "Who Says There’s No Jazz at NYCU?")}</h2>
       <p>{intro}</p>
       <p>{site_note}{ext(syllabus_url(cur, lang), course_link, lang=lang)}{label(lang, "。", ".")}</p>
     </section>
