@@ -28,7 +28,7 @@ ROLE_EN = {
     "大提琴": "Cello", "中提琴": "Viola", "人聲": "Vocals", "吉他": "Guitar",
     "鋼琴": "Piano", "貝斯": "Bass", "鼓": "Drums", "客席鼓手": "Guest drummer",
     "演出者": "Performers", "客席薩克斯風": "Guest saxophone",
-    "電貝斯": "Electric bass", "MIDI 貝斯": "MIDI bass",
+    "電貝斯": "Electric bass",
     "主奏": "Lead", "和聲伴奏": "Comping", "貝斯聲部": "Bass part",
     "鼓聲部": "Drum part", "助教": "Teaching assistant",
 }
