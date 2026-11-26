@@ -3,7 +3,6 @@
     "name": "NYCU Jazz",
     "url": "https://nycu-jazz.github.io",
     "course_zh": "爵士和聲、即興與合奏",
-    "course_en": "Jazz Harmony, Improvisation and Ensemble",
     "teacher": "林明學",
     "teacher_url": "https://www.mitchlinmusic.com/",
     "current": "115A",
@@ -20,8 +19,7 @@
         "date": "2026-12-22",
         "time": "17:00–18:30",
         "venue": "光復校區浩然圖書館一樓大廳",
-        "map_query": "國立陽明交通大學 浩然圖書館",
-        "venue_en": "Haoran Library, first-floor lobby, Guangfu Campus"
+        "map_query": "國立陽明交通大學 浩然圖書館"
       },
       "videos": [],
       "sources": [],
@@ -266,8 +264,7 @@
       "show": {
         "date": "2025-12-10",
         "time": "19:00–20:30",
-        "venue": "光復校區浩然圖書館一樓大廳",
-        "venue_en": "Haoran Library, first-floor lobby, Guangfu Campus"
+        "venue": "光復校區浩然圖書館一樓大廳"
       },
       "program": {
         "pieces": [
@@ -286,8 +283,7 @@
         ],
         "source": {
           "label": "看 YouTube 說明欄",
-          "url": "https://www.youtube.com/watch?v=ukjqYYt-GVQ",
-          "label_en": "See the YouTube description"
+          "url": "https://www.youtube.com/watch?v=ukjqYYt-GVQ"
         }
       },
       "videos": [
@@ -297,16 +293,14 @@
           "title": "【114A】爵士和聲、即興與合奏 - 成果演奏發表會",
           "kind": "全場錄影",
           "publisher": "NYCU人藝社院創作類跨域學程",
-          "thumbnail": "assets/recordings/114a-0715.webp",
-          "title_en": "114A Jazz Harmony, Improvisation and Ensemble — Final Concert"
+          "thumbnail": "assets/recordings/114a-0715.webp"
         },
         {
           "type": "youtube",
           "id": "kol8XpLzLFQ",
           "title": "【114A】爵士和聲、即興與合奏 - chameleon",
           "kind": "單曲",
-          "publisher": "NYCU人藝社院創作類跨域學程",
-          "title_en": "114A Chameleon"
+          "publisher": "NYCU人藝社院創作類跨域學程"
         }
       ],
       "sources": [],
@@ -351,8 +345,7 @@
           "id": "R2LrcKo4Uw0",
           "title": "【113B】爵士和聲、即興與合奏",
           "kind": "演出錄影",
-          "publisher": "NYCU人藝社院創作類跨域學程",
-          "title_en": "113B Jazz Harmony, Improvisation and Ensemble"
+          "publisher": "NYCU人藝社院創作類跨域學程"
         }
       ],
       "sources": [],
@@ -477,8 +470,7 @@
         "ordered": true,
         "source": {
           "label": "看原始錄影",
-          "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0",
-          "label_en": "Watch the original recording"
+          "url": "https://www.youtube.com/watch?v=R2LrcKo4Uw0"
         }
       },
       "credits_by_role": {
@@ -516,9 +508,7 @@
         "date": "2024-06-11",
         "time": "12:15–13:15",
         "venue": "光復校區浩然圖書館一樓大廳",
-        "admission": "免索票",
-        "venue_en": "Haoran Library, first-floor lobby, Guangfu Campus",
-        "admission_en": "No ticket required"
+        "admission": "免索票"
       },
       "program": {
         "pieces": [
@@ -531,15 +521,13 @@
           "Isn’t She Lovely",
           "Missin’ You",
           {
-            "title": "不可思議のカルテ",
-            "title_en": "Fukashigi no Karte"
+            "title": "不可思議のカルテ"
           }
         ],
         "ordered": true,
         "source": {
           "label": "看 Facebook 曲目表",
-          "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/",
-          "label_en": "See the program on Facebook"
+          "url": "https://www.facebook.com/NYCUAMCP/videos/2110830765938923/"
         }
       },
       "videos": [
@@ -549,17 +537,14 @@
           "title": "112B 課程成果演奏發表會",
           "kind": "演出影片",
           "publisher": "學程官方 Facebook 專頁（NYCUAMCP）",
-          "thumbnail": "assets/recordings/112b-5937.webp",
-          "title_en": "112B Jazz Harmony, Improvisation and Ensemble — Final Concert"
+          "thumbnail": "assets/recordings/112b-5937.webp"
         }
       ],
       "sources": [
         {
           "label": "活動公告〈112B《爵士和聲即興與合奏》課程成果演奏發表會〉（Internet Archive 存檔）",
           "url": "https://web.archive.org/web/20260614232749/https://xam.nycu.edu.tw/archives/1394",
-          "publisher": "國立陽明交通大學 藝術與音樂跨域學程",
-          "label_en": "112B concert announcement (Internet Archive)",
-          "publisher_en": "NYCU Art and Music Cross-Domain Program"
+          "publisher": "國立陽明交通大學 藝術與音樂跨域學程"
         }
       ],
       "credits_by_role": {
@@ -598,17 +583,14 @@
           "list": "PLDZEP5aEea5A4vkjdsn7P9ybvsw8Gcl9G",
           "title": "111B 爵士和聲、即興與合奏 Howl's Moving Castle",
           "kind": "單曲",
-          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）",
-          "title_en": "111B Howl’s Moving Castle"
+          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）"
         }
       ],
       "sources": [
         {
           "label": "111B 影片所在的 YouTube 播放清單",
           "url": "https://www.youtube.com/playlist?list=PLDZEP5aEea5A4vkjdsn7P9ybvsw8Gcl9G",
-          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）",
-          "label_en": "111B YouTube playlist",
-          "publisher_en": "Storytelling and Multimedia Cross-Domain Program (YouTube)"
+          "publisher": "說故事與多媒體跨域學程（YouTube 頻道）"
         }
       ],
       "program": {
@@ -775,8 +757,7 @@
           "title": "109A 期末合奏",
           "kind": "期末合奏影片",
           "publisher": "學程官方 Facebook 專頁（NYCUAMCP）",
-          "thumbnail": "assets/recordings/109a-1309.webp",
-          "title_en": "109A Final Ensemble Performance"
+          "thumbnail": "assets/recordings/109a-1309.webp"
         }
       ],
       "sources": [],
@@ -882,8 +863,7 @@
         "ordered": true,
         "source": {
           "label": "看 Facebook 貼文與影片",
-          "url": "https://www.facebook.com/NYCUAMCP/videos/494905151903194/",
-          "label_en": "See the original Facebook post"
+          "url": "https://www.facebook.com/NYCUAMCP/videos/494905151903194/"
         }
       },
       "credits_by_role": {

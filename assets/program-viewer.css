@@ -77,7 +77,6 @@ html:has(.score-dialog[open]), body:has(.score-dialog[open]) { overflow: hidden;
 .album-view .album-credit { color: #d8c6a9; font-size: 14px; }
 .tune-reference { margin: 18px 0 0; line-height: 1.55; }
 .tune-reference blockquote { margin: 0; padding-inline-start: 12px; border-inline-start: 2px solid #80715a; }
-.tune-reference blockquote .reference-secondary { color: #d6d0c7; font-size: 14px; }
 .tune-reference figcaption { margin-top: 6px; font-size: 13px; color: #d8c6a9; }
 .tune-reference cite { font-style: normal; }
 .tune-reference a { color: inherit; text-underline-offset: 3px; }

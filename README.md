@@ -2,15 +2,9 @@
 
 陽明交大《爵士和聲、即興與合奏》的演出紀錄。網站由修課學生開發與維護，首頁有本學期場次，歷屆頁面收錄曲目、演出者和公開錄影。
 
-A student-maintained concert archive for NYCU’s *Jazz Harmony, Improvisation and Ensemble* course. Browse upcoming and past performances, set lists, credits, and recordings.
+[首頁](https://nycu-jazz.github.io/)・[歷屆演出](https://nycu-jazz.github.io/#archive)・[115A 演出頁](https://nycu-jazz.github.io/115a/)
 
-| 網頁 / Page | 中文 | English |
-| --- | --- | --- |
-| 首頁 / Home | [中文首頁](https://nycu-jazz.github.io/) | [English home](https://nycu-jazz.github.io/en/) |
-| 歷屆演出 / Archive | [歷屆演出](https://nycu-jazz.github.io/#archive) | [Past performances](https://nycu-jazz.github.io/en/#archive) |
-| 115A 場次 / 115A concert | [115A 演出頁](https://nycu-jazz.github.io/115a/) | [115A concert page](https://nycu-jazz.github.io/en/115a/) |
-
-每頁可從頁首切換中英文。演出者姓名沿用原文。
+網站以繁體中文呈現，曲名與演出者姓名沿用原文。需要其他語言時，可使用瀏覽器的翻譯功能。
 
 ## 維護網站
 
@@ -21,7 +15,7 @@ python3 build.py
 python3 -m http.server 8000
 ```
 
-開啟 [中文預覽](http://localhost:8000/) 或 [英文預覽](http://localhost:8000/en/)。[`build.py`](build.py) 會從同一份資料產生兩種語言的首頁、各學期頁、404 和 sitemap。調整介面時可編輯 [`assets/site.css`](assets/site.css) 和 [`assets/site.js`](assets/site.js)。
+開啟[本機預覽](http://localhost:8000/)。[`build.py`](build.py) 會產生首頁、各學期頁、404 和 sitemap。調整介面時可編輯 [`assets/site.css`](assets/site.css) 和 [`assets/site.js`](assets/site.js)。
 
 ### 新增或更新一場演出
 
@@ -36,10 +30,8 @@ python3 -m http.server 8000
 | `videos` | YouTube 用 `type: "youtube"` 和 `id`，Facebook 用 `type: "facebook"` 和 `url`。每支影片填 `title`，可另外指定 `thumbnail`。 |
 | `sources` | 來源以 `label`、`url`、`publisher` 記錄。曲目表的來源可填在 `program.source`。 |
 
-可用 `venue_en`、`admission_en`、`title_en`、`label_en` 和 `publisher_en` 提供英文用語。兩種語言共用日期、曲目連結和演出者名單。
-
-115A 的 `program.details` 指向 [`data/115a-program.json`](data/115a-program.json)，保存作曲家、雙語引文與曲譜頁面尺寸；曲譜 WebP 放在 `assets/sheets/115a/`。封面、錄音連結與演出名單仍從 `data/site.json` 讀取。
+115A 的 `program.details` 指向 [`data/115a-program.json`](data/115a-program.json)，保存作曲家、中文引文、原始出處與曲譜頁面尺寸；曲譜 WebP 放在 `assets/sheets/115a/`。封面、錄音連結與演出名單仍從 `data/site.json` 讀取。
 
 ## 發布
 
-更新內容後，將資料、資源及重新產生的頁面一起提交。GitHub Pages 從 `main` 的根目錄發布靜態檔案。
+更新內容後，將資料、資源及重新產生的頁面一起提交並推送到 `main`。GitHub Pages 會從根目錄自動發布，不需另外觸發建置。

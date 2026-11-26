@@ -24,7 +24,6 @@
   const cards = document.querySelectorAll(".video-card:is([data-yt], [data-fb])");
   if (!cards.length) return;
 
-  const english = document.documentElement.lang === "en";
   const panel = document.createElement("section");
   panel.id = "video-player";
   panel.className = "video-panel";
@@ -34,11 +33,11 @@
     <div class="video-panel-content">
       <div class="video-panel-bar">
         <h2 id="video-player-title"></h2>
-        <button class="video-panel-close" type="button">${english ? "Close player" : "收起"}</button>
+        <button class="video-panel-close" type="button">收起</button>
       </div>
       <div class="video-frame"></div>
       <div class="video-panel-bar">
-        <a class="video-panel-original ext" target="_blank" rel="noopener">${english ? "Open in new tab" : "在新分頁開啟"}</a>
+        <a class="video-panel-original ext" target="_blank" rel="noopener">在新分頁開啟</a>
       </div>
     </div>`;
 
