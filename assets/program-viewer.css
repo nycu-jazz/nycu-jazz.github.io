@@ -56,10 +56,10 @@
 html:has(.score-dialog[open]), body:has(.score-dialog[open]) { overflow: hidden; }
 .score-dialog { position: fixed; inset: 0; width: 100%; max-width: none; height: 100vh; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: #000; color: #fff; overflow: hidden; }
 .score-dialog::backdrop { background: #000; }
-.score-scroll { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y; scrollbar-width: none; }
+.score-scroll { position: absolute; inset: 0; overflow: auto; overflow-anchor: none; overscroll-behavior: contain; touch-action: pan-x pan-y; scrollbar-width: none; }
 .score-scroll::-webkit-scrollbar { display: none; }
 .score-scroll:focus { outline: none; }
-.score-pages { display: flex; flex-direction: column; align-items: center; width: max-content; min-width: 100%; }
+.score-pages { display: flex; flex-direction: column; align-items: center; width: max-content; min-width: 100%; padding-block: 50vh; padding-block: 50dvh; }
 .score-page { margin: 0; }
 .score-page img { display: block; width: 100%; height: auto; user-select: none; }
 .score-close { position: absolute; z-index: 1; top: max(10px, env(safe-area-inset-top)); right: max(10px, env(safe-area-inset-right)); width: 44px; height: 44px; padding: 0; border-radius: 50%; border: 1px solid #777; background: #171717e8; color: #fff; font: 28px/1 Arial, sans-serif; cursor: pointer; }
@@ -68,10 +68,6 @@ html:has(.score-dialog[open]), body:has(.score-dialog[open]) { overflow: hidden;
 .score-zoom [data-zoom="reset"] { min-width: 56px; font-size: 13px; font-variant-numeric: tabular-nums; }
 .score-zoom button:disabled { color: #aaa; cursor: default; }
 .score-close:focus-visible, .score-zoom button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-@media (max-width: 660px), (hover: none) and (pointer: coarse) and (max-height: 560px) {
-  .score-scroll { overflow-anchor: none; }
-  .score-pages { padding-block-start: var(--score-leading-space, 0px); }
-}
 .score-dialog[data-mode="album"] .score-scroll, .score-dialog[data-mode="album"] .score-zoom { display: none; }
 .album-scroll { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }
 .album-view { box-sizing: border-box; width: min(100%, 860px); min-height: 100%; margin: 0 auto; padding: 64px 20px 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: center; align-items: center; gap: 24px; }

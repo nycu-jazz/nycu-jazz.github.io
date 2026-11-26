@@ -22,10 +22,6 @@ function layoutScore() {
     const ratio = Number(image.getAttribute('width')) / Number(image.getAttribute('height'));
     const width = Math.min(viewportWidth, viewportHeight * ratio) * zoom;
     page.style.width = `${width}px`;
-    if (page === scorePages.firstElementChild) {
-      const leadingSpace = Math.max(0, (viewportHeight - width / ratio) / 2);
-      scorePages.style.setProperty('--score-leading-space', `${leadingSpace}px`);
-    }
   }
   zoomOut.disabled = zoom <= minZoom;
   zoomIn.disabled = zoom >= maxZoom;
@@ -40,7 +36,8 @@ function zoomTo(next, point) {
   const anchor = [...scorePages.children].find(page => page.getBoundingClientRect().bottom >= center.y) || scorePages.lastElementChild;
   const before = anchor.getBoundingClientRect();
   const relativeX = clamp((center.x - before.left) / before.width, 0, 1);
-  const relativeY = clamp((center.y - before.top) / before.height, 0, 1);
+  const isPageCentered = !point && Math.abs(center.y - (before.top + before.height / 2)) <= 1;
+  const relativeY = isPageCentered ? .5 : clamp((center.y - before.top) / before.height, 0, 1);
   zoom = next;
   layoutScore();
   const after = anchor.getBoundingClientRect();
@@ -102,7 +99,8 @@ document.addEventListener('click', (event) => {
   zoom = 1;
   viewer.showModal();
   if (!isAlbum) layoutScore();
-  scrollArea.scrollTo(0, 0);
+  const firstPageCenter = isAlbum ? 0 : scorePages.firstElementChild.getBoundingClientRect().height / 2;
+  scrollArea.scrollTo(0, firstPageCenter);
   scrollArea.focus({ preventScroll: true });
 });
 viewer.addEventListener('close', () => {
