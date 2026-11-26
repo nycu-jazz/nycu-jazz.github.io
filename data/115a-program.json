@@ -1,0 +1,213 @@
+{
+  "billie": {
+    "composer": "Charlie Parker",
+    "source": {
+      "publication": "Thomas Owens，引自 JazzStandards.com",
+      "title": "Billie’s Bounce (1945)",
+      "url": "https://www.jazzstandards.com/compositions-1/billiesbounce.htm"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "follows the typical bebop blues plan of piano introduction, two unison theme choruses, solo choruses, and two more unison theme choruses",
+      "translation": "依循典型的 bebop 藍調架構：鋼琴前奏、兩輪齊奏主題、輪流獨奏，再回到兩輪齊奏主題。"
+    },
+    "sheets": [
+      {
+        "file": "billie-01.webp",
+        "width": 1380,
+        "height": 990
+      }
+    ]
+  },
+  "fall": {
+    "composer": "Harold Arlen",
+    "source": {
+      "publication": "James Gavin",
+      "title": "Ella Fitzgerald–Harold Arlen Song Book",
+      "url": "https://www.jamesgavin.com/styled-32/styled-211/"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "Fitzgerald’s version teems with such sweetness and optimism that a happy ending seems assured.",
+      "translation": "Fitzgerald 的版本洋溢著甜美與樂觀，彷彿篤定會有圓滿結局。"
+    },
+    "sheets": [
+      {
+        "file": "fall-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "happen": {
+    "composer": "Jimmy Van Heusen",
+    "source": {
+      "publication": "Noah Baerman · JazzStandards.com",
+      "title": "It Could Happen to You (1944)",
+      "url": "https://www.jazzstandards.com/compositions-0/itcouldhappentoyou.htm"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "Baker takes a brilliant scat solo that shows the almost eerie similarity between his scatting and his trumpet soloing.",
+      "translation": "Baker 這段擬聲即興唱得精彩，和他的小號獨奏相似得近乎不可思議。"
+    },
+    "sheets": [
+      {
+        "file": "happen-01.webp",
+        "width": 1402,
+        "height": 1813
+      }
+    ]
+  },
+  "autumn": {
+    "composer": "Joseph Kosma",
+    "source": {
+      "publication": "Noah Baerman · JazzStandards.com",
+      "title": "Autumn Leaves (Les Feuilles Mortes) (1947)",
+      "url": "https://www.jazzstandards.com/compositions-0/autumnleaves.htm"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "The arrangement, commonly credited to Miles Davis (who is also featured on trumpet here) actually comes mostly from Ahmad Jamal.",
+      "translation": "這個編曲通常歸功於 Miles Davis（這裡也是他吹的小號），其實大多來自 Ahmad Jamal。"
+    },
+    "sheets": [
+      {
+        "file": "autumn-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "besame": {
+    "composer": "Consuelo Velázquez",
+    "source": {
+      "publication": "C. Andrew Hovan · All About Jazz",
+      "title": "Wes Montgomery: Boss Guitar",
+      "url": "https://www.allaboutjazz.com/boss-guitar-wes-montgomery-craft-recordings?review"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "the trio launches into a waltz-time \"Besame Mucho,\" a refreshing shift from the tune's customary Latin groove",
+      "translation": "三重奏以華爾滋的三拍子切入〈Bésame Mucho〉，一改此曲慣常的拉丁節奏，令人耳目一新。"
+    },
+    "sheets": [
+      {
+        "file": "besame-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "ipanema": {
+    "composer": "Antônio Carlos Jobim",
+    "source": {
+      "publication": "Glenn Zottola · Library of Congress",
+      "title": "From the Recording Registry: “The Girl from Ipanema” (1963)",
+      "url": "https://blogs.loc.gov/now-see-hear/2021/08/from-the-recording-registry-the-girl-from-ipanema-1963/"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "Joao’s wife, Astrud, who was not a professional singer at the time, was added to the session to sing a few songs in English.",
+      "translation": "João 的妻子 Astrud 當時並非職業歌手，卻受邀參與錄音，演唱幾首歌的英文段落。"
+    },
+    "sheets": [
+      {
+        "file": "ipanema-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "jones": {
+    "composer": "Richard Rodgers",
+    "source": {
+      "publication": "William Zinsser，引自 JazzStandards.com",
+      "title": "Have You Met Miss Jones? (1937)",
+      "url": "https://www.jazzstandards.com/compositions-2/haveyoumetmissjones.htm"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "two favorite key-changing bridges--gems of unexpectedness",
+      "translation": "最喜歡的兩段轉調橋段，都是讓人意想不到的珍品。"
+    },
+    "sheets": [
+      {
+        "file": "jones-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "so-what": {
+    "composer": "Miles Davis",
+    "source": {
+      "publication": "Paolo Fresu · MilesDavis.com",
+      "title": "Kind of Blue",
+      "url": "https://www.milesdavis.com/albums/kind-of-blue/"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "It is so easy and so clear. Most solos jump up and down octaves. Miles keeps it simple, like it’s a new melody.",
+      "translation": "它如此簡單、如此清楚。多數獨奏會在不同八度間跳來跳去，Miles 卻吹得很簡潔，像是在吹一段全新的旋律。"
+    },
+    "sheets": [
+      {
+        "file": "so-what-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "take-five": {
+    "composer": "Paul Desmond",
+    "source": {
+      "publication": "Joe Morello · Scott K Fish",
+      "title": "Joe Morello on ‘Take Five’: They’re Still Playing the Damn Thing",
+      "url": "https://scottkfish.com/2015/07/15/joe-morello-on-take-five-theyre-still-playing-the-damn-thing/"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "It was just a throwaway. Just a setup for a drum solo.",
+      "translation": "那本來只是隨手寫的小曲，純粹是為了鋪陳一段鼓獨奏。"
+    },
+    "sheets": [
+      {
+        "file": "take-five-01.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ]
+  },
+  "spain": {
+    "composer": "Chick Corea",
+    "source": {
+      "publication": "Chick Corea · Barcelona Metropolitan",
+      "title": "Interview: Chick Corea",
+      "url": "https://www.barcelona-metropolitan.com/features/interview-chick-corea/"
+    },
+    "quote": {
+      "lang": "en",
+      "original": "I fooled around with that theme, extended it and composed some melodies, which turned out to be the main themes of ‘Spain’.",
+      "translation": "我拿那段主題隨意把玩、加以延伸，寫出幾段旋律，後來就成了〈Spain〉的主要主題。"
+    },
+    "sheets": [
+      {
+        "file": "spain-01.webp",
+        "width": 1556,
+        "height": 2200
+      },
+      {
+        "file": "spain-02.webp",
+        "width": 1556,
+        "height": 2200
+      },
+      {
+        "file": "spain-03.webp",
+        "width": 1556,
+        "height": 2200
+      }
+    ],
+    "rotating_improvisers": true
+  }
+}

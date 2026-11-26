@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital@1&family=Noto+Sans+TC:wght@300;400;500&family=Raleway:wght@200;300&display=swap">
 <link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/program-viewer.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -54,41 +55,144 @@
     </div>
       <figure class="concert-visual" aria-label="Album covers for the program">
         <ul class="album-grid album-grid--ten" role="list">
-        <li><a href="https://www.youtube.com/watch?v=ChMEL38sc0w" target="_blank" rel="noopener" title="Billie’s Bounce by Charlie Parker from The Charlie Parker Story" aria-label="Billie’s Bounce by Charlie Parker from The Charlie Parker Story (opens in a new tab)"><img src="../../assets/albums/billie.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=1bngHcH1mvo" target="_blank" rel="noopener" title="Let’s Fall in Love by Ella Fitzgerald &amp; Billy May and His Orchestra from Ella Fitzgerald Sings the Harold Arlen Song Book" aria-label="Let’s Fall in Love by Ella Fitzgerald &amp; Billy May and His Orchestra from Ella Fitzgerald Sings the Harold Arlen Song Book (opens in a new tab)"><img src="../../assets/albums/fall.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=xqwZJwakaIk" target="_blank" rel="noopener" title="It Could happen to You by Chet Baker from Chet Baker Sings: It Could Happen to You" aria-label="It Could happen to You by Chet Baker from Chet Baker Sings: It Could Happen to You (opens in a new tab)"><img src="../../assets/albums/happen.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=CpB7-8SGlJ0" target="_blank" rel="noopener" title="Autumn Leaves by Cannonball Adderley from Somethin’ Else" aria-label="Autumn Leaves by Cannonball Adderley from Somethin’ Else (opens in a new tab)"><img src="../../assets/albums/autumn.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=jHjvkOK7VFk" target="_blank" rel="noopener" title="Besame mucho by Wes Montgomery from Boss Guitar" aria-label="Besame mucho by Wes Montgomery from Boss Guitar (opens in a new tab)"><img src="../../assets/albums/besame.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=V_pexBDOI4o" target="_blank" rel="noopener" title="The Girl From Ipanema by Stan Getz &amp; João Gilberto from Getz/Gilberto" aria-label="The Girl From Ipanema by Stan Getz &amp; João Gilberto from Getz/Gilberto (opens in a new tab)"><img src="../../assets/albums/ipanema.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=0gjUhFbp3XE" target="_blank" rel="noopener" title="Have You Met Miss Jones by Oscar Peterson Trio from We Get Requests" aria-label="Have You Met Miss Jones by Oscar Peterson Trio from We Get Requests (opens in a new tab)"><img src="../../assets/albums/jones.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=ylXk1LBvIqU" target="_blank" rel="noopener" title="So What by Miles Davis from Kind of Blue" aria-label="So What by Miles Davis from Kind of Blue (opens in a new tab)"><img src="../../assets/albums/so-what.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=-DHuW1h1wHw" target="_blank" rel="noopener" title="Take Five by The Dave Brubeck Quartet from Time Out" aria-label="Take Five by The Dave Brubeck Quartet from Time Out (opens in a new tab)"><img src="../../assets/albums/take-five.webp" width="480" height="480" alt="" decoding="async"></a></li>
-        <li><a href="https://www.youtube.com/watch?v=sEhQTjgoTdU" target="_blank" rel="noopener" title="Spain by Chick Corea &amp; Return to Forever from Light as a Feather" aria-label="Spain by Chick Corea &amp; Return to Forever from Light as a Feather (opens in a new tab)"><img src="../../assets/albums/spain.webp" width="480" height="480" alt="" decoding="async"></a></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-billie" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Billie’s Bounce by Charlie Parker from The Charlie Parker Story · Album cover and listening notes"><img src="../../assets/albums/billie.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-fall" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Let’s Fall in Love by Ella Fitzgerald &amp; Billy May and His Orchestra from Ella Fitzgerald Sings the Harold Arlen Song Book · Album cover and listening notes"><img src="../../assets/albums/fall.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-happen" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="It Could happen to You by Chet Baker from Chet Baker Sings: It Could Happen to You · Album cover and listening notes"><img src="../../assets/albums/happen.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-autumn" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Autumn Leaves by Cannonball Adderley from Somethin’ Else · Album cover and listening notes"><img src="../../assets/albums/autumn.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-besame" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Besame mucho by Wes Montgomery from Boss Guitar · Album cover and listening notes"><img src="../../assets/albums/besame.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-ipanema" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="The Girl From Ipanema by Stan Getz &amp; João Gilberto from Getz/Gilberto · Album cover and listening notes"><img src="../../assets/albums/ipanema.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-jones" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Have You Met Miss Jones by Oscar Peterson Trio from We Get Requests · Album cover and listening notes"><img src="../../assets/albums/jones.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-so-what" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="So What by Miles Davis from Kind of Blue · Album cover and listening notes"><img src="../../assets/albums/so-what.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-take-five" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Take Five by The Dave Brubeck Quartet from Time Out · Album cover and listening notes"><img src="../../assets/albums/take-five.webp" width="480" height="480" alt="" decoding="async"></button></li>
+        <li><button type="button" class="viewer-trigger cover-trigger" data-image="cover-spain" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Spain by Chick Corea &amp; Return to Forever from Light as a Feather · Album cover and listening notes"><img src="../../assets/albums/spain.webp" width="480" height="480" alt="" decoding="async"></button></li>
         </ul>
       </figure>
   </div>
 </section>
 
-<div class="concert-program"><section class="section tight" aria-labelledby="program-h">
-  <div class="wrap split lineup-layout">
-    <h2 id="program-h">Program</h2>
-    <div>
-      <ol class="pieces lineup ordered" role="list">
-        <li><span class="piece-number" aria-hidden="true">01</span><div><div class="piece-content"><span class="piece-title">Billie’s Bounce</span></div><p class="piece-performers">馬茨 (Cello), 林奕銘, 程柏諺, 蔡佾珊, 何懿軒 (Bass), 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">02</span><div><div class="piece-content"><span class="piece-title">Let’s Fall in Love</span></div><p class="piece-performers">許賀晴, 蔡佾珊 (Melodica), 余宸毅, 吳乘宇, 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">03</span><div><div class="piece-content"><span class="piece-title">It Could happen to You</span></div><p class="piece-performers">馬茨 (Cello), 楊宗錞 (Melodica), 程柏諺, 許賀晴, 蕭赫, 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">04</span><div><div class="piece-content"><span class="piece-title">Autumn Leaves</span></div><p class="piece-performers">吳乘宇, 林明學, 蕭赫, 余宸毅 (Bass), 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">05</span><div><div class="piece-content"><span class="piece-title">Besame mucho</span></div><p class="piece-performers">邱美慈, 洪軾凱, 楊宗錞, 李尹瑄 (Bass), 黃君翰</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">06</span><div><div class="piece-content"><span class="piece-title">The Girl From Ipanema</span></div><p class="piece-performers">吳乘宇, 邱美慈, 蕭赫, 黃君翰, 蔡佾珊 (Bass), 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">07</span><div><div class="piece-content"><span class="piece-title">Have You Met Miss Jones</span></div><p class="piece-performers">許賀晴, 林奕銘, 程柏諺, 李尹瑄, 黃君翰 (Electric bass), 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">08</span><div><div class="piece-content"><span class="piece-title">So What</span></div><p class="piece-performers">洪軾凱, 余宸毅 (Melodica), 翁培瑋, 馬茨 (Cello), 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">09</span><div><div class="piece-content"><span class="piece-title">Take Five</span></div><p class="piece-performers">林奕銘, 李尹瑄 (Melodica), 何懿軒, 邱美慈, 呂其霖</p></div></li>
-        <li><span class="piece-number" aria-hidden="true">10</span><div><div class="piece-content"><span class="piece-title">Spain</span></div><p class="piece-performers">馬茨 (Cello), 林奕銘, 程柏諺, 蔡佾珊, 何懿軒, 呂其霖, 許賀晴, 余宸毅, 吳乘宇, 楊宗錞, 蕭赫 (Electric bass), 林明學, 邱美慈, 洪軾凱, 李尹瑄, 黃君翰, 翁培瑋</p></div></li>
-      </ol>
-
-    </div>
+<section class="program-preview" aria-labelledby="program-h"><div class="wrap b2 sheets">
+  <div class="mast"><div><p class="eyebrow">115A</p><h2 id="program-h">Program</h2></div></div>
+  <ol class="set" role="list"><li id="billie"><div class="card-top"><span class="number">01</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-billie" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Billie’s Bounce · Album cover and listening notes"><img class="cover" src="../../assets/albums/billie.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-billie" aria-label="Billie’s Bounce · Sheet music"><strong class="song" lang="en">Billie’s Bounce</strong><span class="composer">Charlie Parker</span></button></div><div class="players"><span class="player"><span class="instrument">Cello</span><span class="name">馬茨</span></span> <span class="player"><span class="instrument">Saxophone</span><span class="name">林奕銘</span></span> <span class="player"><span class="instrument">Guitar</span><span class="name">程柏諺</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">蔡佾珊</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">何懿軒</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="fall"><div class="card-top"><span class="number">02</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-fall" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Let’s Fall in Love · Album cover and listening notes"><img class="cover" src="../../assets/albums/fall.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-fall" aria-label="Let’s Fall in Love · Sheet music"><strong class="song" lang="en">Let’s Fall in Love</strong><span class="composer">Harold Arlen</span></button></div><div class="players"><span class="player"><span class="instrument">Vocals</span><span class="name">許賀晴</span></span> <span class="player"><span class="instrument">Melodica</span><span class="name">蔡佾珊</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">余宸毅</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">吳乘宇</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="happen"><div class="card-top"><span class="number">03</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-happen" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="It Could happen to You · Album cover and listening notes"><img class="cover" src="../../assets/albums/happen.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-happen" aria-label="It Could happen to You · Sheet music"><strong class="song" lang="en">It Could happen to You</strong><span class="composer">Jimmy Van Heusen</span></button></div><div class="players"><span class="player"><span class="instrument">Cello</span><span class="name">馬茨</span></span> <span class="player"><span class="instrument">Melodica</span><span class="name">楊宗錞</span></span> <span class="player"><span class="instrument">Guitar</span><span class="name">程柏諺</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">許賀晴</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">蕭赫</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="autumn"><div class="card-top"><span class="number">04</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-autumn" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Autumn Leaves · Album cover and listening notes"><img class="cover" src="../../assets/albums/autumn.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-autumn" aria-label="Autumn Leaves · Sheet music"><strong class="song" lang="en">Autumn Leaves</strong><span class="composer">Joseph Kosma</span></button></div><div class="players"><span class="player"><span class="instrument">Saxophone</span><span class="name">吳乘宇</span></span> <span class="player"><span class="instrument">Melodica</span><span class="name">林明學</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">蕭赫</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">余宸毅</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="besame"><div class="card-top"><span class="number">05</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-besame" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Besame mucho · Album cover and listening notes"><img class="cover" src="../../assets/albums/besame.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-besame" aria-label="Besame mucho · Sheet music"><strong class="song" lang="en">Besame mucho</strong><span class="composer">Consuelo Velázquez</span></button></div><div class="players"><span class="player"><span class="instrument">Viola</span><span class="name">邱美慈</span></span> <span class="player"><span class="instrument">Chromatic harmonica</span><span class="name">洪軾凱</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">楊宗錞</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">李尹瑄</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">黃君翰</span></span></div></li>
+<li id="ipanema"><div class="card-top"><span class="number">06</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-ipanema" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="The Girl From Ipanema · Album cover and listening notes"><img class="cover" src="../../assets/albums/ipanema.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-ipanema" aria-label="The Girl From Ipanema · Sheet music"><strong class="song" lang="en">The Girl From Ipanema</strong><span class="composer">Antônio Carlos Jobim</span></button></div><div class="players"><span class="player"><span class="instrument">Saxophone</span><span class="name">吳乘宇</span></span> <span class="player"><span class="instrument">Viola</span><span class="name">邱美慈</span></span> <span class="player"><span class="instrument">Guitar</span><span class="name">蕭赫</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">黃君翰</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">蔡佾珊</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="jones"><div class="card-top"><span class="number">07</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-jones" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Have You Met Miss Jones · Album cover and listening notes"><img class="cover" src="../../assets/albums/jones.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-jones" aria-label="Have You Met Miss Jones · Sheet music"><strong class="song" lang="en">Have You Met Miss Jones</strong><span class="composer">Richard Rodgers</span></button></div><div class="players"><span class="player"><span class="instrument">Vocals</span><span class="name">許賀晴</span></span> <span class="player"><span class="instrument">Saxophone</span><span class="name">林奕銘</span></span> <span class="player"><span class="instrument">Guitar</span><span class="name">程柏諺</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">李尹瑄</span></span> <span class="player"><span class="instrument">Electric bass</span><span class="name">黃君翰</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="so-what"><div class="card-top"><span class="number">08</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-so-what" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="So What · Album cover and listening notes"><img class="cover" src="../../assets/albums/so-what.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-so-what" aria-label="So What · Sheet music"><strong class="song" lang="en">So What</strong><span class="composer">Miles Davis</span></button></div><div class="players"><span class="player"><span class="instrument">Chromatic harmonica</span><span class="name">洪軾凱</span></span> <span class="player"><span class="instrument">Melodica</span><span class="name">余宸毅</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">翁培瑋</span></span> <span class="player"><span class="instrument">Cello</span><span class="name">馬茨</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="take-five"><div class="card-top"><span class="number">09</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-take-five" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Take Five · Album cover and listening notes"><img class="cover" src="../../assets/albums/take-five.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-take-five" aria-label="Take Five · Sheet music"><strong class="song" lang="en">Take Five</strong><span class="composer">Paul Desmond</span></button></div><div class="players"><span class="player"><span class="instrument">Saxophone</span><span class="name">林奕銘</span></span> <span class="player"><span class="instrument">Melodica</span><span class="name">李尹瑄</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">何懿軒</span></span> <span class="player"><span class="instrument">Bass</span><span class="name">邱美慈</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span></div></li>
+<li id="spain"><div class="card-top"><span class="number">10</span><button type="button" class="viewer-trigger cover-trigger" data-image="cover-spain" aria-haspopup="dialog" aria-controls="score-dialog" aria-label="Spain · Album cover and listening notes"><img class="cover" src="../../assets/albums/spain.webp" alt="" width="56" height="56"></button><button type="button" class="viewer-trigger score-trigger" aria-haspopup="dialog" aria-controls="score-dialog" data-image="score-spain" aria-label="Spain · Sheet music"><strong class="song" lang="en">Spain</strong><span class="composer">Chick Corea</span></button></div><div class="players"><span class="player"><span class="instrument">Chromatic harmonica</span><span class="name">洪軾凱</span></span> <span class="player"><span class="instrument">Melodica</span><span class="name">林明學</span></span> <span class="player"><span class="instrument">Piano</span><span class="name">何懿軒</span></span> <span class="player"><span class="instrument">Electric bass</span><span class="name">蕭赫</span></span> <span class="player"><span class="instrument">Drums</span><span class="name">呂其霖</span></span> <span class="hint ensemble-note">... + rotating improvisers</span></div></li></ol>
+</div></section>
+<template id="score-billie"><figure class="score-page"><img src="../../assets/sheets/115a/billie-01.webp" width="1380" height="990" alt="Billie’s Bounce sheet music, page 1"></figure></template>
+<template id="cover-billie"><article class="album-view">
+  <img src="../../assets/albums/billie.webp" width="480" height="480" alt="The Charlie Parker Story album cover">
+  <div><h2>Billie’s Bounce</h2><p class="album-credit">The Charlie Parker Story<br>Charlie Parker</p>
+    <figure class="tune-reference"><blockquote cite="https://www.jazzstandards.com/compositions-1/billiesbounce.htm"><div lang="en">follows the typical bebop blues plan of piano introduction, two unison theme choruses, solo choruses, and two more unison theme choruses</div><p class="reference-secondary" lang="zh-Hant-TW">依循典型的 bebop 藍調架構：鋼琴前奏、兩輪齊奏主題、輪流獨奏，再回到兩輪齊奏主題。</p></blockquote>
+      <figcaption><cite><a href="https://www.jazzstandards.com/compositions-1/billiesbounce.htm" title="Billie’s Bounce (1945)" target="_blank" rel="noopener noreferrer">Thomas Owens, via JazzStandards.com ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Billie’s Bounce" data-video-id="ChMEL38sc0w" data-player-title="YouTube · Billie’s Bounce"><img src="https://i.ytimg.com/vi/ChMEL38sc0w/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
   </div>
-</section></div>
+</article></template>
+<template id="score-fall"><figure class="score-page"><img src="../../assets/sheets/115a/fall-01.webp" width="1556" height="2200" alt="Let’s Fall in Love sheet music, page 1"></figure></template>
+<template id="cover-fall"><article class="album-view">
+  <img src="../../assets/albums/fall.webp" width="480" height="480" alt="Ella Fitzgerald Sings the Harold Arlen Song Book album cover">
+  <div><h2>Let’s Fall in Love</h2><p class="album-credit">Ella Fitzgerald Sings the Harold Arlen Song Book<br>Ella Fitzgerald &amp; Billy May and His Orchestra</p>
+    <figure class="tune-reference"><blockquote cite="https://www.jamesgavin.com/styled-32/styled-211/"><div lang="en">Fitzgerald’s version teems with such sweetness and optimism that a happy ending seems assured.</div><p class="reference-secondary" lang="zh-Hant-TW">Fitzgerald 的版本洋溢著甜美與樂觀，彷彿篤定會有圓滿結局。</p></blockquote>
+      <figcaption><cite><a href="https://www.jamesgavin.com/styled-32/styled-211/" title="Ella Fitzgerald–Harold Arlen Song Book" target="_blank" rel="noopener noreferrer">James Gavin ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Let’s Fall in Love" data-video-id="1bngHcH1mvo" data-player-title="YouTube · Let’s Fall in Love"><img src="https://i.ytimg.com/vi/1bngHcH1mvo/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-happen"><figure class="score-page"><img src="../../assets/sheets/115a/happen-01.webp" width="1402" height="1813" alt="It Could happen to You sheet music, page 1"></figure></template>
+<template id="cover-happen"><article class="album-view">
+  <img src="../../assets/albums/happen.webp" width="480" height="480" alt="Chet Baker Sings: It Could Happen to You album cover">
+  <div><h2>It Could happen to You</h2><p class="album-credit">Chet Baker Sings: It Could Happen to You<br>Chet Baker</p>
+    <figure class="tune-reference"><blockquote cite="https://www.jazzstandards.com/compositions-0/itcouldhappentoyou.htm"><div lang="en">Baker takes a brilliant scat solo that shows the almost eerie similarity between his scatting and his trumpet soloing.</div><p class="reference-secondary" lang="zh-Hant-TW">Baker 這段擬聲即興唱得精彩，和他的小號獨奏相似得近乎不可思議。</p></blockquote>
+      <figcaption><cite><a href="https://www.jazzstandards.com/compositions-0/itcouldhappentoyou.htm" title="It Could Happen to You (1944)" target="_blank" rel="noopener noreferrer">Noah Baerman · JazzStandards.com ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · It Could happen to You" data-video-id="xqwZJwakaIk" data-player-title="YouTube · It Could happen to You"><img src="https://i.ytimg.com/vi/xqwZJwakaIk/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-autumn"><figure class="score-page"><img src="../../assets/sheets/115a/autumn-01.webp" width="1556" height="2200" alt="Autumn Leaves sheet music, page 1"></figure></template>
+<template id="cover-autumn"><article class="album-view">
+  <img src="../../assets/albums/autumn.webp" width="480" height="480" alt="Somethin’ Else album cover">
+  <div><h2>Autumn Leaves</h2><p class="album-credit">Somethin’ Else<br>Cannonball Adderley</p>
+    <figure class="tune-reference"><blockquote cite="https://www.jazzstandards.com/compositions-0/autumnleaves.htm"><div lang="en">The arrangement, commonly credited to Miles Davis (who is also featured on trumpet here) actually comes mostly from Ahmad Jamal.</div><p class="reference-secondary" lang="zh-Hant-TW">這個編曲通常歸功於 Miles Davis（這裡也是他吹的小號），其實大多來自 Ahmad Jamal。</p></blockquote>
+      <figcaption><cite><a href="https://www.jazzstandards.com/compositions-0/autumnleaves.htm" title="Autumn Leaves (Les Feuilles Mortes) (1947)" target="_blank" rel="noopener noreferrer">Noah Baerman · JazzStandards.com ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Autumn Leaves" data-video-id="CpB7-8SGlJ0" data-player-title="YouTube · Autumn Leaves"><img src="https://i.ytimg.com/vi/CpB7-8SGlJ0/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-besame"><figure class="score-page"><img src="../../assets/sheets/115a/besame-01.webp" width="1556" height="2200" alt="Besame mucho sheet music, page 1"></figure></template>
+<template id="cover-besame"><article class="album-view">
+  <img src="../../assets/albums/besame.webp" width="480" height="480" alt="Boss Guitar album cover">
+  <div><h2>Besame mucho</h2><p class="album-credit">Boss Guitar<br>Wes Montgomery</p>
+    <figure class="tune-reference"><blockquote cite="https://www.allaboutjazz.com/boss-guitar-wes-montgomery-craft-recordings?review"><div lang="en">the trio launches into a waltz-time &quot;Besame Mucho,&quot; a refreshing shift from the tune&#x27;s customary Latin groove</div><p class="reference-secondary" lang="zh-Hant-TW">三重奏以華爾滋的三拍子切入〈Bésame Mucho〉，一改此曲慣常的拉丁節奏，令人耳目一新。</p></blockquote>
+      <figcaption><cite><a href="https://www.allaboutjazz.com/boss-guitar-wes-montgomery-craft-recordings?review" title="Wes Montgomery: Boss Guitar" target="_blank" rel="noopener noreferrer">C. Andrew Hovan · All About Jazz ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Besame mucho" data-video-id="jHjvkOK7VFk" data-player-title="YouTube · Besame mucho"><img src="https://i.ytimg.com/vi/jHjvkOK7VFk/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-ipanema"><figure class="score-page"><img src="../../assets/sheets/115a/ipanema-01.webp" width="1556" height="2200" alt="The Girl From Ipanema sheet music, page 1"></figure></template>
+<template id="cover-ipanema"><article class="album-view">
+  <img src="../../assets/albums/ipanema.webp" width="480" height="480" alt="Getz/Gilberto album cover">
+  <div><h2>The Girl From Ipanema</h2><p class="album-credit">Getz/Gilberto<br>Stan Getz &amp; João Gilberto</p>
+    <figure class="tune-reference"><blockquote cite="https://blogs.loc.gov/now-see-hear/2021/08/from-the-recording-registry-the-girl-from-ipanema-1963/"><div lang="en">Joao’s wife, Astrud, who was not a professional singer at the time, was added to the session to sing a few songs in English.</div><p class="reference-secondary" lang="zh-Hant-TW">João 的妻子 Astrud 當時並非職業歌手，卻受邀參與錄音，演唱幾首歌的英文段落。</p></blockquote>
+      <figcaption><cite><a href="https://blogs.loc.gov/now-see-hear/2021/08/from-the-recording-registry-the-girl-from-ipanema-1963/" title="From the Recording Registry: “The Girl from Ipanema” (1963)" target="_blank" rel="noopener noreferrer">Glenn Zottola · Library of Congress ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · The Girl From Ipanema" data-video-id="V_pexBDOI4o" data-player-title="YouTube · The Girl From Ipanema"><img src="https://i.ytimg.com/vi/V_pexBDOI4o/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-jones"><figure class="score-page"><img src="../../assets/sheets/115a/jones-01.webp" width="1556" height="2200" alt="Have You Met Miss Jones sheet music, page 1"></figure></template>
+<template id="cover-jones"><article class="album-view">
+  <img src="../../assets/albums/jones.webp" width="480" height="480" alt="We Get Requests album cover">
+  <div><h2>Have You Met Miss Jones</h2><p class="album-credit">We Get Requests<br>Oscar Peterson Trio</p>
+    <figure class="tune-reference"><blockquote cite="https://www.jazzstandards.com/compositions-2/haveyoumetmissjones.htm"><div lang="en">two favorite key-changing bridges--gems of unexpectedness</div><p class="reference-secondary" lang="zh-Hant-TW">最喜歡的兩段轉調橋段，都是讓人意想不到的珍品。</p></blockquote>
+      <figcaption><cite><a href="https://www.jazzstandards.com/compositions-2/haveyoumetmissjones.htm" title="Have You Met Miss Jones? (1937)" target="_blank" rel="noopener noreferrer">William Zinsser, via JazzStandards.com ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Have You Met Miss Jones" data-video-id="0gjUhFbp3XE" data-player-title="YouTube · Have You Met Miss Jones"><img src="https://i.ytimg.com/vi/0gjUhFbp3XE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-so-what"><figure class="score-page"><img src="../../assets/sheets/115a/so-what-01.webp" width="1556" height="2200" alt="So What sheet music, page 1"></figure></template>
+<template id="cover-so-what"><article class="album-view">
+  <img src="../../assets/albums/so-what.webp" width="480" height="480" alt="Kind of Blue album cover">
+  <div><h2>So What</h2><p class="album-credit">Kind of Blue<br>Miles Davis</p>
+    <figure class="tune-reference"><blockquote cite="https://www.milesdavis.com/albums/kind-of-blue/"><div lang="en">It is so easy and so clear. Most solos jump up and down octaves. Miles keeps it simple, like it’s a new melody.</div><p class="reference-secondary" lang="zh-Hant-TW">它如此簡單、如此清楚。多數獨奏會在不同八度間跳來跳去，Miles 卻吹得很簡潔，像是在吹一段全新的旋律。</p></blockquote>
+      <figcaption><cite><a href="https://www.milesdavis.com/albums/kind-of-blue/" title="Kind of Blue" target="_blank" rel="noopener noreferrer">Paolo Fresu · MilesDavis.com ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · So What" data-video-id="ylXk1LBvIqU" data-player-title="YouTube · So What"><img src="https://i.ytimg.com/vi/ylXk1LBvIqU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-take-five"><figure class="score-page"><img src="../../assets/sheets/115a/take-five-01.webp" width="1556" height="2200" alt="Take Five sheet music, page 1"></figure></template>
+<template id="cover-take-five"><article class="album-view">
+  <img src="../../assets/albums/take-five.webp" width="480" height="480" alt="Time Out album cover">
+  <div><h2>Take Five</h2><p class="album-credit">Time Out<br>The Dave Brubeck Quartet</p>
+    <figure class="tune-reference"><blockquote cite="https://scottkfish.com/2015/07/15/joe-morello-on-take-five-theyre-still-playing-the-damn-thing/"><div lang="en">It was just a throwaway. Just a setup for a drum solo.</div><p class="reference-secondary" lang="zh-Hant-TW">那本來只是隨手寫的小曲，純粹是為了鋪陳一段鼓獨奏。</p></blockquote>
+      <figcaption><cite><a href="https://scottkfish.com/2015/07/15/joe-morello-on-take-five-theyre-still-playing-the-damn-thing/" title="Joe Morello on ‘Take Five’: They’re Still Playing the Damn Thing" target="_blank" rel="noopener noreferrer">Joe Morello · Scott K Fish ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Take Five" data-video-id="-DHuW1h1wHw" data-player-title="YouTube · Take Five"><img src="https://i.ytimg.com/vi/-DHuW1h1wHw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<template id="score-spain"><figure class="score-page"><img src="../../assets/sheets/115a/spain-01.webp" width="1556" height="2200" alt="Spain sheet music, page 1"></figure><figure class="score-page"><img src="../../assets/sheets/115a/spain-02.webp" width="1556" height="2200" alt="Spain sheet music, page 2" loading="lazy"></figure><figure class="score-page"><img src="../../assets/sheets/115a/spain-03.webp" width="1556" height="2200" alt="Spain sheet music, page 3" loading="lazy"></figure></template>
+<template id="cover-spain"><article class="album-view">
+  <img src="../../assets/albums/spain.webp" width="480" height="480" alt="Light as a Feather album cover">
+  <div><h2>Spain</h2><p class="album-credit">Light as a Feather<br>Chick Corea &amp; Return to Forever</p>
+    <figure class="tune-reference"><blockquote cite="https://www.barcelona-metropolitan.com/features/interview-chick-corea/"><div lang="en">I fooled around with that theme, extended it and composed some melodies, which turned out to be the main themes of ‘Spain’.</div><p class="reference-secondary" lang="zh-Hant-TW">我拿那段主題隨意把玩、加以延伸，寫出幾段旋律，後來就成了〈Spain〉的主要主題。</p></blockquote>
+      <figcaption><cite><a href="https://www.barcelona-metropolitan.com/features/interview-chick-corea/" title="Interview: Chick Corea" target="_blank" rel="noopener noreferrer">Chick Corea · Barcelona Metropolitan ↗</a></cite></figcaption>
+    </figure>
+    <div class="album-video"><button type="button" aria-label="Play video · Spain" data-video-id="sEhQTjgoTdU" data-player-title="YouTube · Spain"><img src="https://i.ytimg.com/vi/sEhQTjgoTdU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></button></div>
+  </div>
+</article></template>
+<dialog class="score-dialog" id="score-dialog" aria-label="Image viewer">
+  <form method="dialog"><button class="score-close" aria-label="Close viewer">×</button></form>
+  <div class="score-scroll" tabindex="0" aria-label="View sheet music"><div class="score-pages"></div></div>
+  <div class="album-scroll" tabindex="0" hidden></div>
+  <div class="score-zoom" role="group" aria-label="Sheet music zoom">
+    <button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+    <button type="button" data-zoom="reset" aria-label="Reset to full-page size">100%</button>
+    <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+  </div>
+</dialog>
 
   <section class="section credits" aria-labelledby="credits-h">
     <div class="wrap split">
@@ -97,7 +201,7 @@
         <div class="credit-row"><dt>Instructor</dt><dd>林明學</dd></div>
 <div class="credit-row"><dt>Saxophone</dt><dd>吳乘宇</dd></div>
 <div class="credit-row"><dt>Guest saxophone</dt><dd>林奕銘</dd></div>
-<div class="credit-row"><dt>Harmonica</dt><dd>洪軾凱</dd></div>
+<div class="credit-row"><dt>Chromatic harmonica</dt><dd>洪軾凱</dd></div>
 <div class="credit-row"><dt>Melodica</dt><dd>蔡佾珊, 楊宗錞, 余宸毅, 李尹瑄</dd></div>
 <div class="credit-row"><dt>Cello</dt><dd>馬茨</dd></div>
 <div class="credit-row"><dt>Viola</dt><dd>邱美慈</dd></div>
@@ -126,5 +230,6 @@
   </div>
 </footer>
 <script src="../../assets/site.js" defer></script>
+<script src="../../assets/program-viewer.js" defer></script>
 </body>
 </html>

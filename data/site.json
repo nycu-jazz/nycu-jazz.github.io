@@ -27,16 +27,17 @@
       "sources": [],
       "program": {
         "ordered": true,
+        "details": "115a-program.json",
         "pieces": [
           {
             "title": "Billie’s Bounce",
             "performers": [
               {"name": "馬茨", "instrument": "大提琴"},
-              "林奕銘",
-              "程柏諺",
-              "蔡佾珊",
+              {"name": "林奕銘", "instrument": "薩克斯風"},
+              {"name": "程柏諺", "instrument": "吉他"},
+              {"name": "蔡佾珊", "instrument": "鋼琴"},
               {"name": "何懿軒", "instrument": "貝斯"},
-              "呂其霖"
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "The Charlie Parker Story",
@@ -48,11 +49,11 @@
           {
             "title": "Let’s Fall in Love",
             "performers": [
-              "許賀晴",
+              {"name": "許賀晴", "instrument": "人聲"},
               {"name": "蔡佾珊", "instrument": "口風琴"},
-              "余宸毅",
-              "吳乘宇",
-              "呂其霖"
+              {"name": "余宸毅", "instrument": "鋼琴"},
+              {"name": "吳乘宇", "instrument": "貝斯"},
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Ella Fitzgerald Sings the Harold Arlen Song Book",
@@ -66,10 +67,10 @@
             "performers": [
               {"name": "馬茨", "instrument": "大提琴"},
               {"name": "楊宗錞", "instrument": "口風琴"},
-              "程柏諺",
-              "許賀晴",
-              "蕭赫",
-              "呂其霖"
+              {"name": "程柏諺", "instrument": "吉他"},
+              {"name": "許賀晴", "instrument": "鋼琴"},
+              {"name": "蕭赫", "instrument": "貝斯"},
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Chet Baker Sings: It Could Happen to You",
@@ -81,11 +82,11 @@
           {
             "title": "Autumn Leaves",
             "performers": [
-              "吳乘宇",
-              "林明學",
-              "蕭赫",
+              {"name": "吳乘宇", "instrument": "薩克斯風"},
+              {"name": "林明學", "instrument": "口風琴"},
+              {"name": "蕭赫", "instrument": "鋼琴"},
               {"name": "余宸毅", "instrument": "貝斯"},
-              "呂其霖"
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Somethin’ Else",
@@ -97,11 +98,11 @@
           {
             "title": "Besame mucho",
             "performers": [
-              "邱美慈",
-              "洪軾凱",
-              "楊宗錞",
+              {"name": "邱美慈", "instrument": "中提琴"},
+              {"name": "洪軾凱", "instrument": "半音階口琴"},
+              {"name": "楊宗錞", "instrument": "鋼琴"},
               {"name": "李尹瑄", "instrument": "貝斯"},
-              "黃君翰"
+              {"name": "黃君翰", "instrument": "鼓"}
             ],
             "album": {
               "title": "Boss Guitar",
@@ -113,12 +114,12 @@
           {
             "title": "The Girl From Ipanema",
             "performers": [
-              "吳乘宇",
-              "邱美慈",
-              "蕭赫",
-              "黃君翰",
+              {"name": "吳乘宇", "instrument": "薩克斯風"},
+              {"name": "邱美慈", "instrument": "中提琴"},
+              {"name": "蕭赫", "instrument": "吉他"},
+              {"name": "黃君翰", "instrument": "鋼琴"},
               {"name": "蔡佾珊", "instrument": "貝斯"},
-              "呂其霖"
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Getz/Gilberto",
@@ -130,12 +131,12 @@
           {
             "title": "Have You Met Miss Jones",
             "performers": [
-              "許賀晴",
-              "林奕銘",
-              "程柏諺",
-              "李尹瑄",
+              {"name": "許賀晴", "instrument": "人聲"},
+              {"name": "林奕銘", "instrument": "薩克斯風"},
+              {"name": "程柏諺", "instrument": "吉他"},
+              {"name": "李尹瑄", "instrument": "鋼琴"},
               {"name": "黃君翰", "instrument": "電貝斯"},
-              "呂其霖"
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "We Get Requests",
@@ -147,11 +148,11 @@
           {
             "title": "So What",
             "performers": [
-              "洪軾凱",
+              {"name": "洪軾凱", "instrument": "半音階口琴"},
               {"name": "余宸毅", "instrument": "口風琴"},
-              "翁培瑋",
+              {"name": "翁培瑋", "instrument": "鋼琴"},
               {"name": "馬茨", "instrument": "大提琴"},
-              "呂其霖"
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Kind of Blue",
@@ -163,11 +164,11 @@
           {
             "title": "Take Five",
             "performers": [
-              "林奕銘",
+              {"name": "林奕銘", "instrument": "薩克斯風"},
               {"name": "李尹瑄", "instrument": "口風琴"},
-              "何懿軒",
-              "邱美慈",
-              "呂其霖"
+              {"name": "何懿軒", "instrument": "鋼琴"},
+              {"name": "邱美慈", "instrument": "貝斯"},
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Time Out",
@@ -179,23 +180,11 @@
           {
             "title": "Spain",
             "performers": [
-              {"name": "馬茨", "instrument": "大提琴"},
-              "林奕銘",
-              "程柏諺",
-              "蔡佾珊",
-              "何懿軒",
-              "呂其霖",
-              "許賀晴",
-              "余宸毅",
-              "吳乘宇",
-              "楊宗錞",
+              {"name": "洪軾凱", "instrument": "半音階口琴"},
+              {"name": "林明學", "instrument": "口風琴"},
+              {"name": "何懿軒", "instrument": "鋼琴"},
               {"name": "蕭赫", "instrument": "電貝斯"},
-              "林明學",
-              "邱美慈",
-              "洪軾凱",
-              "李尹瑄",
-              "黃君翰",
-              "翁培瑋"
+              {"name": "呂其霖", "instrument": "鼓"}
             ],
             "album": {
               "title": "Light as a Feather",
@@ -216,7 +205,7 @@
         "客席薩克斯風": [
           "林奕銘"
         ],
-        "口琴": [
+        "半音階口琴": [
           "洪軾凱"
         ],
         "口風琴": [

@@ -38,6 +38,8 @@ python3 -m http.server 8000
 
 可用 `venue_en`、`admission_en`、`title_en`、`label_en` 和 `publisher_en` 提供英文用語。兩種語言共用日期、曲目連結和演出者名單。
 
+115A 的 `program.details` 指向 [`data/115a-program.json`](data/115a-program.json)，保存作曲家、雙語引文與曲譜頁面尺寸；曲譜 WebP 放在 `assets/sheets/115a/`。封面、錄音連結與演出名單仍從 `data/site.json` 讀取。
+
 ## 發布
 
 更新內容後，將資料、資源及重新產生的頁面一起提交。GitHub Pages 從 `main` 的根目錄發布靜態檔案。

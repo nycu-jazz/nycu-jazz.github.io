@@ -14,6 +14,8 @@ from pathlib import Path
 from urllib.parse import urlencode
 from zoneinfo import ZoneInfo
 
+import program_viewer
+
 ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "site.json").read_text(encoding="utf-8"))
 SITE = DATA["site"]
@@ -29,6 +31,7 @@ ROLE_EN = {
     "鋼琴": "Piano", "貝斯": "Bass", "鼓": "Drums", "客席鼓手": "Guest drummer",
     "演出者": "Performers", "客席薩克斯風": "Guest saxophone",
     "電貝斯": "Electric bass",
+    "半音階口琴": "Chromatic harmonica",
     "主奏": "Lead", "和聲伴奏": "Comping", "貝斯聲部": "Bass part",
     "鼓聲部": "Drum part", "助教": "Teaching assistant",
 }
@@ -122,7 +125,7 @@ def by_code(code):
 
 # ---------- 共用版型 ----------
 
-def page(*, lang, root, path, title, description, body, current=""):
+def page(*, lang, root, path, title, description, body, current="", has_program_viewer=False):
     base = SITE["url"].rstrip("/") + "/"
     alternate = "zh-Hant-TW" if lang == "en" else "en"
     relative_path = path.lstrip("/")
@@ -132,6 +135,8 @@ def page(*, lang, root, path, title, description, body, current=""):
     alternate_text = label(lang, "English", "中文")
     home_name = label(lang, "NYCU Jazz 首頁", "NYCU Jazz home")
     repository = SITE["repository"].rstrip("/")
+    program_css = f'\n<link rel="stylesheet" href="{root}assets/program-viewer.css">' if has_program_viewer else ''
+    program_js = f'\n<script src="{root}assets/program-viewer.js" defer></script>' if has_program_viewer else ''
 
     def nav(href, label, key):
         cur = ' aria-current="page"' if key == current else ""
@@ -160,7 +165,7 @@ def page(*, lang, root, path, title, description, body, current=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
-<link rel="stylesheet" href="{root}assets/site.css">
+<link rel="stylesheet" href="{root}assets/site.css">{program_css}
 </head>
 <body>
 <a class="skip" href="#main">{label(lang, "跳到主要內容", "Skip to main content")}</a>
@@ -185,7 +190,7 @@ def page(*, lang, root, path, title, description, body, current=""):
     </nav>
   </div>
 </footer>
-<script src="{root}assets/site.js" defer></script>
+<script src="{root}assets/site.js" defer></script>{program_js}
 </body>
 </html>
 """
@@ -463,7 +468,7 @@ def calendar_url(sem, title, lang):
     })
 
 
-def album_collage(program, root, lang):
+def album_collage(program, root, lang, interactive=False):
     covers = []
     for piece in program.get("pieces", []):
         if not isinstance(piece, dict) or not (album := piece.get("album")):
@@ -474,6 +479,10 @@ def album_collage(program, root, lang):
             f"{localized(piece, 'title', lang)} by {album['artist']} from {album['title']}",
         )
         image = f'<img src="{e(root + album["cover"])}" width="480" height="480" alt="" decoding="async">'
+        if interactive:
+            control = program_viewer.cover_button(Path(album['cover']).stem, caption, image, lang)
+            covers.append(f'        <li>{control}</li>')
+            continue
         covers.append(
             f'        <li><a href="{e(album["url"])}" target="_blank" rel="noopener" '
             f'title="{e(caption)}" aria-label="{e(caption)}{label(lang, "（另開新分頁）", " (opens in a new tab)")}">{image}</a></li>'
@@ -494,6 +503,7 @@ def build_semester(index, lang):
     root = "../" if lang != "en" else "../../"
     show = sem.get("show") or {}
     program = sem.get("program") or {}
+    details_file = program.get("details")
     videos = sem["videos"]
     roles = sem.get("credits_by_role")
     title = label(lang, "陽明交大爵士期末成果發表", "NYCU End-of-Semester Jazz Concert")
@@ -518,7 +528,11 @@ def build_semester(index, lang):
     actions = []
     sections = []
     if program.get("pieces"):
-        sections.append(f'<div class="concert-program">{program_block(program, lang)}</div>')
+        if details_file:
+            details = json.loads((ROOT / "data" / details_file).read_text(encoding="utf-8"))
+            sections.append(program_viewer.render(program, details, root, sem["code"], lang, ROLE_EN))
+        else:
+            sections.append(f'<div class="concert-program">{program_block(program, lang)}</div>')
         actions.append(f'<a class="btn primary" href="#program-h">{label(lang, "看曲目", "Program")} <span aria-hidden="true">↓</span></a>')
     if roles:
         sections.append(credits_block(roles, lang))
@@ -535,7 +549,7 @@ def build_semester(index, lang):
         actions.append(ext(calendar, label(lang, "加入 Google 日曆", "Add to Google Calendar"), "btn ext", lang=lang))
     actions_html = f'\n      <nav class="concert-actions" aria-label="{label(lang, "演出導覽", "Concert navigation")}">{"".join(actions)}</nav>' if actions else ""
 
-    visual = album_collage(program, root, lang)
+    visual = album_collage(program, root, lang, interactive=bool(details_file))
     if not visual and videos and (poster := video_poster(videos[0], root)):
         visual = f"""
       <a class="concert-visual video-frame" href="#video-h" aria-label="{label(lang, "前往播放器", "Go to the player")}">
@@ -591,6 +605,7 @@ def build_semester(index, lang):
         description=label(lang, f"陽明交大「{SITE['course_zh']}」{term_name(sem, lang)}（{sem['code']}）期末成果發表。", f"{term_name(sem, lang)} ({sem['code']}) for NYCU’s Jazz Harmony, Improvisation and Ensemble course."),
         body=body,
         current="current" if sem["code"] == SITE["current"] else "",
+        has_program_viewer=bool(details_file),
     )
 
 
