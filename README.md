@@ -31,7 +31,7 @@ python3 -m http.server 8000
 | --- | --- |
 | `status` | `scheduled` 是即將演出，`performed` 是有場次資訊的過去演出，`syllabus` 是僅有課綱或錄影等資料的歷屆學期。 |
 | `show` | 有日期時填 `date`（`YYYY-MM-DD`）。可加 `time`（`HH:MM–HH:MM`、台灣時間）、`venue`、`admission` 和供地圖搜尋的 `map_query`。缺少場次日期時可填 `null`。 |
-| `program.pieces` | 可直接填曲名，也可用物件填 `title`、該曲的 `performers`、影片連結 `url` 和時間戳 `cue`。有確定曲序時，在 `program` 設定 `ordered: true`。 |
+| `program.pieces` | 可直接填曲名，也可用物件填 `title`、該曲的 `performers`、影片連結 `url` 和時間戳 `cue`。`performers` 的每筆可填姓名，或用 `{"name": "姓名", "instrument": "口風琴"}` 標註該曲使用的樂器。有確定曲序時，在 `program` 設定 `ordered: true`。 |
 | `credits_by_role` | 整場名單以角色分組，例如 `{"鋼琴": ["姓名"], "鼓": ["姓名"]}`。只有人名時可用「演出者」作為欄名。 |
 | `videos` | YouTube 用 `type: "youtube"` 和 `id`，Facebook 用 `type: "facebook"` 和 `url`。每支影片填 `title`，可另外指定 `thumbnail`。 |
 | `sources` | 來源以 `label`、`url`、`publisher` 記錄。曲目表的來源可填在 `program.source`。 |

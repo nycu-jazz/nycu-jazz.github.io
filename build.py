@@ -24,10 +24,11 @@ EN_WEEKDAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday
 EN_MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 LANGUAGES = ("zh-Hant-TW", "en")
 ROLE_EN = {
-    "指導": "Instructor", "薩克斯風": "Saxophone", "口琴": "Harmonica",
+    "指導": "Instructor", "薩克斯風": "Saxophone", "口琴": "Harmonica", "口風琴": "Melodica",
     "大提琴": "Cello", "中提琴": "Viola", "人聲": "Vocals", "吉他": "Guitar",
     "鋼琴": "Piano", "貝斯": "Bass", "鼓": "Drums", "客席鼓手": "Guest drummer",
     "演出者": "Performers", "客席薩克斯風": "Guest saxophone",
+    "電貝斯": "Electric bass", "MIDI 貝斯": "MIDI bass",
     "主奏": "Lead", "和聲伴奏": "Comping", "貝斯聲部": "Bass part",
     "鼓聲部": "Drum part", "助教": "Teaching assistant",
 }
@@ -374,6 +375,14 @@ def split(heading_en, heading, inner, hid, lang, layout="split"):
 </section>"""
 
 
+def performer_credit(performer, lang):
+    if isinstance(performer, str):
+        return e(performer)
+    instrument = performer["instrument"]
+    instrument = ROLE_EN.get(instrument, instrument) if lang == "en" else instrument
+    return e(performer["name"] + label(lang, f"（{instrument}）", f" ({instrument})"))
+
+
 def program_block(program, lang):
     rows = []
     ordered = program.get("ordered", False)
@@ -397,7 +406,7 @@ def program_block(program, lang):
             entry = f'<div class="piece-content">{title}{timestamp}</div>'
         captions = []
         if performers := piece.get("performers"):
-            names = label(lang, "、", ", ").join(e(name) for name in performers)
+            names = label(lang, "、", ", ").join(performer_credit(performer, lang) for performer in performers)
             captions.append(f'<p class="piece-performers">{names}</p>')
         if captions:
             entry = f'<div>{entry}{"".join(captions)}</div>'
